@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>谢子赫 Zihe Xie · Personal Homepage (V0 存档 · 深色科技感)</title>
+<style>
+  :root {
+    --bg: #05070d;
+    --bg-card: rgba(255, 255, 255, 0.04);
+    --border: rgba(255, 255, 255, 0.09);
+    --text: #e8ecf4;
+    --text-dim: #9aa4b8;
+    --accent: #00e5ff;
+    --accent2: #7c4dff;
+    --mono: "JetBrains Mono", "Cascadia Code", Consolas, "Courier New", monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ---- background effects ---- */
+  .grid-bg {
+    position: fixed; inset: 0; z-index: -2;
+    background-image:
+      linear-gradient(rgba(0, 229, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.045) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 30%, transparent 100%);
+  }
+  .glow {
+    position: fixed; z-index: -1; border-radius: 50%;
+    filter: blur(120px); opacity: 0.35; pointer-events: none;
+  }
+  .glow-1 { width: 480px; height: 480px; background: var(--accent);  top: -160px; left: -120px; opacity: .18; }
+  .glow-2 { width: 520px; height: 520px; background: var(--accent2); top: 30%; right: -200px; opacity: .22; }
+  .glow-3 { width: 400px; height: 400px; background: #0080ff; bottom: -140px; left: 30%; opacity: .14; }
+
+  /* ---- nav ---- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 5vw;
+    background: rgba(5, 7, 13, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-family: var(--mono); font-weight: 700; font-size: 1.05rem;
+    color: var(--accent); text-decoration: none; letter-spacing: 1px;
+  }
+  .logo span { color: var(--text); }
+  .nav-links { display: flex; gap: 26px; align-items: center; }
+  .nav-links a {
+    color: var(--text-dim); text-decoration: none; font-size: 0.92rem;
+    transition: color .25s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .lang-toggle {
+    font-family: var(--mono); font-size: 0.8rem; cursor: pointer;
+    color: var(--accent); background: transparent;
+    border: 1px solid rgba(0, 229, 255, 0.4); border-radius: 999px;
+    padding: 5px 14px; transition: all .25s;
+  }
+  .lang-toggle:hover { background: rgba(0, 229, 255, 0.12); box-shadow: 0 0 16px rgba(0, 229, 255, 0.25); }
+
+  /* ---- hero ---- */
+  header {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 120px 6vw 60px; position: relative;
+  }
+  .hero-tag {
+    font-family: var(--mono); font-size: 0.85rem; color: var(--accent);
+    border: 1px solid rgba(0, 229, 255, 0.35); border-radius: 999px;
+    padding: 6px 18px; margin-bottom: 28px;
+    background: rgba(0, 229, 255, 0.06);
+    animation: fadeUp .8s ease both;
+  }
+  h1 {
+    font-size: clamp(2.6rem, 7vw, 4.6rem); font-weight: 800; letter-spacing: 1px;
+    background: linear-gradient(120deg, #fff 20%, var(--accent) 55%, var(--accent2) 90%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: fadeUp .8s .15s ease both;
+  }
+  .hero-sub {
+    margin-top: 18px; font-size: clamp(1rem, 2.2vw, 1.25rem); color: var(--text-dim);
+    max-width: 640px; animation: fadeUp .8s .3s ease both;
+  }
+  .hero-sub strong { color: var(--text); font-weight: 600; }
+  .hero-cta { margin-top: 42px; display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; animation: fadeUp .8s .45s ease both; }
+  .btn {
+    text-decoration: none; font-weight: 600; font-size: 0.95rem;
+    padding: 13px 32px; border-radius: 10px; transition: all .25s;
+  }
+  .btn-primary {
+    color: #04121a; background: linear-gradient(120deg, var(--accent), #4d9fff);
+    box-shadow: 0 0 24px rgba(0, 229, 255, 0.35);
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 6px 32px rgba(0, 229, 255, 0.5); }
+  .btn-ghost { color: var(--text); border: 1px solid var(--border); background: var(--bg-card); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+  .scroll-hint {
+    position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%);
+    color: var(--text-dim); font-size: 1.4rem; animation: bounce 2s infinite;
+  }
+  @keyframes bounce { 0%,100%{transform:translate(-50%,0)} 50%{transform:translate(-50%,10px)} }
+  @keyframes fadeUp { from{opacity:0; transform:translateY(26px)} to{opacity:1; transform:translateY(0)} }
+
+  /* ---- sections ---- */
+  section { max-width: 1000px; margin: 0 auto; padding: 90px 6vw; }
+  .sec-label {
+    font-family: var(--mono); font-size: 0.8rem; color: var(--accent);
+    letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .sec-label::before { content: "// "; color: var(--accent2); }
+  h2 { font-size: clamp(1.7rem, 4vw, 2.3rem); margin-bottom: 34px; }
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .about-card {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+    padding: 34px 38px; font-size: 1.05rem; color: var(--text-dim);
+    position: relative; overflow: hidden;
+  }
+  .about-card::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+  .about-card strong { color: var(--text); }
+  .about-card .hl { color: var(--accent); }
+
+  /* skills */
+  .chip-grid { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
+  .chip {
+    font-family: var(--mono); font-size: 0.92rem;
+    border: 1px solid var(--border); border-radius: 12px;
+    padding: 12px 22px; background: var(--bg-card);
+    transition: all .25s; cursor: default;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-4px); box-shadow: 0 8px 22px rgba(0,229,255,.12); }
+  .chip .icon { margin-right: 8px; }
+  .group-title { font-size: 1rem; color: var(--text-dim); margin: 26px 0 4px; font-family: var(--mono); }
+  .group-title:first-of-type { margin-top: 0; }
+
+  /* project */
+  .project-card {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px;
+    overflow: hidden; transition: all .3s;
+  }
+  .project-card:hover { border-color: rgba(0,229,255,.4); box-shadow: 0 12px 44px rgba(0,229,255,.1); transform: translateY(-4px); }
+  .project-visual {
+    height: 190px; display: flex; align-items: center; justify-content: center;
+    background:
+      radial-gradient(circle at 30% 40%, rgba(0,229,255,.16), transparent 55%),
+      radial-gradient(circle at 75% 65%, rgba(124,77,255,.18), transparent 55%),
+      #080b13;
+    border-bottom: 1px solid var(--border);
+    font-size: 4.2rem;
+  }
+  .project-body { padding: 30px 34px; }
+  .project-body h3 { font-size: 1.35rem; margin-bottom: 6px; }
+  .project-body .p-tag {
+    font-family: var(--mono); font-size: 0.78rem; color: var(--accent2);
+    letter-spacing: 1px; margin-bottom: 14px; display: block;
+  }
+  .project-body p { color: var(--text-dim); font-size: 1rem; }
+  .project-points { margin-top: 18px; display: grid; gap: 10px; }
+  .project-points li {
+    list-style: none; color: var(--text-dim); font-size: 0.97rem;
+    padding-left: 24px; position: relative;
+  }
+  .project-points li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
+
+  /* contact */
+  .contact-box { text-align: center; }
+  .contact-box p { color: var(--text-dim); max-width: 560px; margin: 0 auto 30px; }
+  .mail-link {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--mono); font-size: 1.05rem; color: var(--accent);
+    text-decoration: none; border: 1px solid rgba(0,229,255,.35); border-radius: 12px;
+    padding: 15px 30px; background: rgba(0,229,255,.05); transition: all .25s;
+  }
+  .mail-link:hover { box-shadow: 0 0 28px rgba(0,229,255,.3); transform: translateY(-3px); }
+
+  footer {
+    border-top: 1px solid var(--border); text-align: center;
+    padding: 34px 6vw; color: var(--text-dim); font-size: 0.85rem; font-family: var(--mono);
+  }
+  footer .ver { color: var(--accent2); }
+
+  @media (max-width: 640px) {
+    .nav-links a { display: none; }
+    section { padding: 64px 6vw; }
+    .about-card, .project-body { padding: 26px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+<div class="glow glow-3"></div>
+
+<nav>
+  <a class="logo" href="#top">ZX<span>.dev</span></a>
+  <div class="nav-links">
+    <a href="#about" data-zh="关于我" data-en="About">关于我</a>
+    <a href="#skills" data-zh="技能爱好" data-en="Skills">技能爱好</a>
+    <a href="#projects" data-zh="项目" data-en="Projects">项目</a>
+    <a href="#contact" data-zh="联系我" data-en="Contact">联系我</a>
+    <button class="lang-toggle" id="langToggle">EN</button>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="hero-tag" data-zh="👋 欢迎来到我的个人主页" data-en="👋 Welcome to my personal homepage">👋 欢迎来到我的个人主页</div>
+  <h1 data-zh="谢子赫" data-en="Zihe Xie">谢子赫</h1>
+  <p class="hero-sub"
+     data-zh="天津大学·香港理工大学 深圳未来技术学院 · 计算机科学与技术 · 大一 —— 一名热爱运动、喜欢设计的学生。"
+     data-en="First-year Computer Science student at Shenzhen Future Technology College (Tianjin University × HK PolyU) — a sports lover who enjoys design.">
+     <strong>天津大学·香港理工大学 深圳未来技术学院</strong> · 计算机科学与技术 · 大一 —— 一名热爱运动、喜欢设计的学生。
+  </p>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="#projects" data-zh="看看我的项目" data-en="View my projects">看看我的项目</a>
+    <a class="btn btn-ghost" href="#contact" data-zh="联系我" data-en="Get in touch">联系我</a>
+  </div>
+  <div class="scroll-hint">▾</div>
+</header>
+
+<section id="about">
+  <div class="sec-label reveal" data-zh="关于我" data-en="About">关于我</div>
+  <h2 class="reveal" data-zh="你好，我是子赫 👨‍💻" data-en="Hi, I'm Zihe 👨‍💻">你好，我是子赫 👨‍💻</h2>
+  <div class="about-card reveal">
+    <p data-zh="我是一名计算机科学与技术专业的大一学生，就读于天津大学·香港理工大学深圳未来技术学院。我热爱运动，喜欢用设计表达想法，也正在学习用代码把创意变成真实可用的产品。这个主页是我的第一个 Vibe Coding 作品，会持续迭代升级。"
+       data-en="I'm a first-year Computer Science and Technology student at Shenzhen Future Technology College (Tianjin University × The Hong Kong Polytechnic University). I love sports, enjoy expressing ideas through design, and I'm learning to turn creativity into real, working products with code. This homepage is my first Vibe Coding project — it will keep evolving.">
+      我是一名<strong>计算机科学与技术</strong>专业的大一学生，就读于<strong>天津大学·香港理工大学深圳未来技术学院</strong>。我<span class="hl">热爱运动</span>，喜欢用<span class="hl">设计</span>表达想法，也正在学习用代码把创意变成真实可用的产品。这个主页是我的第一个 Vibe Coding 作品，会持续迭代升级。
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="sec-label reveal" data-zh="技能与爱好" data-en="Skills & Interests">技能与爱好</div>
+  <h2 class="reveal" data-zh="我会什么 · 我爱什么" data-en="What I do · What I love">我会什么 · 我爱什么</h2>
+  <div class="reveal">
+    <p class="group-title" data-zh="// 技能" data-en="// Skills">// 技能</p>
+    <div class="chip-grid">
+      <div class="chip"><span class="icon">🎨</span><span data-zh="设计" data-en="Design">设计</span></div>
+      <div class="chip"><span class="icon">💻</span><span data-zh="Vibe Coding（学习中）" data-en="Vibe Coding (learning)">Vibe Coding（学习中）</span></div>
+    </div>
+    <p class="group-title" data-zh="// 兴趣爱好" data-en="// Interests">// 兴趣爱好</p>
+    <div class="chip-grid">
+      <div class="chip"><span class="icon">🏀</span><span data-zh="篮球" data-en="Basketball">篮球</span></div>
+      <div class="chip"><span class="icon">🎵</span><span data-zh="音乐" data-en="Music">音乐</span></div>
+      <div class="chip"><span class="icon">✈️</span><span data-zh="旅游" data-en="Traveling">旅游</span></div>
+      <div class="chip"><span class="icon">🏃</span><span data-zh="运动" data-en="Sports">运动</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="sec-label reveal" data-zh="项目经历" data-en="Projects">项目经历</div>
+  <h2 class="reveal" data-zh="我做过的东西" data-en="Things I've built">我做过的东西</h2>
+  <div class="project-card reveal">
+    <div class="project-visual">🤖</div>
+    <div class="project-body">
+      <h3 data-zh="机器人竞赛 · 太空探测车" data-en="Robotics Competition · Space Rover">机器人竞赛 · 太空探测车</h3>
+      <span class="p-tag" data-zh="ROBOTICS / AUTONOMOUS CONTROL" data-en="ROBOTICS / AUTONOMOUS CONTROL">ROBOTICS / AUTONOMOUS CONTROL</span>
+      <p data-zh="参加机器人竞赛，设计并制作了一辆“太空车”：它能自主完成前进任务，并通过钮子开关触发自动返航，顺利回到起点。"
+         data-en="Designed and built a 'space rover' for a robotics competition: it autonomously completes a forward-driving mission, then triggers an automatic return-to-base sequence through a toggle switch.">
+         参加机器人竞赛，设计并制作了一辆“太空车”：它能自主完成前进任务，并通过钮子开关触发自动返航，顺利回到起点。
+      </p>
+      <ul class="project-points">
+        <li data-zh="太空车全程自主完成前进动作，无需人工干预" data-en="The rover completes its forward run fully autonomously, no manual intervention">太空车全程自主完成前进动作，无需人工干预</li>
+        <li data-zh="通过钮子开关实现自动返航机制" data-en="Automatic homing mechanism triggered by a toggle switch">通过钮子开关实现自动返航机制</li>
+        <li data-zh="完成了从结构设计到调试参赛的完整过程" data-en="Went through the full cycle: structure design, building, debugging and competing">完成了从结构设计到调试参赛的完整过程</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-box reveal">
+    <div class="sec-label" data-zh="下一步" data-en="Next Step">下一步</div>
+    <h2 data-zh="想聊聊？给我发邮件" data-en="Want to connect? Drop me a line">想聊聊？给我发邮件</h2>
+    <p data-zh="无论是一句反馈、一个建议，还是想聊聊篮球和设计，都欢迎给我写信。你的反馈会成为这个主页下一版本（V2）的改进方向！"
+       data-en="Whether it's feedback, a suggestion, or just a chat about basketball and design — I'd love to hear from you. Your feedback will shape the next iteration (V2) of this homepage!">
+       无论是一句反馈、一个建议，还是想聊聊篮球和设计，都欢迎给我写信。你的反馈会成为这个主页下一版本（V2）的改进方向！
+    </p>
+    <a class="mail-link" href="mailto:zihexie95@gmail.com">✉ zihexie95@gmail.com</a>
+  </div>
+</section>
+
+<footer>
+  <span data-zh="© 2026 谢子赫 · 用 Vibe Coding 构建" data-en="© 2026 Zihe Xie · Built with Vibe Coding">© 2026 谢子赫 · 用 Vibe Coding 构建</span>
+  <span class="ver"> · V0（风格存档）</span>
+</footer>
+
+<script>
+  let lang = localStorage.getItem('zx-lang') || 'zh';
+  const toggleBtn = document.getElementById('langToggle');
+
+  const heroSub = document.querySelector('.hero-sub');
+  const heroSubZh = heroSub.innerHTML;
+  const heroSubEn = '<strong>Shenzhen Future Technology College (Tianjin University × HK PolyU)</strong> · Computer Science · Year 1 — a sports lover who enjoys design.';
+  const aboutP = document.querySelector('.about-card p');
+  const aboutZh = aboutP.innerHTML;
+  const aboutEn = 'I\'m a first-year <strong>Computer Science and Technology</strong> student at <strong>Shenzhen Future Technology College (Tianjin University × The Hong Kong Polytechnic University)</strong>. I <span class="hl">love sports</span>, enjoy expressing ideas through <span class="hl">design</span>, and I\'m learning to turn creativity into real, working products with code. This homepage is my first Vibe Coding project — it will keep evolving.';
+
+  function applyLangRich(l) {
+    document.querySelectorAll('[data-zh]').forEach(el => {
+      if (el === heroSub || el === aboutP) return;
+      const txt = el.getAttribute('data-' + l);
+      if (txt !== null) el.textContent = txt;
+    });
+    heroSub.innerHTML = l === 'zh' ? heroSubZh : heroSubEn;
+    aboutP.innerHTML = l === 'zh' ? aboutZh : aboutEn;
+    document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en';
+    toggleBtn.textContent = l === 'zh' ? 'EN' : '中';
+    localStorage.setItem('zx-lang', l);
+  }
+  toggleBtn.addEventListener('click', () => {
+    lang = lang === 'zh' ? 'en' : 'zh';
+    applyLangRich(lang);
+  });
+  applyLangRich(lang);
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
