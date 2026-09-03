@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>谢子赫的小站 🌷</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: linear-gradient(160deg, #fff0f6 0%, #eef4ff 55%, #f0fff6 100%);
+    background-attachment: fixed; color: #4a4a5a; line-height: 1.8;
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+  .back { position: fixed; top: 16px; left: 16px; z-index: 9; font-size: .8rem; color: #b08bbf; text-decoration: none; }
+  .back:hover { color: #8a5f9e; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 76px 5vw 60px; }
+  header { text-align: center; margin-bottom: 44px; }
+  .avatar {
+    width: 110px; height: 110px; margin: 0 auto 22px; border-radius: 50%;
+    background: linear-gradient(135deg, #ffd6e8, #d6e4ff);
+    display: flex; align-items: center; justify-content: center; font-size: 3rem;
+    border: 4px solid #fff; box-shadow: 0 10px 30px rgba(200,150,220,.3);
+  }
+  .wave { display: inline-block; animation: wave 2.2s ease-in-out infinite; transform-origin: 70% 70%; }
+  @keyframes wave { 0%,60%,100%{transform:rotate(0)} 10%{transform:rotate(16deg)} 20%{transform:rotate(-8deg)} 30%{transform:rotate(14deg)} 40%{transform:rotate(-4deg)} 50%{transform:rotate(8deg)} }
+  h1 { font-size: 2.6rem; color: #3d3d4d; font-weight: 800; }
+  h1 .en { display: block; font-size: .9rem; font-weight: 500; color: #b0a8c0; letter-spacing: 4px; margin-top: 6px; }
+  .intro { margin-top: 16px; color: #7a7a8c; font-size: 1.02rem; }
+  .intro b { color: #e078a0; font-weight: 600; }
+  .cta { margin-top: 26px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .cta a {
+    text-decoration: none; font-weight: 600; font-size: .92rem; padding: 12px 28px;
+    border-radius: 999px; transition: all .25s;
+  }
+  .cta .pink { background: #ffd6e8; color: #c04a7c; box-shadow: 0 6px 18px rgba(230,120,170,.28); }
+  .cta .pink:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(230,120,170,.4); }
+  .cta .blue { background: #d6e4ff; color: #4a6cc0; box-shadow: 0 6px 18px rgba(120,150,230,.25); }
+  .cta .blue:hover { transform: translateY(-3px); }
+  .card {
+    background: rgba(255,255,255,.85); border-radius: 26px; padding: 32px 36px;
+    margin-bottom: 24px; box-shadow: 0 8px 30px rgba(160,140,200,.14);
+    border: 1px solid rgba(255,255,255,.9); transition: transform .25s;
+  }
+  .card:hover { transform: translateY(-4px); }
+  h2 { font-size: 1.25rem; color: #3d3d4d; margin-bottom: 14px; }
+  h2 .emoji { margin-right: 8px; }
+  .card p { color: #7a7a8c; }
+  .card strong { color: #5a5a6c; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chips span { font-size: .9rem; padding: 8px 18px; border-radius: 999px; font-weight: 500; transition: transform .2s; }
+  .chips span:hover { transform: translateY(-3px) rotate(-1deg); }
+  .p1 { background: #ffe3ef; color: #c04a7c; }
+  .p2 { background: #e3ecff; color: #4a6cc0; }
+  .p3 { background: #e3fff0; color: #3a9c6c; }
+  .p4 { background: #fff6d9; color: #b08a2e; }
+  .sub { font-size: .8rem; color: #b0a8c0; margin: 16px 0 10px; letter-spacing: 1px; }
+  .project h3 { font-size: 1.2rem; color: #3d3d4d; margin-bottom: 4px; }
+  .project .tag { font-size: .75rem; color: #b0a8c0; letter-spacing: 2px; }
+  .project p { margin-top: 12px; }
+  .contact { text-align: center; }
+  .contact a {
+    display: inline-block; margin-top: 14px; text-decoration: none; font-weight: 600;
+    background: #fff; color: #e078a0; border: 2px solid #ffd6e8; padding: 13px 30px;
+    border-radius: 999px; transition: all .25s;
+  }
+  .contact a:hover { background: #ffd6e8; color: #c04a7c; transform: translateY(-3px); }
+  footer { text-align: center; font-size: .82rem; color: #b0a8c0; padding-top: 12px; }
+  @media (max-width: 560px) { h1 { font-size: 2rem; } .card { padding: 26px 24px; } }
+</style>
+</head>
+<body>
+<a class="back" href="./index.html">← 风格列表</a>
+<div class="wrap">
+  <header>
+    <div class="avatar">🏀</div>
+    <h1>你好呀 <span class="wave">👋</span> 我是谢子赫<span class="en">ZIHE XIE</span></h1>
+    <p class="intro">天津大学·香港理工大学 深圳未来技术学院<br>计算机科学与技术 · 大一 ｜ 热爱<b>运动</b>，喜欢<b>设计</b></p>
+    <div class="cta">
+      <a class="pink" href="#projects">看看我的项目 🚀</a>
+      <a class="blue" href="#contact">联系我 ✉️</a>
+    </div>
+  </header>
+
+  <section class="card">
+    <h2><span class="emoji">🌱</span>关于我</h2>
+    <p>我是一名<strong>计算机科学与技术</strong>专业的大一学生，就读于<strong>天津大学·香港理工大学深圳未来技术学院</strong>。我热爱运动，喜欢用设计表达想法，也正在学习用代码把创意变成真实可用的产品。这个小站会持续迭代升级，欢迎常来看看～</p>
+  </section>
+
+  <section class="card">
+    <h2><span class="emoji">✨</span>技能与爱好</h2>
+    <p class="sub">// 技能</p>
+    <div class="chips"><span class="p1">🎨 设计</span><span class="p2">💻 Vibe Coding（学习中）</span></div>
+    <p class="sub">// 兴趣爱好</p>
+    <div class="chips"><span class="p3">🏀 篮球</span><span class="p4">🎵 音乐</span><span class="p1">✈️ 旅游</span><span class="p2">🏃 运动</span></div>
+  </section>
+
+  <section class="card project" id="projects">
+    <h2><span class="emoji">🤖</span>项目经历</h2>
+    <h3>机器人竞赛 · 太空探测车</h3>
+    <span class="tag">ROBOTICS / AUTONOMOUS CONTROL</span>
+    <p>设计并制作了一辆"太空车"：它能自主完成前进任务，并通过钮子开关触发自动返航，顺利回到起点。完成了从结构设计到调试参赛的完整过程。</p>
+  </section>
+
+  <section class="card contact" id="contact">
+    <h2><span class="emoji">💌</span>联系我</h2>
+    <p>无论是一句反馈、一个建议，还是想聊聊篮球和设计，都欢迎给我写信呀。</p>
+    <a href="mailto:zihexie95@gmail.com">✉ zihexie95@gmail.com</a>
+  </section>
+
+  <footer>© 2026 谢子赫 · 用 Vibe Coding 搭建的小站 · V1.0 🌷</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>谢子赫 · 个人主页</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #fbfbfa; color: #1c1c1e;
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.8;
+  }
+  .back { position: fixed; top: 18px; left: 18px; font-size: .8rem; color: #888; text-decoration: none; z-index: 9; }
+  .back:hover { color: #1c1c1e; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 90px 24px 60px; }
+  header { padding-bottom: 56px; border-bottom: 1px solid #e5e5e0; }
+  .hi { font-size: .85rem; letter-spacing: 3px; color: #9a9a94; text-transform: uppercase; margin-bottom: 18px; }
+  h1 { font-size: 3rem; font-weight: 700; letter-spacing: .5px; }
+  h1 .en { display: block; font-size: 1rem; font-weight: 400; color: #9a9a94; letter-spacing: 4px; margin-top: 6px; }
+  .intro { margin-top: 22px; color: #55554f; font-size: 1.05rem; }
+  .intro em { font-style: normal; color: #1c1c1e; border-bottom: 2px solid #4d7cfe; padding-bottom: 1px; }
+  .cta { margin-top: 30px; display: flex; gap: 14px; }
+  .cta a {
+    font-size: .9rem; text-decoration: none; padding: 10px 24px; border-radius: 6px;
+    transition: all .2s;
+  }
+  .cta .solid { background: #1c1c1e; color: #fff; }
+  .cta .solid:hover { background: #4d7cfe; }
+  .cta .line { border: 1px solid #d8d8d2; color: #55554f; }
+  .cta .line:hover { border-color: #1c1c1e; color: #1c1c1e; }
+  section { padding: 52px 0; border-bottom: 1px solid #e5e5e0; }
+  h2 { font-size: .82rem; letter-spacing: 3px; text-transform: uppercase; color: #9a9a94; font-weight: 600; margin-bottom: 22px; display: flex; align-items: center; gap: 12px; }
+  h2::after { content: ""; flex: 1; height: 1px; background: #e5e5e0; }
+  .about p { color: #55554f; }
+  .about strong { color: #1c1c1e; font-weight: 600; }
+  .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tags span {
+    font-size: .88rem; color: #55554f; border: 1px solid #e0e0da;
+    padding: 6px 16px; border-radius: 999px; transition: all .2s;
+  }
+  .tags span:hover { border-color: #4d7cfe; color: #4d7cfe; }
+  .sub { font-size: .8rem; color: #9a9a94; margin: 18px 0 10px; letter-spacing: 1px; }
+  .project { border-left: 3px solid #1c1c1e; padding: 4px 0 4px 22px; }
+  .project h3 { font-size: 1.25rem; margin-bottom: 4px; }
+  .project .tag { font-size: .78rem; color: #9a9a94; letter-spacing: 2px; }
+  .project p { margin-top: 12px; color: #55554f; font-size: .98rem; }
+  .contact p { color: #55554f; margin-bottom: 18px; }
+  .contact a { color: #1c1c1e; font-weight: 600; text-decoration: none; border-bottom: 2px solid #4d7cfe; }
+  .contact a:hover { color: #4d7cfe; }
+  footer { border: 0; padding: 40px 0 10px; font-size: .8rem; color: #b5b5ae; text-align: center; }
+  @media (max-width: 560px) { h1 { font-size: 2.2rem; } }
+</style>
+</head>
+<body>
+<a class="back" href="./index.html">← 风格列表</a>
+<div class="wrap">
+  <header>
+    <p class="hi">Personal Homepage</p>
+    <h1>谢子赫<span class="en">ZIHE XIE</span></h1>
+    <p class="intro">天津大学·香港理工大学 <em>深圳未来技术学院</em> · 计算机科学与技术 · 大一<br>一名<em>热爱运动</em>、喜欢<em>设计</em>的学生。</p>
+    <div class="cta">
+      <a class="solid" href="#projects">看看我的项目</a>
+      <a class="line" href="#contact">联系我</a>
+    </div>
+  </header>
+
+  <section class="about">
+    <h2>关于我</h2>
+    <p>我是一名<strong>计算机科学与技术</strong>专业的大一学生，就读于<strong>天津大学·香港理工大学深圳未来技术学院</strong>。我热爱运动，喜欢用设计表达想法，也正在学习用代码把创意变成真实可用的产品。</p>
+  </section>
+
+  <section>
+    <h2>技能与爱好</h2>
+    <p class="sub">// 技能</p>
+    <div class="tags"><span>🎨 设计</span><span>💻 Vibe Coding（学习中）</span></div>
+    <p class="sub">// 兴趣爱好</p>
+    <div class="tags"><span>🏀 篮球</span><span>🎵 音乐</span><span>✈️ 旅游</span><span>🏃 运动</span></div>
+  </section>
+
+  <section id="projects">
+    <h2>项目经历</h2>
+    <div class="project">
+      <h3>机器人竞赛 · 太空探测车</h3>
+      <span class="tag">ROBOTICS / AUTONOMOUS CONTROL</span>
+      <p>设计并制作了一辆"太空车"：它能自主完成前进任务，并通过钮子开关触发自动返航，顺利回到起点。完成了从结构设计到调试参赛的完整过程。</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>联系我</h2>
+    <p>无论是一句反馈、一个建议，还是想聊聊篮球和设计，都欢迎给我写信。</p>
+    <a href="mailto:zihexie95@gmail.com">zihexie95@gmail.com</a>
+  </section>
+
+  <footer>© 2026 谢子赫 · Built with Vibe Coding · V1.0</footer>
+</div>
+</body>
+</html>

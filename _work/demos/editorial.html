@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>谢子赫 · 个人主页</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #f4efe6; color: #141414; line-height: 1.8;
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+  .back { position: fixed; top: 18px; left: 18px; font-size: .8rem; color: #8a8272; text-decoration: none; z-index: 9; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 70px 5vw 60px; }
+  .masthead {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-bottom: 3px solid #141414; padding-bottom: 14px;
+    font-size: .78rem; letter-spacing: 3px; text-transform: uppercase; color: #8a8272;
+  }
+  .masthead b { color: #c1272d; }
+  header { padding: 60px 0 50px; border-bottom: 1px solid #141414; }
+  .kicker { font-size: .85rem; letter-spacing: 5px; text-transform: uppercase; color: #c1272d; font-weight: 700; margin-bottom: 20px; }
+  h1 {
+    font-family: Georgia, "Times New Roman", "SimSun", serif;
+    font-size: clamp(3.4rem, 9vw, 6.2rem); font-weight: 900; line-height: 1.05; letter-spacing: -1px;
+  }
+  h1 .dot { color: #c1272d; }
+  .standfirst {
+    margin-top: 26px; font-family: Georgia, "SimSun", serif; font-size: 1.2rem; font-style: italic;
+    color: #3d3a33; max-width: 640px;
+  }
+  .byline { margin-top: 24px; font-size: .8rem; letter-spacing: 2px; color: #8a8272; text-transform: uppercase; }
+  section { padding: 46px 0; border-bottom: 1px solid #d8d2c4; display: grid; grid-template-columns: 90px 1fr; gap: 30px; }
+  .num {
+    font-family: Georgia, serif; font-size: 2.4rem; font-weight: 900; color: #c1272d; line-height: 1;
+  }
+  h2 { font-family: Georgia, "SimSun", serif; font-size: 1.7rem; margin-bottom: 16px; }
+  .body-text { color: #3d3a33; }
+  .body-text strong { color: #141414; }
+  .dropcap::first-letter {
+    font-family: Georgia, serif; font-size: 3.4rem; font-weight: 900; float: left;
+    line-height: .85; padding-right: 10px; color: #141414;
+  }
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid #141414; margin-top: 8px; }
+  .facts div { padding: 16px 20px; border-bottom: 1px solid #141414; }
+  .facts div:nth-child(odd) { border-right: 1px solid #141414; }
+  .facts div:nth-last-child(-n+2) { border-bottom: 0; }
+  .facts .k { font-size: .72rem; letter-spacing: 2px; color: #8a8272; text-transform: uppercase; }
+  .facts .v { font-size: 1.05rem; font-weight: 600; margin-top: 2px; }
+  .pullquote {
+    font-family: Georgia, "SimSun", serif; font-size: 1.5rem; font-style: italic; line-height: 1.5;
+    border-left: 4px solid #c1272d; padding-left: 22px; margin: 6px 0 16px; color: #141414;
+  }
+  .project-box { border: 1px solid #141414; padding: 26px 30px; background: #efe9dc; }
+  .project-box h3 { font-family: Georgia, "SimSun", serif; font-size: 1.45rem; }
+  .project-box .tag { font-size: .72rem; letter-spacing: 3px; color: #c1272d; text-transform: uppercase; font-weight: 700; }
+  .project-box p { margin-top: 12px; color: #3d3a33; }
+  .contact a {
+    color: #141414; font-weight: 700; text-decoration: none; font-size: 1.15rem;
+    border-bottom: 3px solid #c1272d; transition: all .2s;
+  }
+  .contact a:hover { background: #c1272d; color: #f4efe6; }
+  footer { padding: 34px 0 8px; text-align: center; font-size: .75rem; letter-spacing: 3px; color: #8a8272; text-transform: uppercase; }
+  @media (max-width: 640px) { section { grid-template-columns: 1fr; gap: 10px; } .facts { grid-template-columns: 1fr; } .facts div:nth-child(odd) { border-right: 0; } .facts div { border-bottom: 1px solid #141414; } .facts div:last-child { border-bottom: 0; } }
+</style>
+</head>
+<body>
+<a class="back" href="./index.html">← 风格列表</a>
+<div class="wrap">
+  <div class="masthead"><span>The <b>Zihe</b> Journal</span><span>Vol.01 — 2026</span></div>
+
+  <header>
+    <p class="kicker">Personal Homepage · 个人主页</p>
+    <h1>谢子赫<span class="dot">.</span></h1>
+    <p class="standfirst">"天津大学·香港理工大学深圳未来技术学院，计算机科学与技术大一在读。热爱运动，喜欢用设计表达想法。"</p>
+    <p class="byline">By Zihe Xie · Shenzhen · 2026</p>
+  </header>
+
+  <section>
+    <div class="num">01</div>
+    <div>
+      <h2>关于我 / About</h2>
+      <p class="body-text dropcap">我是一名<strong>计算机科学与技术</strong>专业的大一学生，就读于<strong>天津大学·香港理工大学深圳未来技术学院</strong>。我热爱运动，喜欢用设计表达想法，也正在学习用代码把创意变成真实可用的产品。这个主页是我的第一个 Vibe Coding 作品，会持续迭代升级。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="num">02</div>
+    <div>
+      <h2>技能与爱好 / Facts</h2>
+      <div class="facts">
+        <div><p class="k">技能 Skill</p><p class="v">🎨 设计</p></div>
+        <div><p class="k">正在学习 Learning</p><p class="v">💻 Vibe Coding</p></div>
+        <div><p class="k">运动 Sports</p><p class="v">🏀 篮球 · 🏃 运动</p></div>
+        <div><p class="k">生活 Life</p><p class="v">🎵 音乐 · ✈️ 旅游</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="num">03</div>
+    <div>
+      <h2>项目 / Projects</h2>
+      <p class="pullquote">"一辆能自己前进、还能拨动开关自己回家的太空车。"</p>
+      <div class="project-box">
+        <span class="tag">Robotics / Autonomous Control</span>
+        <h3>机器人竞赛 · 太空探测车</h3>
+        <p>参加机器人竞赛，设计并制作了一辆"太空车"：它能自主完成前进任务，并通过钮子开关触发自动返航，顺利回到起点。完成了从结构设计到调试参赛的完整过程。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="num">04</div>
+    <div>
+      <h2>联系我 / Contact</h2>
+      <p class="body-text" style="margin-bottom:18px;">无论是一句反馈、一个建议，还是想聊聊篮球和设计，都欢迎给我写信。</p>
+      <a href="mailto:zihexie95@gmail.com">zihexie95@gmail.com</a>
+    </div>
+  </section>
+
+  <footer>© 2026 谢子赫 · Built with Vibe Coding · V1.0</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>谢子赫 · 个人主页</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #ffd63d; color: #111; line-height: 1.7;
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+  .back { position: fixed; top: 14px; left: 14px; z-index: 9; font-size: .8rem; font-weight: 700; color: #111; text-decoration: none; background: #fff; border: 2px solid #111; padding: 4px 10px; box-shadow: 3px 3px 0 #111; }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 70px 5vw 70px; }
+  .box {
+    background: #fff; border: 3px solid #111; box-shadow: 8px 8px 0 #111;
+    padding: 34px 38px; margin-bottom: 34px; transition: transform .15s, box-shadow .15s;
+  }
+  .box:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 0 #111; }
+  header.box { background: #ff6b9d; transform: rotate(-.6deg); }
+  header.box:hover { transform: rotate(-.6deg) translate(-3px, -3px); }
+  .sticker {
+    display: inline-block; background: #111; color: #ffd63d; font-weight: 800;
+    font-size: .8rem; letter-spacing: 2px; padding: 6px 14px; transform: rotate(2deg);
+    margin-bottom: 20px;
+  }
+  h1 { font-size: clamp(2.8rem, 7vw, 4.4rem); font-weight: 900; letter-spacing: 1px; }
+  h1 span { background: #fff; padding: 0 14px; box-shadow: 5px 5px 0 #111; display: inline-block; border: 3px solid #111; }
+  .intro { margin-top: 22px; font-size: 1.08rem; font-weight: 600; }
+  .intro mark { background: #4d96ff; color: #fff; padding: 1px 8px; }
+  .cta { margin-top: 26px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .cta a {
+    font-weight: 800; text-decoration: none; color: #111; font-size: .95rem;
+    background: #fff; border: 3px solid #111; padding: 12px 26px; box-shadow: 5px 5px 0 #111;
+    transition: all .12s;
+  }
+  .cta a:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 #111; }
+  .cta a.blue { background: #4d96ff; color: #fff; }
+  h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 16px; }
+  h2 .bar { display: inline-block; width: 14px; height: 26px; margin-right: 10px; vertical-align: -4px; }
+  .about { background: #fff; }
+  .about h2 .bar { background: #ff6b9d; }
+  .skills { background: #6bcb77; transform: rotate(.5deg); }
+  .skills:hover { transform: rotate(.5deg) translate(-3px,-3px); }
+  .skills h2 .bar { background: #111; }
+  .chips { display: flex; flex-wrap: wrap; gap: 12px; }
+  .chips span {
+    background: #fff; border: 3px solid #111; font-weight: 700; font-size: .95rem;
+    padding: 8px 18px; box-shadow: 4px 4px 0 #111; transition: all .12s;
+  }
+  .chips span:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 #111; }
+  .sub { font-weight: 800; font-size: .82rem; letter-spacing: 2px; margin: 16px 0 10px; }
+  .project { background: #4d96ff; color: #fff; }
+  .project h2 .bar { background: #ffd63d; }
+  .project h3 { font-size: 1.4rem; font-weight: 900; }
+  .project .tag {
+    display: inline-block; background: #111; color: #ffd63d; font-size: .72rem; font-weight: 800;
+    letter-spacing: 2px; padding: 4px 12px; margin: 8px 0 14px;
+  }
+  .project p { font-weight: 500; }
+  .contact { background: #fff; text-align: center; }
+  .contact h2 .bar { background: #6bcb77; }
+  .contact a {
+    display: inline-block; margin-top: 16px; font-weight: 900; font-size: 1.15rem; color: #111;
+    text-decoration: none; background: #ffd63d; border: 3px solid #111; padding: 14px 32px;
+    box-shadow: 6px 6px 0 #111; transition: all .12s;
+  }
+  .contact a:hover { transform: translate(3px,3px); box-shadow: 3px 3px 0 #111; }
+  footer { text-align: center; font-weight: 800; font-size: .85rem; letter-spacing: 1px; }
+  @media (max-width: 560px) { .box { padding: 26px 22px; } }
+</style>
+</head>
+<body>
+<a class="back" href="./index.html">← 风格列表</a>
+<div class="wrap">
+  <header class="box">
+    <span class="sticker">★ PERSONAL HOMEPAGE ★</span>
+    <h1><span>谢子赫</span></h1>
+    <p class="intro">天津大学·香港理工大学 <mark>深圳未来技术学院</mark> · 计算机科学与技术 · 大一<br>热爱<mark>运动</mark>，喜欢<mark>设计</mark>的学生一枚！</p>
+    <div class="cta">
+      <a class="blue" href="#projects">看看我的项目 →</a>
+      <a href="#contact">联系我 ✉</a>
+    </div>
+  </header>
+
+  <section class="box about">
+    <h2><span class="bar"></span>关于我</h2>
+    <p>我是一名<strong>计算机科学与技术</strong>专业的大一学生，就读于<strong>天津大学·香港理工大学深圳未来技术学院</strong>。我热爱运动，喜欢用设计表达想法，也正在学习用代码把创意变成真实可用的产品。这个主页是我的第一个 Vibe Coding 作品，会持续迭代升级！</p>
+  </section>
+
+  <section class="box skills">
+    <h2><span class="bar"></span>技能与爱好</h2>
+    <p class="sub">// 技能</p>
+    <div class="chips"><span>🎨 设计</span><span>💻 Vibe Coding（学习中）</span></div>
+    <p class="sub">// 兴趣爱好</p>
+    <div class="chips"><span>🏀 篮球</span><span>🎵 音乐</span><span>✈️ 旅游</span><span>🏃 运动</span></div>
+  </section>
+
+  <section class="box project" id="projects">
+    <h2><span class="bar"></span>项目经历</h2>
+    <h3>🤖 机器人竞赛 · 太空探测车</h3><br>
+    <span class="tag">ROBOTICS / AUTONOMOUS CONTROL</span>
+    <p>设计并制作了一辆"太空车"：它能自主完成前进任务，并通过钮子开关触发自动返航，顺利回到起点。完成了从结构设计到调试参赛的完整过程。</p>
+  </section>
+
+  <section class="box contact" id="contact">
+    <h2><span class="bar"></span>联系我</h2>
+    <p>无论是一句反馈、一个建议，还是想聊聊篮球和设计，都欢迎给我写信！</p>
+    <a href="mailto:zihexie95@gmail.com">✉ zihexie95@gmail.com</a>
+  </section>
+
+  <footer>© 2026 谢子赫 · BUILT WITH VIBE CODING · V1.0</footer>
+</div>
+</body>
+</html>

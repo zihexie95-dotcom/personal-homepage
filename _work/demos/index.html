@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>风格挑选 · 谢子赫个人主页</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0f1115; color: #e8ecf4;
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    padding: 40px 5vw 80px;
+  }
+  h1 { font-size: 1.8rem; margin-bottom: 8px; }
+  .tip { color: #9aa4b8; margin-bottom: 34px; font-size: .95rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 28px; max-width: 1400px; margin: 0 auto; }
+  .card {
+    background: #171a21; border: 1px solid #262b36; border-radius: 14px;
+    overflow: hidden; transition: all .25s; text-decoration: none; color: inherit; display: block;
+  }
+  .card:hover { border-color: #4d9fff; transform: translateY(-4px); box-shadow: 0 14px 40px rgba(77,159,255,.15); }
+  .preview { width: 100%; aspect-ratio: 16/9.5; overflow: hidden; position: relative; background: #000; }
+  .preview iframe {
+    width: 300%; height: 300%; border: 0; pointer-events: none;
+    transform: scale(0.3333); transform-origin: top left;
+  }
+  .meta { padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; }
+  .meta h2 { font-size: 1.05rem; }
+  .meta p { font-size: .82rem; color: #9aa4b8; margin-top: 3px; }
+  .open {
+    font-size: .85rem; color: #4d9fff; white-space: nowrap; margin-left: 14px;
+    border: 1px solid rgba(77,159,255,.4); padding: 6px 14px; border-radius: 999px;
+  }
+  .card:hover .open { background: rgba(77,159,255,.12); }
+</style>
+</head>
+<body>
+  <h1>🎨 挑一个你喜欢的风格</h1>
+  <p class="tip">点击卡片可打开完整页面查看细节。选定后告诉我编号或名称，我会用该风格 + 中英双语重制正式版。</p>
+  <div class="grid">
+    <a class="card" href="./minimal-light.html" target="_blank">
+      <div class="preview"><iframe src="./minimal-light.html" loading="lazy"></iframe></div>
+      <div class="meta"><div><h2>1 · 简约清新</h2><p>浅色留白 · 细线分割 · 干净克制</p></div><span class="open">查看 →</span></div>
+    </a>
+    <a class="card" href="./glassmorphism.html" target="_blank">
+      <div class="preview"><iframe src="./glassmorphism.html" loading="lazy"></iframe></div>
+      <div class="meta"><div><h2>2 · 玻璃拟态</h2><p>渐变背景 · 毛玻璃卡片 · 现代感</p></div><span class="open">查看 →</span></div>
+    </a>
+    <a class="card" href="./editorial.html" target="_blank">
+      <div class="preview"><iframe src="./editorial.html" loading="lazy"></iframe></div>
+      <div class="meta"><div><h2>3 · 杂志排版风</h2><p>大字衬线 · 纸感底色 · 编辑设计</p></div><span class="open">查看 →</span></div>
+    </a>
+    <a class="card" href="./neo-brutalism.html" target="_blank">
+      <div class="preview"><iframe src="./neo-brutalism.html" loading="lazy"></iframe></div>
+      <div class="meta"><div><h2>4 · 新粗野主义</h2><p>大胆色块 · 粗黑边框 · 个性张扬</p></div><span class="open">查看 →</span></div>
+    </a>
+    <a class="card" href="./terminal.html" target="_blank">
+      <div class="preview"><iframe src="./terminal.html" loading="lazy"></iframe></div>
+      <div class="meta"><div><h2>5 · 终端代码风</h2><p>黑客终端 · 等宽字体 · 极客气质</p></div><span class="open">查看 →</span></div>
+    </a>
+    <a class="card" href="./soft-pastel.html" target="_blank">
+      <div class="preview"><iframe src="./soft-pastel.html" loading="lazy"></iframe></div>
+      <div class="meta"><div><h2>6 · 柔和可爱风</h2><p>马卡龙色 · 圆角卡片 · 亲切温暖</p></div><span class="open">查看 →</span></div>
+    </a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>谢子赫 · 个人主页</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh; color: #fff; line-height: 1.75;
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #5b6cff 0%, #a855f7 45%, #ec4899 100%);
+    background-attachment: fixed; overflow-x: hidden;
+  }
+  .blob { position: fixed; border-radius: 50%; filter: blur(90px); opacity: .55; z-index: 0; animation: float 12s ease-in-out infinite; }
+  .b1 { width: 340px; height: 340px; background: #ffd166; top: -80px; right: 8%; }
+  .b2 { width: 300px; height: 300px; background: #4cc9f0; bottom: 6%; left: -60px; animation-delay: -4s; }
+  .b3 { width: 220px; height: 220px; background: #80ffdb; top: 42%; right: 22%; animation-delay: -8s; opacity: .4; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-34px)} }
+  .back { position: fixed; top: 18px; left: 18px; font-size: .8rem; color: rgba(255,255,255,.85); text-decoration: none; z-index: 10; }
+  .wrap { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 80px 24px 60px; }
+  .glass {
+    background: rgba(255,255,255,.13);
+    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,.28);
+    border-radius: 24px; padding: 38px 42px; margin-bottom: 26px;
+    box-shadow: 0 14px 44px rgba(31, 20, 80, .18);
+    transition: transform .3s;
+  }
+  .glass:hover { transform: translateY(-3px); }
+  header.glass { text-align: center; padding: 56px 42px; }
+  .pill {
+    display: inline-block; font-size: .8rem; letter-spacing: 2px;
+    background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.35);
+    padding: 6px 18px; border-radius: 999px; margin-bottom: 22px;
+  }
+  h1 { font-size: 3.2rem; font-weight: 800; text-shadow: 0 4px 24px rgba(0,0,0,.15); }
+  h1 small { display: block; font-size: .95rem; font-weight: 500; letter-spacing: 5px; opacity: .85; margin-top: 8px; }
+  .intro { margin-top: 18px; font-size: 1.05rem; opacity: .95; }
+  .cta { margin-top: 28px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .cta a { text-decoration: none; font-weight: 600; font-size: .92rem; padding: 12px 30px; border-radius: 999px; transition: all .25s; }
+  .cta .solid { background: #fff; color: #7c3aed; }
+  .cta .solid:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(0,0,0,.2); }
+  .cta .line { border: 1.5px solid rgba(255,255,255,.6); color: #fff; }
+  .cta .line:hover { background: rgba(255,255,255,.15); transform: translateY(-3px); }
+  h2 { font-size: 1.35rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  h2::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #ffd166; box-shadow: 0 0 12px #ffd166; }
+  .glass p { opacity: .92; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+  .chips span {
+    background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3);
+    padding: 8px 18px; border-radius: 999px; font-size: .92rem; transition: all .2s;
+  }
+  .chips span:hover { background: rgba(255,255,255,.3); transform: translateY(-2px); }
+  .sub { font-size: .8rem; opacity: .75; letter-spacing: 2px; margin: 16px 0 8px; }
+  .project h3 { font-size: 1.3rem; margin-bottom: 4px; }
+  .project .tag { font-size: .75rem; letter-spacing: 3px; opacity: .7; }
+  .project p { margin-top: 12px; }
+  .contact { text-align: center; }
+  .contact a.mail {
+    display: inline-block; margin-top: 14px; color: #fff; text-decoration: none; font-weight: 600;
+    background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.35);
+    padding: 13px 30px; border-radius: 999px; transition: all .25s;
+  }
+  .contact a.mail:hover { background: #fff; color: #7c3aed; }
+  footer { text-align: center; font-size: .8rem; opacity: .7; padding: 10px 0 20px; position: relative; z-index: 1; }
+  @media (max-width: 560px) { h1 { font-size: 2.3rem; } .glass { padding: 28px 24px; } }
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+<a class="back" href="./index.html">← 风格列表</a>
+<div class="wrap">
+  <header class="glass">
+    <span class="pill">✨ PERSONAL HOMEPAGE</span>
+    <h1>谢子赫<small>ZIHE XIE</small></h1>
+    <p class="intro">天津大学·香港理工大学 深圳未来技术学院<br>计算机科学与技术 · 大一 ｜ 热爱运动，喜欢设计</p>
+    <div class="cta">
+      <a class="solid" href="#projects">看看我的项目</a>
+      <a class="line" href="#contact">联系我</a>
+    </div>
+  </header>
+
+  <section class="glass">
+    <h2>关于我</h2>
+    <p>我是一名计算机科学与技术专业的大一学生，就读于天津大学·香港理工大学深圳未来技术学院。我热爱运动，喜欢用设计表达想法，也正在学习用代码把创意变成真实可用的产品。</p>
+  </section>
+
+  <section class="glass">
+    <h2>技能与爱好</h2>
+    <p class="sub">// 技能</p>
+    <div class="chips"><span>🎨 设计</span><span>💻 Vibe Coding（学习中）</span></div>
+    <p class="sub">// 兴趣爱好</p>
+    <div class="chips"><span>🏀 篮球</span><span>🎵 音乐</span><span>✈️ 旅游</span><span>🏃 运动</span></div>
+  </section>
+
+  <section class="glass project" id="projects">
+    <h2>项目经历</h2>
+    <h3>🤖 机器人竞赛 · 太空探测车</h3>
+    <span class="tag">ROBOTICS / AUTONOMOUS CONTROL</span>
+    <p>设计并制作了一辆"太空车"：它能自主完成前进任务，并通过钮子开关触发自动返航，顺利回到起点。完成了从结构设计到调试参赛的完整过程。</p>
+  </section>
+
+  <section class="glass contact" id="contact">
+    <h2 style="justify-content:center;">联系我</h2>
+    <p>无论是一句反馈、一个建议，还是想聊聊篮球和设计，都欢迎给我写信。</p>
+    <a class="mail" href="mailto:zihexie95@gmail.com">✉ zihexie95@gmail.com</a>
+  </section>
+
+  <footer>© 2026 谢子赫 · Built with Vibe Coding · V1.0</footer>
+</div>
+</body>
+</html>
