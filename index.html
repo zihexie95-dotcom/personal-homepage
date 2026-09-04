@@ -68,6 +68,11 @@
   h1 span { background: #fff; padding: 0 16px; box-shadow: 5px 5px 0 #111; display: inline-block; border: 3px solid #111; }
   .intro { margin-top: 24px; font-size: 1.1rem; font-weight: 600; }
   .intro mark { background: #4d96ff; color: #fff; padding: 1px 8px; }
+  .motto { margin-top: 18px; }
+  .motto span {
+    display: inline-block; background: #111; color: #ffd63d; font-weight: 800;
+    font-size: .88rem; letter-spacing: 3px; padding: 7px 18px; transform: rotate(-1.5deg);
+  }
   .hero-tags { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
   .hero-tags span {
     background: #fff; border: 3px solid #111; font-weight: 700; font-size: .85rem;
@@ -198,11 +203,12 @@
     <span class="sticker" data-zh="★ 个人主页 ★" data-en="★ PERSONAL HOMEPAGE ★">★ 个人主页 ★</span>
     <h1><span data-zh="谢子赫" data-en="ZIHE XIE">谢子赫</span></h1>
     <p class="intro" id="introText">一名热爱<mark>运动</mark>、喜欢<mark>设计</mark>的计算机学生，正在把机器人赛场上的那股劲儿带进代码里。</p>
+    <p class="motto"><span data-zh="♟️ 座右铭：落子无悔" data-en="♟️ Motto: Make the move, no regrets">♟️ 座右铭：落子无悔</span></p>
     <div class="hero-tags">
       <span data-zh="🎓 计算机科学与技术 · 大一" data-en="🎓 CS · Year 1">🎓 计算机科学与技术 · 大一</span>
       <span data-zh="📍 深圳" data-en="📍 Shenzhen">📍 深圳</span>
       <span data-zh="🎨 设计爱好者" data-en="🎨 Design lover">🎨 设计爱好者</span>
-      <span data-zh="🏀 篮球" data-en="🏀 Basketball">🏀 篮球</span>
+      <span data-zh="🏀 控卫 · 欧文球迷" data-en="🏀 PG · Kyrie fan">🏀 控卫 · 欧文球迷</span>
     </div>
     <div class="cta">
       <a class="blue" href="#works" data-zh="看看我的作品 →" data-en="View my works →">看看我的作品 →</a>
@@ -227,7 +233,7 @@
     </div>
     <div class="about-card c-green">
       <p class="k" data-zh="📍 所在城市" data-en="📍 CITY">📍 所在城市</p>
-      <p class="v" data-zh="广东 · 深圳" data-en="Shenzhen, Guangdong">广东 · 深圳</p>
+      <p class="v" data-zh="来自安徽合肥，坐标深圳" data-en="From Hefei, Anhui — now based in Shenzhen">来自安徽合肥，坐标深圳</p>
     </div>
   </div>
 
@@ -262,8 +268,8 @@
     </div>
     <p class="sub" data-zh="// 兴趣爱好" data-en="// HOBBIES">// 兴趣爱好</p>
     <div class="chips">
-      <span data-zh="🏀 篮球" data-en="🏀 Basketball">🏀 篮球</span>
-      <span data-zh="🎵 音乐" data-en="🎵 Music">🎵 音乐</span>
+      <span data-zh="🏀 篮球 · 控球后卫" data-en="🏀 Basketball · Point Guard">🏀 篮球 · 控球后卫</span>
+      <span data-zh="🎵 音乐 · 流行 & 说唱（Kanye）" data-en="🎵 Music · Pop & Hip-hop (Kanye)">🎵 音乐 · 流行 & 说唱（Kanye）</span>
       <span data-zh="✈️ 旅游" data-en="✈️ Traveling">✈️ 旅游</span>
       <span data-zh="🏃 运动" data-en="🏃 Sports">🏃 运动</span>
     </div>
@@ -272,14 +278,16 @@
   <!-- 6. 数字分身 / 对话入口原型（静态占位） -->
   <section class="box twin" id="twin">
     <h2 class="sec"><span class="bar"></span><span data-zh="数字分身 · 对话原型" data-en="Digital Twin · Chat Prototype">数字分身 · 对话原型</span></h2>
-    <p class="sec-note" data-zh="先认识一下“另一个我”👇 原型阶段预置了 3 组问答，后续将接入真实对话能力。" data-en="Meet 'the other me' 👇 The prototype ships with 3 preset Q&As; real conversation ability comes later.">先认识一下“另一个我”👇 原型阶段预置了 3 组问答，后续将接入真实对话能力。</p>
+    <p class="sec-note" data-zh="先认识一下“另一个我”👇 原型阶段预置了 4 组问答（内容来自对本人的真实采访），后续将接入真实对话能力。" data-en="Meet 'the other me' 👇 The prototype ships with 4 preset Q&As (based on a real interview with him); real conversation ability comes later.">先认识一下“另一个我”👇 原型阶段预置了 4 组问答（内容来自对本人的真实采访），后续将接入真实对话能力。</p>
     <div class="chat" id="chatBox">
       <div class="msg q" data-zh="你是谁？" data-en="Who are you?">你是谁？</div>
-      <div class="msg a"><span class="who" data-zh="子赫的分身" data-en="ZIHE'S TWIN">子赫的分身</span><span data-zh="我是谢子赫的数字分身～他本人是深圳的一名 CS 大一学生，热爱运动、喜欢设计。" data-en="I'm Zihe's digital twin~ The real him is a first-year CS student in Shenzhen who loves sports and design.">我是谢子赫的数字分身～他本人是深圳的一名 CS 大一学生，热爱运动、喜欢设计。</span></div>
+      <div class="msg a"><span class="who" data-zh="子赫的分身" data-en="ZIHE'S TWIN">子赫的分身</span><span data-zh="我是谢子赫的数字分身——本人是合肥来的 CS 大一学生，现在坐标深圳。本体在忙，我先顶着。" data-en="I'm Zihe's digital twin — the real one is a CS freshman from Hefei, now based in Shenzhen. He's busy, so I'm covering for him.">我是谢子赫的数字分身——本人是合肥来的 CS 大一学生，现在坐标深圳。本体在忙，我先顶着。</span></div>
       <div class="msg q" data-zh="子赫平时喜欢做什么？" data-en="What does Zihe like to do?">子赫平时喜欢做什么？</div>
-      <div class="msg a"><span class="who" data-zh="子赫的分身" data-en="ZIHE'S TWIN">子赫的分身</span><span data-zh="打篮球、听音乐、出去旅游，最近还迷上了用 Vibe Coding 做网站！" data-en="Basketball, music, traveling — and lately, building websites with Vibe Coding!">打篮球、听音乐、出去旅游，最近还迷上了用 Vibe Coding 做网站！</span></div>
+      <div class="msg a"><span class="who" data-zh="子赫的分身" data-en="ZIHE'S TWIN">子赫的分身</span><span data-zh="球场上打控卫，欧文是他的信仰；耳机里放着流行和 Kanye；旅行永远首选海边。哦对，还特别爱折腾新东西。" data-en="Point guard on the court, Kyrie is his idol; pop and Kanye in his headphones; the seaside is always his first travel pick. Oh, and he loves tinkering with new stuff.">球场上打控卫，欧文是他的信仰；耳机里放着流行和 Kanye；旅行永远首选海边。哦对，还特别爱折腾新东西。</span></div>
+      <div class="msg q" data-zh="他是个什么样的人？" data-en="What kind of person is he?">他是个什么样的人？</div>
+      <div class="msg a"><span class="who" data-zh="子赫的分身" data-en="ZIHE'S TWIN">子赫的分身</span><span data-zh="朋友认证的热血行动派。座右铭“落子无悔”——想了就干，干了不悔。大学四年的目标是做出自己的产品。" data-en="A certified man of action. His motto: 'Make the move, no regrets.' His four-year goal: build a product of his own.">朋友认证的热血行动派。座右铭“落子无悔”——想了就干，干了不悔。大学四年的目标是做出自己的产品。</span></div>
       <div class="msg q" data-zh="能介绍一下他的项目吗？" data-en="Tell me about his project.">能介绍一下他的项目吗？</div>
-      <div class="msg a"><span class="who" data-zh="子赫的分身" data-en="ZIHE'S TWIN">子赫的分身</span><span data-zh="他参加过机器人竞赛：做的太空车能自主前进，还能通过钮子开关自动返航，超酷！" data-en="He built a space rover for a robotics competition: it drives forward autonomously and returns home via a toggle switch. Super cool!">他参加过机器人竞赛：做的太空车能自主前进，还能通过钮子开关自动返航，超酷！</span></div>
+      <div class="msg a"><span class="who" data-zh="子赫的分身" data-en="ZIHE'S TWIN">子赫的分身</span><span data-zh="机器人竞赛做过一辆太空车：自主前进、钮子开关自动返航。现在正苦练 Vibe Coding，下一步想搞个自己的 APP。" data-en="He built a space rover for a robotics competition: autonomous forward run plus toggle-switch auto-return. Now grinding Vibe Coding — next up, an app of his own.">机器人竞赛做过一辆太空车：自主前进、钮子开关自动返航。现在正苦练 Vibe Coding，下一步想搞个自己的 APP。</span></div>
     </div>
     <div class="chat-input">
       <input id="chatInput" type="text" data-zh-ph="输入消息试试…（原型回复是预置的）" data-en-ph="Type a message… (prototype replies are preset)" placeholder="输入消息试试…（原型回复是预置的）">
@@ -298,7 +306,7 @@
 
   <!-- 8. 页脚 Footer：版权 + 年份自动更新 -->
   <footer>
-    <span data-zh="© " data-en="© ">© </span><span id="year">2026</span><span data-zh=" 谢子赫 · 用 VIBE CODING 构建" data-en=" ZIHE XIE · BUILT WITH VIBE CODING"> 谢子赫 · 用 VIBE CODING 构建</span><span class="ver">V1.1</span>
+    <span data-zh="© " data-en="© ">© </span><span id="year">2026</span><span data-zh=" 谢子赫 · 用 VIBE CODING 构建" data-en=" ZIHE XIE · BUILT WITH VIBE CODING"> 谢子赫 · 用 VIBE CODING 构建</span><span class="ver">V1.2</span>
   </footer>
 </div>
 
@@ -342,8 +350,8 @@
   const chatInput = document.getElementById('chatInput');
   const chatSend = document.getElementById('chatSend');
   const reply = {
-    zh: '分身还在学习中🌱 正式对话能力将在后续版本上线，先通过邮件联系我本人吧！',
-    en: 'My twin is still learning 🌱 Real chat ability ships in a later version — meanwhile, email the real me!'
+    zh: '喂，我只是个原型，脑子还没装好呢😅 想问真的，发邮件骚扰他本人吧！',
+    en: 'Hey, I\'m just a prototype — brain not installed yet 😅 For real answers, go email the real guy!'
   };
   function sendMsg() {
     const text = chatInput.value.trim();
