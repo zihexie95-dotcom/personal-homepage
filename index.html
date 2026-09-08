@@ -134,11 +134,12 @@
   .chips span:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 #111; }
   .sub { font-weight: 800; font-size: .82rem; letter-spacing: 2px; margin: 18px 0 10px; }
 
-  /* ========== 6. 数字分身 / 对话原型 ========== */
+  /* ========== 6. 数字分身 ========== */
   .twin h2.sec .bar { background: #4d96ff; }
   .chat {
     border: 3px solid #111; background: #fff8e8; box-shadow: inset 0 0 0 2px #ffe9a8;
-    padding: 22px; display: grid; gap: 14px;
+    padding: 22px; display: grid; gap: 14px; align-content: start;
+    max-height: 440px; overflow-y: auto; overscroll-behavior: contain;
   }
   .msg { max-width: 82%; font-weight: 600; font-size: .95rem; border: 3px solid #111; padding: 10px 16px; box-shadow: 4px 4px 0 #111; }
   .msg.q { justify-self: end; background: #ffd63d; border-radius: 16px 16px 4px 16px; }
@@ -156,7 +157,18 @@
     box-shadow: 4px 4px 0 #111; transition: all .12s;
   }
   .chat-input button:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 #111; }
-  .prototype-note { margin-top: 14px; font-size: .8rem; font-weight: 700; letter-spacing: 1px; color: #555; }
+  .twin-tip { margin-top: 14px; font-size: .8rem; font-weight: 700; letter-spacing: 1px; color: #555; }
+  .msg .typing-dots { display: inline-block; animation: blink 1s steps(2, start) infinite; }
+  @keyframes blink { to { visibility: hidden; } }
+  .quick-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+  .quick-chips button {
+    font-family: inherit; cursor: pointer; font-weight: 700; font-size: .85rem; color: #111;
+    background: #fff; border: 3px solid #111; padding: 7px 14px;
+    box-shadow: 3px 3px 0 #111; transition: all .12s;
+  }
+  .quick-chips button:hover { transform: translate(2px,2px); box-shadow: 1px 1px 0 #111; background: #4cc9f0; }
+  .chat-input input:disabled { background: #f4ead0; color: #888; cursor: wait; }
+  .chat-input button:disabled { opacity: .55; cursor: wait; }
 
   /* ========== 7. 联系我 ========== */
   .contact { background: #fff; text-align: center; }
@@ -275,13 +287,13 @@
     </div>
   </section>
 
-  <!-- 6. 数字分身 / 对话入口原型（静态占位） -->
+  <!-- 6. 数字分身：基于内置知识库的对话 -->
   <section class="box twin" id="twin">
-    <h2 class="sec"><span class="bar"></span><span data-zh="数字分身 · 对话原型" data-en="Digital Twin · Chat Prototype">数字分身 · 对话原型</span></h2>
-    <p class="sec-note" data-zh="先认识一下“另一个我”👇 原型阶段预置了 4 组问答（内容来自对本人的真实采访），后续将接入真实对话能力。" data-en="Meet 'the other me' 👇 The prototype ships with 4 preset Q&As (based on a real interview with him); real conversation ability comes later.">先认识一下“另一个我”👇 原型阶段预置了 4 组问答（内容来自对本人的真实采访），后续将接入真实对话能力。</p>
+    <h2 class="sec"><span class="bar"></span><span data-zh="数字分身 · 对话" data-en="Digital Twin · Chat">数字分身 · 对话</span></h2>
+    <p class="sec-note" data-zh="先认识一下“另一个我”👇 分身的内置知识来自对本人的真实采访：学校、篮球、音乐、座右铭、作品……关于子赫的事，都可以直接问它。"
+       data-en="Meet 'the other me' 👇 The twin's built-in knowledge comes from real interviews — school, basketball, music, motto, projects. Ask it anything about Zihe.">先认识一下“另一个我”👇 分身的内置知识来自对本人的真实采访：学校、篮球、音乐、座右铭、作品……关于子赫的事，都可以直接问它。</p>
     <div class="chat" id="chatBox">
-      <div class="msg q" data-zh="你是谁？" data-en="Who are you?">你是谁？</div>
-      <div class="msg a"><span class="who" data-zh="子赫的分身" data-en="ZIHE'S TWIN">子赫的分身</span><span data-zh="我是谢子赫的数字分身——本人是合肥来的 CS 大一学生，现在坐标深圳。本体在忙，我先顶着。" data-en="I'm Zihe's digital twin — the real one is a CS freshman from Hefei, now based in Shenzhen. He's busy, so I'm covering for him.">我是谢子赫的数字分身——本人是合肥来的 CS 大一学生，现在坐标深圳。本体在忙，我先顶着。</span></div>
+      <div class="msg a"><span class="who" data-zh="子赫的分身" data-en="ZIHE'S TWIN">子赫的分身</span><span data-zh="嗨，我是子赫的数字分身 👋 学校、篮球、音乐、座右铭、作品……想了解本体什么，随便问！" data-en="Hey, I'm Zihe's digital twin 👋 School, basketball, music, motto, projects — ask me anything about the real guy!">嗨，我是子赫的数字分身 👋 学校、篮球、音乐、座右铭、作品……想了解本体什么，随便问！</span></div>
       <div class="msg q" data-zh="子赫平时喜欢做什么？" data-en="What does Zihe like to do?">子赫平时喜欢做什么？</div>
       <div class="msg a"><span class="who" data-zh="子赫的分身" data-en="ZIHE'S TWIN">子赫的分身</span><span data-zh="球场上打控卫，欧文是他的信仰；耳机里放着流行和 Kanye；旅行永远首选海边。哦对，还特别爱折腾新东西。" data-en="Point guard on the court, Kyrie is his idol; pop and Kanye in his headphones; the seaside is always his first travel pick. Oh, and he loves tinkering with new stuff.">球场上打控卫，欧文是他的信仰；耳机里放着流行和 Kanye；旅行永远首选海边。哦对，还特别爱折腾新东西。</span></div>
       <div class="msg q" data-zh="他是个什么样的人？" data-en="What kind of person is he?">他是个什么样的人？</div>
@@ -289,11 +301,12 @@
       <div class="msg q" data-zh="能介绍一下他的项目吗？" data-en="Tell me about his project.">能介绍一下他的项目吗？</div>
       <div class="msg a"><span class="who" data-zh="子赫的分身" data-en="ZIHE'S TWIN">子赫的分身</span><span data-zh="机器人竞赛做过一辆太空车：自主前进、钮子开关自动返航。现在正苦练 Vibe Coding，下一步想搞个自己的 APP。" data-en="He built a space rover for a robotics competition: autonomous forward run plus toggle-switch auto-return. Now grinding Vibe Coding — next up, an app of his own.">机器人竞赛做过一辆太空车：自主前进、钮子开关自动返航。现在正苦练 Vibe Coding，下一步想搞个自己的 APP。</span></div>
     </div>
+    <div class="quick-chips" id="quickChips"></div>
     <div class="chat-input">
-      <input id="chatInput" type="text" data-zh-ph="输入消息试试…（原型回复是预置的）" data-en-ph="Type a message… (prototype replies are preset)" placeholder="输入消息试试…（原型回复是预置的）">
+      <input id="chatInput" type="text" autocomplete="off" data-zh-ph="想问子赫什么？直接打字问我…" data-en-ph="Ask me anything about Zihe…" placeholder="想问子赫什么？直接打字问我…">
       <button id="chatSend" data-zh="发送" data-en="Send">发送</button>
     </div>
-    <p class="prototype-note" data-zh="⚠ 原型占位 · 静态演示，后续接入真实数字分身能力" data-en="⚠ PROTOTYPE PLACEHOLDER · static demo, real twin ability coming later">⚠ 原型占位 · 静态演示，后续接入真实数字分身能力</p>
+    <p class="twin-tip" data-zh="💡 分身内置知识库（内容经本人核对）；它答不上来的，就发邮件找本体：zihexie95@gmail.com" data-en="💡 The twin's answers are verified by the real Zihe. If it can't help, email the human: zihexie95@gmail.com">💡 分身内置知识库（内容经本人核对）；它答不上来的，就发邮件找本体：zihexie95@gmail.com</p>
   </section>
 
   <!-- 7. 联系我：可用联系方式 + 明确行动 -->
@@ -306,7 +319,7 @@
 
   <!-- 8. 页脚 Footer：版权 + 年份自动更新 -->
   <footer>
-    <span data-zh="© " data-en="© ">© </span><span id="year">2026</span><span data-zh=" 谢子赫 · 用 VIBE CODING 构建" data-en=" ZIHE XIE · BUILT WITH VIBE CODING"> 谢子赫 · 用 VIBE CODING 构建</span><span class="ver">V1.2</span>
+    <span data-zh="© " data-en="© ">© </span><span id="year">2026</span><span data-zh=" 谢子赫 · 用 VIBE CODING 构建" data-en=" ZIHE XIE · BUILT WITH VIBE CODING"> 谢子赫 · 用 VIBE CODING 构建</span><span class="ver">V1.3</span>
   </footer>
 </div>
 
@@ -345,33 +358,316 @@
   });
   applyLang(lang);
 
-  // ---- 数字分身原型：静态预置回复 ----
+  // ---- 数字分身：内置知识库 + 意图匹配（V1.3）----
   const chatBox = document.getElementById('chatBox');
   const chatInput = document.getElementById('chatInput');
   const chatSend = document.getElementById('chatSend');
-  const reply = {
-    zh: '喂，我只是个原型，脑子还没装好呢😅 想问真的，发邮件骚扰他本人吧！',
-    en: 'Hey, I\'m just a prototype — brain not installed yet 😅 For real answers, go email the real guy!'
+  const quickChips = document.getElementById('quickChips');
+  const TWIN_NAME = { zh: '子赫的分身', en: "ZIHE'S TWIN" };
+
+  // 知识库（内容经本人核对，中英双语；每个条目 = 关键词 + 回复池）
+  const KB = [
+    { // 打招呼
+      zhKeys: ['你好', '您好', '嗨', '哈喽', 'hello', '在吗', '早上好', '晚上好', '你好呀'],
+      enKeys: ['hi', 'hello', 'hey', 'how are you', 'good morning', 'good evening'],
+      zh: [
+        '嗨！我是子赫的数字分身，本体现在在忙。想了解他什么，尽管问 😎',
+        '你好呀！关于谢子赫——学校、爱好、作品、座右铭，我全都门儿清，放马过来 👊'
+      ],
+      en: [
+        "Hey! I'm Zihe's digital twin while the real guy is busy. Ask me anything about him 😎",
+        "Hi there! School, hobbies, projects, motto — I know everything about Zihe. Hit me 👊"
+      ]
+    },
+    { // 身份介绍
+      zhKeys: ['你是谁', '你叫什么', '自我介绍', '介绍下自己', '介绍一下自己', '数字分身', '分身', '你能做什么', '会什么', '你和子赫'],
+      enKeys: ['who are you', 'your name', 'introduce yourself', 'about you', 'digital twin', 'are you zihe', 'what can you do'],
+      zh: [
+        '我是谢子赫的数字分身——本体是来自合肥、坐标深圳的 CS 大一学生。他想认识更多人，我负责先陪聊 😏',
+        '我是子赫的分身！他忙着写代码和练球，让我先在这儿替他招待客人。想知道他的事，问我准没错。'
+      ],
+      en: [
+        "I'm Zihe's digital twin — the real one is a CS freshman from Hefei, now in Shenzhen. He's busy, so I'm covering for him 😏",
+        "I'm Zihe's twin! While he codes and plays ball, I'm here to greet his visitors. Ask me anything about him."
+      ]
+    },
+    { // 学校 / 专业
+      zhKeys: ['学校', '大学', '专业', '计算机', '学什么', '读书', '上学', '大一', '天津', '港理工', '香港理工', '未来技术学院', '在哪里上学', '在哪上学', '哪个学校'],
+      enKeys: ['school', 'university', 'college', 'major', 'computer science', 'cs', 'study', 'freshman', 'first year', 'year 1', 'tianjin', 'polyu'],
+      zh: [
+        '本体在天津大学 × 香港理工大学合办的深圳未来技术学院读计算机科学与技术，现在大一。CS 是主修，设计是他的“编外”爱好。',
+        '大一 CS 学生，坐标深圳未来技术学院（天大 × 港理工合办）。用他的话讲：把代码当积木，把设计当审美。'
+      ],
+      en: [
+        "He's a first-year Computer Science student at Shenzhen Future Technology College — jointly run by Tianjin University and HK PolyU. CS is the major; design is his side passion.",
+        "Year 1 CS at Shenzhen Future Technology College (Tianjin Univ × HK PolyU). His words: code is the building blocks, design is the taste."
+      ]
+    },
+    { // 现居城市
+      zhKeys: ['在深圳', '深圳', '住哪', '在哪里', '在哪', '坐标', '城市'],
+      enKeys: ['shenzhen', 'where does he live', 'based in', 'city', 'location'],
+      zh: ['现在坐标深圳——来自安徽合肥，来深圳读大学。南方湿热，他说篮球场倒是常年能用 🏀'],
+      en: ["He's based in Shenzhen now — from Hefei, Anhui originally, studying in Shenzhen. Humid weather, but basketball courts are open all year 🏀"]
+    },
+    { // 家乡
+      zhKeys: ['合肥', '家乡', '老家', '哪里人', '安徽'],
+      enKeys: ['hefei', 'hometown', 'anhui', 'where is he from'],
+      zh: ['安徽合肥人。合肥的夏天很热，他说那里的篮球场也很多。'],
+      en: ['From Hefei, Anhui. Hot summers there, and plenty of basketball courts, he says.']
+    },
+    { // 篮球 / 运动
+      zhKeys: ['篮球', '打球', '欧文', '控卫', 'kyrie', 'nba', '体育', '运动'],
+      enKeys: ['basketball', 'ball', 'kyrie', 'irving', 'point guard', 'sport', 'nba', 'play'],
+      zh: [
+        '篮球场上打控卫，偶像是凯里·欧文——人球结合那几下，本体说看一百遍不腻。约球？他在深圳随时奉陪 🏀',
+        '控卫出身，欧文铁粉。他觉得打球最帅的不是得分，是那种“落子无悔”的节奏感。'
+      ],
+      en: [
+        "Point guard on the court; Kyrie Irving is his idol — he says he could watch Kyrie's handles a hundred times. Up for a game anytime in Shenzhen 🏀",
+        "A point guard and hardcore Kyrie fan. To him the coolest part isn't scoring — it's that 'make the move, no regrets' rhythm."
+      ]
+    },
+    { // 爱好总览
+      zhKeys: ['喜欢', '爱好', '兴趣', '平时', '做什么'],
+      enKeys: ['hobby', 'hobbies', 'interest', 'interests', 'like to do', 'free time', 'weekend'],
+      zh: [
+        '篮球（控卫，欧文铁粉）、音乐（流行 + 说唱，Kanye）、旅行（首选海边），外加设计和新奇玩意儿。总之闲不住。',
+        '球场打控卫，耳机里循环 Kanye，假期往海边跑，没事还爱折腾点新东西——这就是本体的日常。'
+      ],
+      en: [
+        "Basketball (point guard, big Kyrie fan), music (pop + rap, Kanye), travel (seaside first), plus design and tinkering with new stuff. He never sits still.",
+        "Point guard on the court, Kanye on repeat, seaside trips on holidays, and always tinkering with something new — that's his everyday."
+      ]
+    },
+    { // 音乐
+      zhKeys: ['音乐', '听歌', '歌', 'kanye', '侃爷', '说唱', 'rap', '流行', '歌手'],
+      enKeys: ['music', 'song', 'songs', 'listen', 'kanye', 'rap', 'pop', 'singer', 'playlist'],
+      zh: [
+        '流行 + 说唱双修，Kanye West 是本体的心头好。他说 Kanye 那种“敢想敢做”的劲儿，和他还挺像。',
+        '耳机里主要循环 Kanye 和流行歌单。他原话：音乐要能让人想干点大事。'
+      ],
+      en: [
+        "Pop and rap — Kanye West is his all-time favorite. He says Kanye's 'think big, just do it' energy kind of matches his own.",
+        "Mostly Kanye and pop on repeat. His words: music should make you want to do something big."
+      ]
+    },
+    { // 性格
+      zhKeys: ['什么样的人', '性格', '为人', '评价', '人品', '行动派', '人怎么样', '靠谱'],
+      enKeys: ['personality', 'what kind of person', 'character', 'impression', 'friends', 'reliable', 'like him'],
+      zh: [
+        '朋友认证的热血行动派：想了就干，干了不悔。有点轴，但靠谱。目标是大学四年做出自己的产品。',
+        '典型行动派，爱折腾、闲不住。朋友说他像“装了永动机”，想到什么第二天就上手了。'
+      ],
+      en: [
+        "A certified man of action: thinks, acts, no regrets. A little stubborn, but reliable. Four-year goal: build a product of his own.",
+        "A classic doer — loves tinkering, never idle. Friends say he's like 'powered by a perpetual engine': an idea today, hands-on tomorrow."
+      ]
+    },
+    { // 座右铭
+      zhKeys: ['座右铭', '格言', '落子无悔', '信条'],
+      enKeys: ['motto', 'saying', 'creed', 'make the move', 'no regrets'],
+      zh: [
+        '“落子无悔”——想清楚了就下，下完了就不回头。这句他用来打篮球，也用来写代码。',
+        '座右铭是“落子无悔”：决策前想清楚，决策后不内耗。他觉着人生跟下棋差不多。'
+      ],
+      en: [
+        "'Make the move, no regrets' — think it through, commit, never look back. He applies it to basketball and to code alike.",
+        "His motto: 'Make the move, no regrets.' Think before you act, then don't second-guess. Life is like chess, he says."
+      ]
+    },
+    { // 旅行
+      zhKeys: ['旅行', '旅游', '海边', '度假', '出去玩', '海'],
+      enKeys: ['travel', 'trip', 'vacation', 'seaside', 'beach', 'holiday', 'sea'],
+      zh: [
+        '旅行永远首选海边：吹海风、踩沙滩，再配点音乐，他说这就是满血复活的方式 🌊',
+        '海边控。比起打卡景点，他更喜欢在海边待着放空——顺便想想下一个要折腾的项目。'
+      ],
+      en: [
+        "The seaside is always his first pick for travel: sea breeze, sand, and music — that's his way to recharge 🌊",
+        "A beach person. Rather than tourist spots, he'd rather chill by the sea and think about his next project."
+      ]
+    },
+    { // 项目 / 作品
+      zhKeys: ['项目', '作品', '做过', '太空车', '机器人', '竞赛', '比赛', '车'],
+      enKeys: ['project', 'projects', 'works', 'work', 'rover', 'robot', 'robotics', 'competition', 'built', 'made'],
+      zh: [
+        '机器人竞赛做过一辆“太空车”：自主前进完成任务，再靠钮子开关触发自动返航回起点。从结构设计到参赛调试都是他一个人扛下来的。',
+        '代表作：太空探测车——全自主前进 + 钮子开关自动返航。现在他在苦练 Vibe Coding，下一步想搞个自己的 APP。'
+      ],
+      en: [
+        "He built a 'space rover' for a robotics competition: fully autonomous forward run, then a toggle switch triggers auto-return to base. He handled design through competition debugging himself.",
+        "Flagship work: a space rover — autonomous forward run plus toggle-switch auto-return. Right now he's grinding Vibe Coding; next up, an app of his own."
+      ]
+    },
+    { // 这个网站 / Vibe Coding
+      zhKeys: ['vibe coding', 'vibe', '网站', '主页', '页面', '这个网页', '课程', '作业', '怎么做', '谁做的'],
+      enKeys: ['vibe coding', 'website', 'homepage', 'site', 'this page', 'course', 'assignment', 'built this', 'made this'],
+      zh: [
+        '这个主页是 Vibe Coding 课程作品：单文件纯静态、新粗野主义风格、中英双语，还内置了本分身 😎 本体从 6 个风格 Demo 里最后选了黄色大色块这款。',
+        '本站是本体用 Vibe Coding 做的——无框架无依赖的单文件页面，黄色新粗野主义 + 粗黑边框 + 硬阴影，右上角还能切中英文。'
+      ],
+      en: [
+        "This homepage is his Vibe Coding course project: a single static file, neo-brutalism style, bilingual, and it even ships with me 😎 He tried 6 style demos and picked the big yellow blocks.",
+        "Built with Vibe Coding — a framework-free single-file page: yellow neo-brutalism, thick black borders, hard shadows, and a ZH/EN toggle up top."
+      ]
+    },
+    { // 目标 / 未来
+      zhKeys: ['目标', '未来', '打算', '想做什么', '梦想', '毕业', '以后', 'app'],
+      enKeys: ['goal', 'future', 'plan', 'dream', 'after graduation', 'next', 'app', 'product'],
+      zh: [
+        '大学四年的目标：做出自己的产品 / APP。现在正把机器人的劲儿带进代码，一步步来。',
+        '短期：练好 Vibe Coding；长期：做一款自己的产品。他说“落子无悔”，下了就肯定要走完。'
+      ],
+      en: [
+        "Four-year goal: ship a product or app of his own. Right now he's channeling his robotics drive into code, step by step.",
+        "Short term: get good at Vibe Coding. Long term: build his own product. 'Make the move, no regrets' — once he starts, he finishes."
+      ]
+    },
+    { // 联系方式
+      zhKeys: ['联系', '邮箱', '邮件', 'email', '怎么找他', '联系方式', '微信', '找到他'],
+      enKeys: ['contact', 'email', 'mail', 'reach', 'find him', 'message', 'wechat'],
+      zh: [
+        '直接发邮件最快：zihexie95@gmail.com 📮 他说每封都会认真读。或者拉到页面最下面，有超大号的发邮件按钮。',
+        '找他本人：zihexie95@gmail.com。别担心词穷，他连“你好”都会认真回。'
+      ],
+      en: [
+        "Email is fastest: zihexie95@gmail.com 📮 He says he reads every single one. Or scroll down — there's a giant email button waiting.",
+        "Reach the real guy at zihexie95@gmail.com. Don't worry about being awkward — he replies seriously even to a plain 'hi'."
+      ]
+    },
+    { // 感谢
+      zhKeys: ['谢谢', '感谢', '辛苦了'],
+      enKeys: ['thanks', 'thank you', 'thank'],
+      zh: ['不客气！替我向本体问好，顺便给他发封邮件，他会更开心 😄'],
+      en: ["You're welcome! Say hi to the real Zihe for me — an email would make his day 😄"]
+    },
+    { // 再见
+      zhKeys: ['再见', '拜拜', '下次聊', '走了'],
+      enKeys: ['bye', 'goodbye', 'see you', 'gtg'],
+      zh: ['拜拜～有缘再聊。记得去找本体玩：zihexie95@gmail.com 👋'],
+      en: ['Bye! Catch you later. And do go say hi to the real one: zihexie95@gmail.com 👋']
+    }
+  ];
+
+  const FALLBACK = {
+    zh: [
+      '嗯…这题超纲了，我的小脑瓜转不动 😅 不过发邮件问本体，他肯定答得上来：zihexie95@gmail.com',
+      '本体没教过我这个……你可以换个问法，或者直接去问他：zihexie95@gmail.com 📮',
+      '这我就不知道啦，我只是个分身，不是全知神。试试问他的学校 / 爱好 / 作品？或者邮件 zihexie95@gmail.com'
+    ],
+    en: [
+      "Hmm… that one's out of my league 😅 But the real Zihe would know — email him: zihexie95@gmail.com",
+      "He never told me that one… Try rephrasing, or just ask him: zihexie95@gmail.com 📮",
+      "I'm a twin, not an oracle 😅 Try asking about his school / hobbies / projects — or email the human: zihexie95@gmail.com"
+    ]
   };
+
+  function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function hit(t, key) {
+    if (/[^\x00-\x7F]/.test(key)) return t.includes(key);      // 中文：子串匹配
+    return new RegExp('(^|[^a-z0-9])' + escRe(key) + '($|[^a-z0-9])').test(t); // 英文：整词匹配
+  }
+  function getReply(text) {
+    const t = text.toLowerCase();
+    let best = null, bestScore = 0;
+    for (const item of KB) {
+      let score = 0;
+      for (const k of item.zhKeys) if (hit(t, k)) score++;
+      for (const k of item.enKeys) if (hit(t, k)) score++;
+      if (score > bestScore) { bestScore = score; best = item; }
+    }
+    if (!best) { const pool = FALLBACK[lang]; return pool[Math.floor(Math.random() * pool.length)]; }
+    const pool = best[lang];
+    return pool[Math.floor(Math.random() * pool.length)];
+  }
+
+  function addBubble(text, fromTwin) {
+    const m = document.createElement('div');
+    m.className = 'msg ' + (fromTwin ? 'a' : 'q');
+    if (fromTwin) {
+      const who = document.createElement('span');
+      who.className = 'who';
+      who.textContent = TWIN_NAME[lang];
+      const body = document.createElement('span');
+      body.textContent = text;
+      m.appendChild(who);
+      m.appendChild(body);
+    } else {
+      m.textContent = text;
+    }
+    chatBox.appendChild(m);
+    chatBox.scrollTop = chatBox.scrollHeight;
+    return m;
+  }
+
+  function showTyping() {
+    const m = document.createElement('div');
+    m.className = 'msg a';
+    const who = document.createElement('span');
+    who.className = 'who';
+    who.textContent = TWIN_NAME[lang];
+    const body = document.createElement('span');
+    body.className = 'typing-dots';
+    body.textContent = '…';
+    m.appendChild(who);
+    m.appendChild(body);
+    chatBox.appendChild(m);
+    chatBox.scrollTop = chatBox.scrollHeight;
+    return m;
+  }
+
+  let busy = false;
   function sendMsg() {
     const text = chatInput.value.trim();
-    if (!text) return;
-    const q = document.createElement('div');
-    q.className = 'msg q'; q.textContent = text;
-    chatBox.appendChild(q);
-    const a = document.createElement('div');
-    a.className = 'msg a';
-    const who = document.createElement('span');
-    who.className = 'who'; who.textContent = lang === 'zh' ? '子赫的分身' : 'ZIHE\'S TWIN';
-    const body = document.createElement('span');
-    body.textContent = reply[lang];
-    a.appendChild(who); a.appendChild(body);
-    chatBox.appendChild(a);
+    if (!text || busy) return;
+    addBubble(text, false);
     chatInput.value = '';
-    a.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    busy = true;
+    chatSend.disabled = true;
+    chatInput.disabled = true;
+    const typing = showTyping();
+    const answer = getReply(text);
+    const wait = Math.min(1500, 480 + answer.length * 5);
+    setTimeout(() => {
+      typing.remove();
+      addBubble(answer, true);
+      busy = false;
+      chatSend.disabled = false;
+      chatInput.disabled = false;
+      chatInput.focus();
+    }, wait);
   }
+
+  // 快捷提问 chips（带 data-zh / data-en，可随右上角语言按钮自动切换文案）
+  const CHIPS = [
+    { zh: '子赫平时喜欢做什么？', en: 'What does Zihe like to do?' },
+    { zh: '他是个什么样的人？', en: 'What kind of person is he?' },
+    { zh: '能介绍一下他的项目吗？', en: 'Tell me about his projects.' },
+    { zh: '他的座右铭是什么？', en: "What's his motto?" },
+    { zh: '他在哪个学校读书？', en: 'Where does he study?' },
+    { zh: '怎么联系他？', en: 'How can I contact him?' }
+  ];
+  function buildChips() {
+    CHIPS.forEach(c => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('data-zh', c.zh);
+      btn.setAttribute('data-en', c.en);
+      btn.textContent = lang === 'zh' ? c.zh : c.en;
+      quickChips.appendChild(btn);
+    });
+  }
+  quickChips.addEventListener('click', e => {
+    const btn = e.target.closest('button');
+    if (!btn || busy) return;
+    chatInput.value = btn.dataset[lang];
+    sendMsg();
+  });
+
   chatSend.addEventListener('click', sendMsg);
   chatInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendMsg(); });
+  buildChips();
+  chatBox.scrollTop = chatBox.scrollHeight;
 </script>
 </body>
 </html>
