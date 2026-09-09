@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>谢子赫 Zihe Xie · Project Playground</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #ffd63d; color: #111; line-height: 1.7;
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 4vw; background: #ffd63d; border-bottom: 3px solid #111;
+  }
+  .logo {
+    font-weight: 900; font-size: 1.1rem; color: #111; text-decoration: none;
+    background: #fff; border: 3px solid #111; padding: 4px 14px;
+    box-shadow: 4px 4px 0 #111; transform: rotate(-2deg); letter-spacing: 1px;
+  }
+  .logo em { font-style: normal; color: #ff6b9d; }
+  .nav-right { display: flex; gap: 8px; align-items: center; }
+  .nav-right a.menu {
+    color: #111; text-decoration: none; font-size: .9rem; font-weight: 700;
+    padding: 6px 12px; border: 3px solid transparent; transition: all .15s;
+  }
+  .nav-right a.menu:hover { background: #fff; border-color: #111; box-shadow: 3px 3px 0 #111; }
+  .nav-cta {
+    color: #fff; text-decoration: none; font-weight: 800; font-size: .88rem;
+    background: #4d96ff; border: 3px solid #111; padding: 7px 18px;
+    box-shadow: 3px 3px 0 #111; transition: all .12s; margin-left: 6px;
+  }
+  .nav-cta:hover { transform: translate(2px,2px); box-shadow: 1px 1px 0 #111; }
+  .lang-toggle {
+    font-weight: 800; font-size: .85rem; cursor: pointer; font-family: inherit;
+    color: #fff; background: #111; border: 3px solid #111;
+    padding: 7px 14px; box-shadow: 3px 3px 0 rgba(0,0,0,.35); transition: all .12s;
+  }
+  .lang-toggle:hover { transform: translate(2px,2px); box-shadow: 1px 1px 0 rgba(0,0,0,.35); }
+
+  .wrap { max-width: 980px; margin: 0 auto; padding: 120px 5vw 70px; }
+  .box {
+    background: #fff; border: 3px solid #111; box-shadow: 8px 8px 0 #111;
+    padding: 36px 40px; margin-bottom: 36px;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .box:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 0 #111; }
+  h2.sec { font-size: 1.6rem; font-weight: 900; margin: 0 0 22px; }
+  h2.sec .bar { display: inline-block; width: 14px; height: 28px; margin-right: 10px; vertical-align: -4px; }
+  .sec-note { font-weight: 600; font-size: .92rem; margin: -12px 0 22px; }
+
+  header.box { background: #ff6b9d; transform: rotate(-.6deg); }
+  header.box:hover { transform: rotate(-.6deg) translate(-3px, -3px); }
+  .sticker {
+    display: inline-block; background: #111; color: #ffd63d; font-weight: 800;
+    font-size: .8rem; letter-spacing: 2px; padding: 6px 14px; transform: rotate(2deg);
+    margin-bottom: 22px;
+  }
+  h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 900; letter-spacing: 1px; line-height: 1.15; }
+  h1 span { background: #fff; padding: 0 16px; box-shadow: 5px 5px 0 #111; display: inline-block; border: 3px solid #111; }
+  .intro { margin-top: 24px; font-size: 1.08rem; font-weight: 600; max-width: 760px; }
+  .intro mark { background: #4d96ff; color: #fff; padding: 1px 8px; }
+  .hero-tags { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .hero-tags span {
+    background: #fff; border: 3px solid #111; font-weight: 700; font-size: .85rem;
+    padding: 5px 14px; box-shadow: 3px 3px 0 #111;
+  }
+  .cta { margin-top: 28px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .cta a {
+    font-weight: 800; text-decoration: none; color: #111; font-size: .95rem;
+    background: #fff; border: 3px solid #111; padding: 12px 26px; box-shadow: 5px 5px 0 #111;
+    transition: all .12s;
+  }
+  .cta a:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 #111; }
+  .cta a.blue { background: #4d96ff; color: #fff; }
+
+  .project { position: relative; overflow: hidden; }
+  .project.pink { background: #ffc6ff; transform: rotate(.35deg); }
+  .project.green { background: #d8f8d3; transform: rotate(-.35deg); }
+  .project.pink:hover { transform: rotate(.35deg) translate(-3px,-3px); }
+  .project.green:hover { transform: rotate(-.35deg) translate(-3px,-3px); }
+  .project h2.sec .bar { background: #111; }
+  .todo-tag {
+    display: inline-block; margin-left: 10px; vertical-align: 3px;
+    background: #111; color: #ffd63d; font-size: .72rem; font-weight: 800;
+    letter-spacing: 1px; padding: 4px 10px; transform: rotate(-1deg);
+  }
+  .project-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 22px; align-items: start; }
+  .card {
+    background: #fff; border: 3px solid #111; box-shadow: 6px 6px 0 #111; padding: 24px 26px;
+  }
+  .card h3 { font-size: 1.25rem; font-weight: 900; margin-bottom: 10px; }
+  .tag {
+    display: inline-block; background: #111; color: #ffd63d; font-size: .72rem; font-weight: 800;
+    letter-spacing: 2px; padding: 4px 12px; margin: 8px 0 16px;
+  }
+  .spec-list { display: grid; gap: 12px; margin-top: 14px; }
+  .spec {
+    border: 3px solid #111; background: #fff8e8; box-shadow: 4px 4px 0 #111; padding: 12px 14px;
+  }
+  .spec .k { font-size: .76rem; font-weight: 900; letter-spacing: 2px; color: #4d96ff; margin-bottom: 4px; }
+  .spec .v { font-weight: 650; font-size: .95rem; }
+  .mini-note { margin-top: 14px; font-size: .8rem; font-weight: 800; letter-spacing: 1px; color: #555; }
+
+  .photo-board { display: grid; gap: 14px; }
+  .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .photo-slot {
+    position: relative; min-height: 150px; border: 3px dashed #111; background:
+      linear-gradient(45deg, rgba(77,150,255,.12) 25%, transparent 25%) -14px 0/28px 28px,
+      linear-gradient(-45deg, rgba(77,150,255,.12) 25%, transparent 25%) -14px 0/28px 28px,
+      linear-gradient(45deg, transparent 75%, rgba(77,150,255,.12) 75%) -14px 0/28px 28px,
+      linear-gradient(-45deg, transparent 75%, rgba(77,150,255,.12) 75%) -14px 0/28px 28px,
+      #fff;
+    box-shadow: 5px 5px 0 #111; display: grid; place-items: center; text-align: center; padding: 18px;
+  }
+  .photo-slot.big { grid-column: 1 / -1; min-height: 240px; background-color: #fff8e8; }
+  .photo-slot .num {
+    position: absolute; top: 10px; left: 10px; background: #111; color: #ffd63d;
+    font-weight: 900; font-size: .78rem; padding: 3px 10px; letter-spacing: 1px;
+  }
+  .photo-slot .txt { font-weight: 850; font-size: .92rem; }
+  .photo-slot .sub { display: block; margin-top: 6px; font-size: .76rem; font-weight: 750; color: #666; letter-spacing: 1px; }
+  .photo-slot.real { padding: 0; border-style: solid; background: #fff; overflow: hidden; }
+  .photo-slot.real img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo-slot.real .num { z-index: 2; }
+  .photo-slot.real .cap {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+    background: rgba(17,17,17,.85); color: #ffd63d; font-weight: 800;
+    font-size: .78rem; letter-spacing: 1px; padding: 8px 12px; text-align: left;
+  }
+  .photo-slot.filled { position: relative; overflow: hidden; padding: 0; border-style: solid; background: #fff; }
+  .photo-slot.filled img.photo-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo-slot.filled .num { z-index: 2; }
+  .replace-tip {
+    border: 3px solid #111; background: #ffd63d; box-shadow: 5px 5px 0 #111;
+    padding: 12px 16px; font-weight: 850; font-size: .88rem;
+  }
+
+  .next { background: #fff; text-align: center; }
+  .next h2.sec .bar { background: #ff6b9d; }
+  .next .big-action {
+    display: inline-block; margin-top: 20px; font-weight: 900; font-size: 1.05rem; color: #111;
+    text-decoration: none; background: #ffd63d; border: 3px solid #111; padding: 14px 30px;
+    box-shadow: 6px 6px 0 #111; transition: all .12s;
+  }
+  .next .big-action:hover { transform: translate(3px,3px); box-shadow: 3px 3px 0 #111; }
+
+  footer { text-align: center; font-weight: 800; font-size: .85rem; letter-spacing: 1px; }
+  footer .ver { background: #111; color: #ffd63d; padding: 2px 10px; margin-left: 6px; }
+
+  .media-video {
+    grid-column: 1 / -1; border: 3px solid #111; background: #111;
+    box-shadow: 5px 5px 0 #111; overflow: hidden; position: relative;
+  }
+  .media-video video { display: block; width: 100%; max-height: 440px; background: #000; object-fit: contain; }
+  .media-video .vcap {
+    display: flex; align-items: center; gap: 6px; background: rgba(17,17,17,.88);
+    color: #ffd63d; font-weight: 800; font-size: .78rem; letter-spacing: 1px; padding: 8px 12px;
+  }
+  @media (max-width: 760px) {
+    .nav-right a.menu { display: none; }
+    .wrap { padding-top: 100px; }
+    .box { padding: 28px 22px; }
+    .project-grid { grid-template-columns: 1fr; }
+    .photo-grid { grid-template-columns: 1fr; }
+    .photo-slot.big { grid-column: auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#top">ZX<em>!</em></a>
+  <div class="nav-right">
+    <a class="menu" href="#robotics" data-zh="机器人比赛" data-en="Robotics">机器人比赛</a>
+    <a class="menu" href="#arm" data-zh="机械臂" data-en="Robot Arm">机械臂</a>
+    <a class="nav-cta" href="index.html" data-zh="返回个人主页" data-en="Back to Homepage">返回个人主页</a>
+    <button class="lang-toggle" id="langToggle">EN</button>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
+
+  <header class="box">
+    <span class="sticker" data-zh="★ 项目展示页 ★" data-en="★ PROJECT PLAYGROUND ★">★ 项目展示页 ★</span>
+    <h1><span data-zh="项目游乐场" data-en="PROJECT PLAYGROUND">项目游乐场</span></h1>
+            <p class="intro" data-zh="这里放了两个项目板块：高中机器人比赛、具身智能双机械臂。机器人比赛已放入 2 张现场照片；机械臂板块已放入遥控演示视频，只差 1 张实验照片。" data-en="Two project sections live here: the high-school robotics competition and embodied-AI dual robot arms. Robotics has 2 on-site photos; the arm section has the teleop demo video and needs just 1 experiment photo.">这里放了两个项目板块：高中机器人比赛、具身智能双机械臂。机器人比赛已放入 2 张现场照片；机械臂板块已放入遥控演示视频，只差 1 张实验照片。</p>
+    <div class="hero-tags">
+      <span data-zh="① 高中机器人比赛" data-en="① High-school Robotics">① 高中机器人比赛</span>
+      <span data-zh="② 具身智能机械臂" data-en="② Embodied Robot Arm">② 具身智能机械臂</span>
+      <span data-zh="风格：新粗野主义 · 活泼贴纸" data-en="Style: Neo-brutalism · Playful stickers">风格：新粗野主义 · 活泼贴纸</span>
+    </div>
+    <div class="cta">
+      <a class="blue" href="#robotics" data-zh="先看机器人比赛 →" data-en="Jump to robotics →">先看机器人比赛 →</a>
+      <a href="#arm" data-zh="再看机械臂 →" data-en="Then robot arm →">再看机械臂 →</a>
+    </div>
+  </header>
+
+  <section class="box project pink" id="robotics">
+    <h2 class="sec"><span class="bar"></span><span data-zh="板块一 · 高中机器人比赛" data-en="Section 01 · High-school Robotics Competition">板块一 · 高中机器人比赛</span><span class="todo-tag" data-zh="文字已更新 · 已补 2 张现场照片" data-en="TEXT UPDATED · 2 PHOTOS ADDED">文字已更新 · 已补 2 张现场照片</span></h2>
+        <p class="sec-note" data-zh="比赛经历已更新为合肥市科技创新比赛；2 张现场照片已放入（IMG 01 主图 / IMG 02 小车）。" data-en="Updated with the Hefei Sci-Tech Innovation Competition story; 2 on-site photos are in (IMG 01 main / IMG 02 car).">比赛经历已更新为合肥市科技创新比赛；2 张现场照片已放入（IMG 01 主图 / IMG 02 小车）。</p>
+
+    <div class="project-grid">
+      <article class="card">
+        <h3 data-zh="比赛项目档案" data-en="Competition Project File">比赛项目档案</h3><br>
+        <span class="tag">ROBOTICS / HIGH SCHOOL</span>
+        <div class="spec-list">
+          <div class="spec">
+            <p class="k" data-zh="比赛名称" data-en="COMPETITION">比赛名称</p>
+            <p class="v" data-zh="合肥市科技创新比赛 · 现场制作一辆靠钮子开关自动返航的小车" data-en="Hefei Sci-Tech Innovation Competition — on-site build of a toggle-switch auto-return car">合肥市科技创新比赛 · 现场制作一辆靠钮子开关自动返航的小车</p>
+          </div>
+          <div class="spec">
+            <p class="k" data-zh="我的角色" data-en="MY ROLE">我的角色</p>
+            <p class="v" data-zh="队员 / 动手实现：结构搭建到现场调试，把方案做成能跑的作品" data-en="Team member / hands-on: from structure build to on-site tuning, turning the plan into a working robot">队员 / 动手实现：结构搭建到现场调试，把方案做成能跑的作品</p>
+          </div>
+          <div class="spec">
+            <p class="k" data-zh="任务与方案" data-en="MISSION & APPROACH">任务与方案</p>
+            <p class="v" data-zh="两个指标：先完赛、再尽量轻；用钮子开关触发自动返航，减少现场干预" data-en="Two goals: finish the run first, then keep it light; a toggle switch triggers auto-return to cut manual intervention">两个指标：先完赛、再尽量轻；用钮子开关触发自动返航，减少现场干预</p>
+          </div>
+          <div class="spec">
+            <p class="k" data-zh="结果与收获" data-en="RESULT & LEARNING">结果与收获</p>
+            <p class="v" data-zh="学会在「能完成」与「更轻量」之间做取舍，也练到了动手与焊锡" data-en="Learned to balance finishing vs. lightness — and sharpened hands-on and soldering skills">学会在「能完成」与「更轻量」之间做取舍，也练到了动手与焊锡</p>
+          </div>
+        </div>
+        <p class="mini-note" data-zh="已更新为真实比赛经历；2 张现场照片已放入 IMG 01 / IMG 02。" data-en="Updated with the real competition story; 2 on-site photos are in IMG 01 / IMG 02.">已更新为真实比赛经历；2 张现场照片已放入 IMG 01 / IMG 02。</p>
+      </article>
+
+      <aside class="photo-board">
+        <div class="replace-tip" data-zh="📷 已放入 2 张现场照片（IMG 01 主图 / IMG 02 小车）。" data-en="📷 2 on-site photos added (IMG 01 main / IMG 02 car).">📷 已放入 2 张现场照片（IMG 01 主图 / IMG 02 小车）。</div>
+        <div class="photo-grid">
+          <!-- 现场照片 1（2026-09-09 插入）：机器人整机 / 赛场 -->
+          <div class="photo-slot big filled">
+            <span class="num">IMG 01</span>
+            <img class="photo-img" src="personal-projects-images/robot-comp-1.jpg" alt="合肥市科技创新比赛现场照片 1" loading="lazy">
+          </div>
+          <!-- 现场照片 2（2026-09-09 插入）：比赛 / 小车照片 -->
+          <div class="photo-slot big filled">
+            <span class="num">IMG 02</span>
+            <img class="photo-img" src="personal-projects-images/robot-comp-2.jpg" alt="合肥市科技创新比赛现场照片 2" loading="lazy">
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 板块二 · 具身智能双机械臂（2026-09-09 更新：文字精简，已放入遥控演示视频，仅留 1 个图片位） -->
+  <section class="box project green" id="arm">
+    <h2 class="sec"><span class="bar"></span><span data-zh="板块二 · 具身智能双机械臂" data-en="Section 02 · Embodied-AI Dual Robot Arms">板块二 · 具身智能双机械臂</span><span class="todo-tag" data-zh="✅ 已更新 · 演示视频已放入" data-en="UPDATED · DEMO VIDEO IN">✅ 已更新 · 演示视频已放入</span></h2>
+    <p class="sec-note" data-zh="双机械臂主从遥控已完成并通过实机验证；现在在硬件不变的前提下，用「数据 + 算法」低成本提升定位精度。" data-en="Dual-arm master–slave teleop is done and verified on the real rig; now raising positioning precision with data + algorithms — no new hardware, near-zero extra cost.">双机械臂主从遥控已完成并通过实机验证；现在在硬件不变的前提下，用「数据 + 算法」低成本提升定位精度。</p>
+
+    <div class="project-grid">
+      <article class="card">
+        <h3 data-zh="双机械臂项目档案" data-en="Dual-Arm Project File">双机械臂项目档案</h3><br>
+        <span class="tag">EMBODIED AI / DUAL-ARM TELEOP</span>
+        <div class="spec-list">
+          <div class="spec">
+            <p class="k" data-zh="设备与场景" data-en="DEVICE & SCENE">设备与场景</p>
+            <p class="v" data-zh="双 SO-ARM101 六自由度机械臂主从系统（STS3215 总线舵机，Python 驱动），固定桌面工位，面向实验室自动采样 / 重复定位。" data-en="A master–slave pair of SO-ARM101 6-DOF arms (STS3215 bus servos, Python driver) on a fixed bench, aimed at automated lab sampling / re-positioning.">双 SO-ARM101 六自由度机械臂主从系统（STS3215 总线舵机，Python 驱动），固定桌面工位，面向实验室自动采样 / 重复定位。</p>
+          </div>
+          <div class="spec">
+            <p class="k" data-zh="已完成 · 主从遥控" data-en="DONE · MASTER–SLAVE TELEOP">已完成 · 主从遥控</p>
+            <p class="v" data-zh="握主臂演示，从臂约 30 Hz 实时复现；相对增量映射防多圈跳变，支持幅度 / 镜像 / 限速。真机验证通过（见右侧视频）。" data-en="Hold the leader and the follower replays at ~30 Hz; relative-increment mapping prevents multi-turn jumps, with gain / mirror / speed-limit controls. Verified on real arms (see the video).">握主臂演示，从臂约 30 Hz 实时复现；相对增量映射防多圈跳变，支持幅度 / 镜像 / 限速。真机验证通过（见右侧视频）。</p>
+          </div>
+          <div class="spec">
+            <p class="k" data-zh="当前课题 · 低成本提精度" data-en="NOW · LOW-COST PRECISION">当前课题 · 低成本提精度</p>
+            <p class="v" data-zh="硬件固定下先消系统误差（零点 / 运动学 / 回差 → 数据标定），再压随机噪声（反馈 / 平均）。路线：偏置标定 → 残差建模 → ILC → 单目视觉闭环；用可重复度 σ / CV 量化。" data-en="With hardware fixed: kill systematic bias (zero-point / kinematics / backlash) via calibration, then push down noise via feedback / averaging. Ladder: offset calibration → residual modeling → ILC → monocular vision loop; quantified by repeatability σ / CV.">硬件固定下先消系统误差（零点 / 运动学 / 回差 → 数据标定），再压随机噪声（反馈 / 平均）。路线：偏置标定 → 残差建模 → ILC → 单目视觉闭环；用可重复度 σ / CV 量化。</p>
+          </div>
+          <div class="spec">
+            <p class="k" data-zh="结果与下一步" data-en="RESULT & NEXT">结果与下一步</p>
+            <p class="v" data-zh="误差分类、量化指标与两版实验方案已就绪；墨点测量脚本已真图验证（≤ 0.13 mm）。下一步上机采数，出「误差 vs 数据量」学习曲线。" data-en="Error taxonomy, metrics and two experiment plans are ready; the ink-dot measurement script is validated on real photos (≤ 0.13 mm). Next: collect on-rig data and plot the error-vs-data learning curve.">误差分类、量化指标与两版实验方案已就绪；墨点测量脚本已真图验证（≤ 0.13 mm）。下一步上机采数，出「误差 vs 数据量」学习曲线。</p>
+          </div>
+        </div>
+        <p class="mini-note" data-zh="进展：遥控完成、低成本精度课题已立项出方案；媒体位仅剩 1 张照片待补。" data-en="Status: teleop done, low-cost precision study scoped with a plan; only 1 photo slot left.">进展：遥控完成、低成本精度课题已立项出方案；媒体位仅剩 1 张照片待补。</p>
+      </article>
+
+      <aside class="photo-board">
+        <div class="replace-tip" data-zh="🎬 遥控演示视频已放入（下方可播放）；还差 1 张实验 / 数据照片。" data-en="🎬 The teleop demo video is in (play below); 1 experiment / data photo still needed.">🎬 遥控演示视频已放入（下方可播放）；还差 1 张实验 / 数据照片。</div>
+        <div class="photo-grid">
+          <!-- 遥控演示视频（2026-09-09 放入）：主从双机械臂实拍 -->
+          <figure class="media-video">
+            <video controls preload="metadata" poster="personal-projects-images/robot-arm-teleop-poster.jpg">
+              <source src="personal-projects-images/robot-arm-teleop.mp4" type="video/mp4">
+              你的浏览器不支持 video 标签。
+            </video>
+            <figcaption class="vcap">▶ <span data-zh="主从遥控演示（双机械臂实拍）" data-en="Master–slave teleop demo (real dual arms)">主从遥控演示（双机械臂实拍）</span></figcaption>
+          </figure>
+          <!-- 待补：唯一图片位（实验 / 数据截图） -->
+          <div class="photo-slot big">
+            <span class="num">IMG 01</span>
+            <p class="txt"><span data-zh="实验照片 / 数据截图占位" data-en="Experiment photo / data screenshot placeholder">实验照片 / 数据截图占位</span><span class="sub" data-zh="建议：点墨落点照片或精度学习曲线" data-en="Best: ink-dot landing photo or precision learning curve">建议：点墨落点照片或精度学习曲线</span></p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="box next" id="next">
+    <h2 class="sec"><span class="bar"></span><span data-zh="下一步" data-en="Next Step">下一步</span></h2>
+                <p data-zh="两个板块的文字都已是真实经历。机器人比赛已放 2 张现场照片；机械臂板块已放入遥控演示视频。还差：机械臂的 1 张实验 / 数据照片，发我后替换占位，并把本页接进个人主页「项目链接」。" data-en="Both sections carry real stories. Robotics has 2 on-site photos; the arm section has the teleop demo video. Still needed: 1 experiment / data photo for the arm — send it and I will replace the last placeholder and wire this page into the homepage project links.">两个板块的文字都已是真实经历。机器人比赛已放 2 张现场照片；机械臂板块已放入遥控演示视频。还差：机械臂的 1 张实验 / 数据照片，发我后替换占位，并把本页接进个人主页「项目链接」。</p>
+    <a class="big-action" href="index.html" data-zh="返回个人主页" data-en="Back to Personal Homepage">返回个人主页</a>
+  </section>
+
+  <footer>
+    <span data-zh="© " data-en="© ">© </span><span id="year">2026</span><span data-zh=" 谢子赫 · PROJECT PLAYGROUND" data-en=" ZIHE XIE · PROJECT PLAYGROUND"> 谢子赫 · PROJECT PLAYGROUND</span><span class="ver">P0.3</span>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const urlLang = new URLSearchParams(location.search).get('lang');
+  let lang = (urlLang === 'zh' || urlLang === 'en') ? urlLang : (localStorage.getItem('zx-projects-lang') || 'zh');
+  const toggleBtn = document.getElementById('langToggle');
+
+  function applyLang(l) {
+    document.querySelectorAll('[data-zh]').forEach(el => {
+      const txt = el.getAttribute('data-' + l);
+      if (txt !== null) el.textContent = txt;
+    });
+    document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en';
+    toggleBtn.textContent = l === 'zh' ? 'EN' : '中';
+    localStorage.setItem('zx-projects-lang', l);
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    lang = lang === 'zh' ? 'en' : 'zh';
+    applyLang(lang);
+  });
+  applyLang(lang);
+</script>
+</body>
+</html>
