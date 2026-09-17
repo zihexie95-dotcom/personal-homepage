@@ -200,25 +200,32 @@
     <h2 class="sec"><span class="bar" style="background:#6bcb77;"></span><span data-zh="写点什么" data-en="Write something">写点什么</span></h2>
 
     <form id="fbForm" novalidate>
-      <p class="sub" data-zh="// 反馈类型" data-en="// TYPE">// 反馈类型</p>
+      <label class="f-label" for="fbNickname" data-zh="你的昵称" data-en="Your nickname">你的昵称</label>
+      <input class="f-input" id="fbNickname" type="text" autocomplete="nickname" data-zh-ph="例如：小明" data-en-ph="e.g. Alex" placeholder="例如：小明">
+
+      <p class="sub" data-zh="// 你和我的关系" data-en="// RELATION">// 你和我的关系</p>
       <div class="fb-type">
-        <label><input type="radio" name="fbType" value="suggest" checked><span data-zh="💡 建议" data-en="💡 Suggestion">💡 建议</span></label>
-        <label><input type="radio" name="fbType" value="bug"><span data-zh="🐛 纠错" data-en="🐛 Bug report">🐛 纠错</span></label>
-        <label><input type="radio" name="fbType" value="like"><span data-zh="👍 点赞" data-en="👍 Praise">👍 点赞</span></label>
-        <label><input type="radio" name="fbType" value="other"><span data-zh="💬 其他" data-en="💬 Other">💬 其他</span></label>
+        <label><input type="radio" name="relation" value="同学" checked><span data-zh="🎓 同学" data-en="🎓 Classmate">🎓 同学</span></label>
+        <label><input type="radio" name="relation" value="老师"><span data-zh="👩‍🏫 老师" data-en="👩‍🏫 Teacher">👩‍🏫 老师</span></label>
+        <label><input type="radio" name="relation" value="朋友"><span data-zh="🤝 朋友" data-en="🤝 Friend">🤝 朋友</span></label>
+        <label><input type="radio" name="relation" value="家人"><span data-zh="🏠 家人" data-en="🏠 Family">🏠 家人</span></label>
+        <label><input type="radio" name="relation" value="同事"><span data-zh="💼 同事" data-en="💼 Colleague">💼 同事</span></label>
+        <label><input type="radio" name="relation" value="陌生人"><span data-zh="👤 陌生人" data-en="👤 Stranger">👤 陌生人</span></label>
+        <label><input type="radio" name="relation" value="其他"><span data-zh="✨ 其他" data-en="✨ Other">✨ 其他</span></label>
       </div>
 
-      <label class="f-label" for="fbName" data-zh="你的称呼（可选）" data-en="Your name (optional)">你的称呼（可选）</label>
-      <input class="f-input" id="fbName" type="text" autocomplete="name" data-zh-ph="例如：小明" data-en-ph="e.g. Alex" placeholder="例如：小明">
+      <p class="sub" data-zh="// 你用什么设备看" data-en="// DEVICE">// 你用什么设备看</p>
+      <div class="fb-type">
+        <label><input type="radio" name="device" value="手机" checked><span data-zh="📱 手机" data-en="📱 Phone">📱 手机</span></label>
+        <label><input type="radio" name="device" value="电脑"><span data-zh="💻 电脑" data-en="💻 Computer">💻 电脑</span></label>
+        <label><input type="radio" name="device" value="平板"><span data-zh="📟 平板" data-en="📟 Tablet">📟 平板</span></label>
+      </div>
 
-      <label class="f-label" for="fbContact" data-zh="联系方式（可选，方便我回复）" data-en="Contact (optional, so I can reply)">联系方式（可选，方便我回复）</label>
-      <input class="f-input" id="fbContact" type="text" autocomplete="off" data-zh-ph="邮箱 / 微信 / 手机号都可以" data-en-ph="Email / WeChat / phone — anything" placeholder="邮箱 / 微信 / 手机号都可以">
+      <label class="f-label" for="fbIssue" data-zh="发现的问题 / 想说的话（必填）" data-en="The issue / your message (required)">发现的问题 / 想说的话（必填）</label>
+      <textarea class="f-input f-area" id="fbIssue" rows="6" data-zh-ph="比如：手机上看首页有个按钮点不动～" data-en-ph="e.g. The homepage button doesn't work on mobile~" placeholder="比如：手机上看首页有个按钮点不动～"></textarea>
 
-      <label class="f-label" for="fbMsg" data-zh="想说的话（必填）" data-en="Your message (required)">想说的话（必填）</label>
-      <textarea class="f-input f-area" id="fbMsg" rows="6" data-zh-ph="尽管写，长短都欢迎～" data-en-ph="Go on, any length is welcome~" placeholder="尽管写，长短都欢迎～"></textarea>
-
-      <button class="fb-submit" type="submit" data-zh="📮 发送反馈" data-en="📮 Send feedback">📮 发送反馈</button>
-      <p class="fb-hint" id="fbHint" data-zh="点提交后会打开你的邮件客户端，把意见发到 zihexie95@gmail.com" data-en="Submit opens your email app and sends your note to zihexie95@gmail.com">点提交后会打开你的邮件客户端，把意见发到 zihexie95@gmail.com</p>
+      <button class="fb-submit" type="submit" data-zh="📮 提交反馈" data-en="📮 Send feedback">📮 提交反馈</button>
+      <p class="fb-hint" id="fbHint" data-zh="提交后我会在后台看到，谢谢你 🙏" data-en="I'll see it in my dashboard, thanks 🙏">提交后我会在后台看到，谢谢你 🙏</p>
     </form>
   </section>
 
@@ -233,7 +240,7 @@
 <footer>
   <div><a href="index.html" class="foot-back" data-zh="← 返回个人主页" data-en="← Back to homepage">← 返回个人主页</a></div>
   <div>
-    <span data-zh="© " data-en="© ">© </span><span id="year">2026</span><span data-zh=" 谢子赫 · 用 VIBE CODING 构建" data-en=" ZIHE XIE · BUILT WITH VIBE CODING"> 谢子赫 · 用 VIBE CODING 构建</span><span class="ver">V1.6</span>
+    <span data-zh="© " data-en="© ">© </span><span id="year">2026</span><span data-zh=" 谢子赫 · 用 VIBE CODING 构建" data-en=" ZIHE XIE · BUILT WITH VIBE CODING"> 谢子赫 · 用 VIBE CODING 构建</span><span class="ver">V1.7</span>
   </div>
 </footer>
 
@@ -265,47 +272,73 @@
   });
   applyLang(lang);
 
-  // ---- 反馈提交：纯静态站用 mailto 组装邮件 ----
-  const TYPE = {
-    suggest: { zh: '建议', en: 'Suggestion' },
-    bug:     { zh: '纠错', en: 'Bug report' },
-    like:    { zh: '点赞', en: 'Praise' },
-    other:   { zh: '其他', en: 'Other' }
-  };
+  // ---- 反馈提交：POST 到 Supabase（访客只能 insert，RLS 已限制）----
+  const SUPABASE_URL = 'https://cklumlxbkctktamzubqk.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_OdLPofft3O0bPcPQKLbx8w_glteEpyr';
+
   const fbForm = document.getElementById('fbForm');
   const fbHint = document.getElementById('fbHint');
+  const submitBtn = document.querySelector('.fb-submit');
+  const submitLabel = { zh: '📮 提交反馈', en: '📮 Send feedback' };
 
-  fbForm.addEventListener('submit', (e) => {
+  fbForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name = document.getElementById('fbName').value.trim();
-    const contact = document.getElementById('fbContact').value.trim();
-    const msgEl = document.getElementById('fbMsg');
-    const msg = msgEl.value.trim();
 
-    if (!msg) {
-      msgEl.focus();
+    const nicknameEl = document.getElementById('fbNickname');
+    const issueEl = document.getElementById('fbIssue');
+    const nickname = nicknameEl.value.trim();
+    const issue = issueEl.value.trim();
+
+    if (!nickname) {
+      nicknameEl.focus();
+      fbHint.textContent = lang === 'zh' ? '⚠️ 先告诉我你的昵称～' : '⚠️ Please tell me your nickname~';
+      fbHint.classList.remove('ok'); fbHint.classList.add('err');
+      return;
+    }
+    if (!issue) {
+      issueEl.focus();
       fbHint.textContent = lang === 'zh'
-        ? '⚠️ 意见内容还是空的，写点什么再发送吧～'
+        ? '⚠️ 问题/想说的话还是空的，写点什么再提交吧～'
         : '⚠️ Your message is empty — write something first~';
-      fbHint.classList.remove('ok');
-      fbHint.classList.add('err');
+      fbHint.classList.remove('ok'); fbHint.classList.add('err');
       return;
     }
 
-    const typeKey = document.querySelector('input[name="fbType"]:checked').value;
-    const typeLabel = TYPE[typeKey][lang];
-    const subject = encodeURIComponent(`[主页反馈] ${typeLabel}${name ? ' · ' + name : ''}`);
-    const body = encodeURIComponent(
-      `类型：${typeLabel}\n称呼：${name || '（未留名）'}\n联系方式：${contact || '（未留）'}\n\n意见/建议：\n${msg}`
-    );
+    const relation = document.querySelector('input[name="relation"]:checked').value;
+    const device = document.querySelector('input[name="device"]:checked').value;
 
+    submitBtn.disabled = true;
+    submitBtn.textContent = lang === 'zh' ? '⏳ 提交中…' : '⏳ Sending…';
     fbHint.classList.remove('err');
-    fbHint.classList.add('ok');
-    fbHint.textContent = lang === 'zh'
-      ? '📨 已为你打开邮件客户端；若没弹出，请手动发到 zihexie95@gmail.com'
-      : '📨 Opened your email app; if not, email zihexie95@gmail.com manually';
 
-    window.location.href = `mailto:zihexie95@gmail.com?subject=${subject}&body=${body}`;
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/feedback`, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ nickname: nickname, relation: relation, device: device, issue: issue })
+      });
+
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+
+      fbHint.classList.add('ok');
+      fbHint.textContent = lang === 'zh'
+        ? '✅ 已收到，谢谢你！每一条我都会认真看 🙌'
+        : '✅ Got it, thanks! I read every one 🙌';
+      fbForm.reset();
+    } catch (err) {
+      fbHint.classList.add('err');
+      fbHint.textContent = lang === 'zh'
+        ? '😥 提交失败，请稍后再试，或直接发邮件到 zihexie95@gmail.com'
+        : '😥 Failed to submit. Try again, or email zihexie95@gmail.com';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = submitLabel[lang];
+    }
   });
 </script>
 </body>
