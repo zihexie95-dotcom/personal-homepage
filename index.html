@@ -75,8 +75,8 @@
   }
   .hero-tags { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
   .hero-tags span {
-    background: #fff; border: 3px solid #111; font-weight: 700; font-size: .85rem;
-    padding: 5px 14px; box-shadow: 3px 3px 0 #111;
+    background: #fff; border: 2px dashed #111; border-radius: 999px;
+    font-weight: 700; font-size: .85rem; padding: 4px 14px;
   }
   .cta { margin-top: 28px; display: flex; gap: 16px; flex-wrap: wrap; }
   .cta a {
@@ -109,7 +109,7 @@
   .work-card h3 { font-size: 1.3rem; font-weight: 900; }
   .work-card .tag {
     display: inline-block; background: #111; color: #ffd63d; font-size: .72rem; font-weight: 800;
-    letter-spacing: 2px; padding: 4px 12px; margin: 10px 0 14px;
+    letter-spacing: 2px; padding: 4px 12px; margin: 10px 0 14px; border-radius: 999px;
   }
   .work-card p { font-weight: 500; }
   .work-card .w-link {
@@ -128,10 +128,9 @@
   .skills h2.sec .bar { background: #111; }
   .chips { display: flex; flex-wrap: wrap; gap: 12px; }
   .chips span {
-    background: #fff; border: 3px solid #111; font-weight: 700; font-size: .95rem;
-    padding: 8px 18px; box-shadow: 4px 4px 0 #111; transition: all .12s;
+    background: #fff; border: 2px dashed #111; border-radius: 999px;
+    font-weight: 700; font-size: .95rem; padding: 8px 18px;
   }
-  .chips span:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 #111; }
   .sub { font-weight: 800; font-size: .82rem; letter-spacing: 2px; margin: 18px 0 10px; }
 
   /* ========== 6. 数字分身 ========== */
@@ -191,9 +190,6 @@
     box-shadow: 5px 5px 0 #4d96ff; transition: all .12s;
   }
   .contact .fb-btn:hover { transform: translate(2px,2px); box-shadow: 3px 3px 0 #4d96ff; }
-  .contact .next-note { margin-top: 18px; font-weight: 700; font-size: .9rem; }
-  .contact .next-note a { color: #4d96ff; text-decoration: none; border-bottom: 2px solid #4d96ff; }
-
   /* ========== 8. 页脚 ========== */
   footer { text-align: center; font-weight: 800; font-size: .85rem; letter-spacing: 1px; }
   footer .ver { background: #111; color: #ffd63d; padding: 2px 10px; margin-left: 6px; }
@@ -242,10 +238,10 @@
   <header class="box">
     <span class="sticker" data-zh="★ 个人主页 ★" data-en="★ PERSONAL HOMEPAGE ★">★ 个人主页 ★</span>
     <h1><span data-zh="谢子赫" data-en="ZIHE XIE">谢子赫</span></h1>
-    <p class="intro" id="introText">一名热爱<mark>运动</mark>、喜欢<mark>设计</mark>的计算机学生，正在把想法一个个变成能跑起来的代码。</p>
+    <p class="intro" id="introText">热爱<mark>运动</mark>和<mark>设计</mark>的计算机学生，把想法变成能跑起来的代码。</p>
     <p class="motto"><span data-zh="♟️ 座右铭：落子无悔" data-en="♟️ Motto: Make the move, no regrets">♟️ 座右铭：落子无悔</span></p>
     <div class="hero-tags">
-      <span data-zh="🎓 计算机科学与技术 · 大一" data-en="🎓 CS · Year 1">🎓 计算机科学与技术 · 大一</span>
+      <span data-zh="🎓 计算机 · 大一" data-en="🎓 CS · Year 1">🎓 计算机 · 大一</span>
       <span data-zh="📍 深圳" data-en="📍 Shenzhen">📍 深圳</span>
       <span data-zh="🎨 设计爱好者" data-en="🎨 Design lover">🎨 设计爱好者</span>
       <span data-zh="🏀 控卫 · 塔图姆球迷" data-en="🏀 PG · Tatum fan">🏀 控卫 · 塔图姆球迷</span>
@@ -261,11 +257,11 @@
   <div class="about-grid">
     <div class="about-card c-white">
       <p class="k" data-zh="🎓 身份" data-en="🎓 WHO I AM">🎓 身份</p>
-      <p class="v" data-zh="天津大学·香港理工大学 深圳未来技术学院，计算机科学与技术专业大一在读" data-en="First-year Computer Science student at Shenzhen Future Technology College (Tianjin University × The Hong Kong Polytechnic University)">天津大学·香港理工大学 深圳未来技术学院，计算机科学与技术专业大一在读</p>
+      <p class="v" data-zh="深圳未来技术学院（天津大学 × 香港理工大学），计算机大一在读" data-en="Year 1 CS at Shenzhen Future Technology College (Tianjin University × The Hong Kong Polytechnic University)">深圳未来技术学院（天津大学 × 香港理工大学），计算机大一在读</p>
     </div>
     <div class="about-card c-blue">
       <p class="k" data-zh="🧭 方向" data-en="🧭 FOCUS">🧭 方向</p>
-      <p class="v" data-zh="计算机科学 × 设计：学习用代码把创意变成真实可用的产品" data-en="Computer Science × Design: learning to turn ideas into real, working products with code">计算机科学 × 设计：学习用代码把创意变成真实可用的产品</p>
+      <p class="v" data-zh="计算机 × 设计，用代码把想法做成产品" data-en="CS × Design — turning ideas into real products with code">计算机 × 设计，用代码把想法做成产品</p>
     </div>
     <div class="about-card c-green">
       <p class="k" data-zh="📍 所在城市" data-en="📍 CITY">📍 所在城市</p>
@@ -276,29 +272,29 @@
   <!-- 4. 项目与作品：简介 + 链接 -->
   <h2 class="sec" id="works"><span class="bar" style="background:#4d96ff;"></span><span data-zh="项目与作品" data-en="Projects & Works">项目与作品</span></h2>
   <div class="work-card w-blue">
-    <h3 data-zh="🤖 机器人竞赛 · 太空探测车" data-en="🤖 Robotics Competition · Space Rover">🤖 机器人竞赛 · 太空探测车</h3><br>
+    <h3 data-zh="🤖 太空探测车" data-en="🤖 Space Rover">🤖 太空探测车</h3><br>
     <span class="tag">ROBOTICS / AUTONOMOUS CONTROL</span>
-    <p data-zh="设计并制作了一辆“太空车”：全程自主完成前进任务，无需人工干预；通过钮子开关触发自动返航，顺利回到起点。完成了从结构设计到调试参赛的完整过程。"
-       data-en="Designed and built a 'space rover': it completes its forward run fully autonomously, then triggers an automatic return-to-base sequence through a toggle switch. Full cycle: structure design, building, debugging and competing.">
-       设计并制作了一辆“太空车”：全程自主完成前进任务，无需人工干预；通过钮子开关触发自动返航，顺利回到起点。完成了从结构设计到调试参赛的完整过程。
+    <p data-zh="做了辆“太空车”：全程自主前进，钮子开关触发自动返航回起点。从结构设计到调试参赛全程自己完成。"
+       data-en="Built a 'space rover': fully autonomous forward run, then a toggle switch triggers auto-return to base. Handled design through competing myself.">
+        做了辆“太空车”：全程自主前进，钮子开关触发自动返航回起点。从结构设计到调试参赛全程自己完成。
     </p>
     <a class="w-link" href="personal-projects.html" data-zh="🔗 项目详情 · 项目游乐场" data-en="🔗 Details · Project Playground">🔗 项目详情 · 项目游乐场</a>
   </div>
   <div class="work-card w-pink">
-    <h3 data-zh="🦾 具身智能 · 双机械臂（进行中）" data-en="🦾 Embodied AI · Dual Robot Arms (WIP)">🦾 具身智能 · 双机械臂（进行中）</h3><br>
+    <h3 data-zh="🦾 双机械臂" data-en="🦾 Dual Robot Arms">🦾 双机械臂</h3><br>
     <span class="tag">EMBODIED AI / ROBOT ARM</span>
-    <p data-zh="实验室项目：双机械臂主从遥控已完成并通过实机验证；下一步在硬件不变的前提下，用数据 + 算法低成本提升定位精度。"
-       data-en="Lab project: dual-arm master–slave teleop is done and verified; next I am raising positioning precision with data + algorithms — no new hardware.">
-       实验室项目：双机械臂主从遥控已完成并通过实机验证；下一步在硬件不变的前提下，用数据 + 算法低成本提升定位精度。
+    <p data-zh="实验室项目：双机械臂主从遥控已完成实机验证；正在用数据 + 算法低成本提升定位精度。"
+       data-en="Lab project: dual-arm master–slave teleop is done and verified; now raising positioning precision with data + algorithms — no new hardware.">
+        实验室项目：双机械臂主从遥控已完成实机验证；正在用数据 + 算法低成本提升定位精度。
     </p>
     <a class="w-link" href="personal-projects.html#arm" data-zh="🔗 项目详情 · 项目游乐场" data-en="🔗 Details · Project Playground">🔗 项目详情 · 项目游乐场</a>
   </div>
   <div class="work-card w-green">
-    <h3 data-zh="🌐 个人主页 V1（就是本网站）" data-en="🌐 Personal Homepage V1 (this very site)">🌐 个人主页 V1（就是本网站）</h3><br>
+    <h3 data-zh="🌐 个人主页" data-en="🌐 Personal Homepage">🌐 个人主页</h3><br>
     <span class="tag">WEB / VIBE CODING</span>
-    <p data-zh="我的第一个 Vibe Coding 作品：新粗野主义风格、中英双语、纯手写 HTML/CSS/JS 单文件。经过 6 个风格 Demo 对比后定稿，将持续迭代。"
-       data-en="My first Vibe Coding project: neo-brutalist style, Chinese-English bilingual, single-file hand-written HTML/CSS/JS. Finalized after comparing 6 style demos — and it keeps evolving.">
-       我的第一个 Vibe Coding 作品：新粗野主义风格、中英双语、纯手写 HTML/CSS/JS 单文件。经过 6 个风格 Demo 对比后定稿，将持续迭代。
+    <p data-zh="我的第一个 Vibe Coding 作品：新粗野主义风格、中英双语、纯手写单文件，持续迭代中。"
+       data-en="My first Vibe Coding project: neo-brutalist style, bilingual, single hand-written file — still evolving.">
+        我的第一个 Vibe Coding 作品：新粗野主义风格、中英双语、纯手写单文件，持续迭代中。
     </p>
     <a class="w-link" href="#top" data-zh="🔗 回到顶部再看一遍" data-en="🔗 Back to top, take another look">🔗 回到顶部再看一遍</a>
   </div>
@@ -323,8 +319,8 @@
   <!-- 6. 数字分身：基于内置知识库的对话 -->
   <section class="box twin" id="twin">
     <h2 class="sec"><span class="bar"></span><span data-zh="数字分身 · 对话" data-en="Digital Twin · Chat">数字分身 · 对话</span></h2>
-    <p class="sec-note" data-zh="先认识一下“另一个我”👇 分身的内置知识来自对本人的真实采访：学校、篮球、音乐、座右铭、作品……关于子赫的事，都可以直接问它。"
-       data-en="Meet 'the other me' 👇 The twin's built-in knowledge comes from real interviews — school, basketball, music, motto, projects. Ask it anything about Zihe.">先认识一下“另一个我”👇 分身的内置知识来自对本人的真实采访：学校、篮球、音乐、座右铭、作品……关于子赫的事，都可以直接问它。</p>
+    <p class="sec-note" data-zh="“另一个我”👇 学校、篮球、音乐、作品……关于子赫的事都可以直接问它。"
+       data-en="Meet 'the other me' 👇 School, basketball, music, projects — ask it anything about Zihe.">“另一个我”👇 学校、篮球、音乐、作品……关于子赫的事都可以直接问它。</p>
     <div class="chat" id="chatBox">
       <div class="msg a"><span class="who" data-zh="子赫的分身" data-en="ZIHE'S TWIN">子赫的分身</span><span data-zh="嗨，我是子赫的数字分身 👋 学校、篮球、音乐、座右铭、作品……想了解本体什么，随便问！" data-en="Hey, I'm Zihe's digital twin 👋 School, basketball, music, motto, projects — ask me anything about the real guy!">嗨，我是子赫的数字分身 👋 学校、篮球、音乐、座右铭、作品……想了解本体什么，随便问！</span></div>
       <div class="msg q" data-zh="子赫平时喜欢做什么？" data-en="What does Zihe like to do?">子赫平时喜欢做什么？</div>
@@ -339,17 +335,16 @@
       <input id="chatInput" type="text" autocomplete="off" data-zh-ph="想问子赫什么？直接打字问我…" data-en-ph="Ask me anything about Zihe…" placeholder="想问子赫什么？直接打字问我…">
       <button id="chatSend" data-zh="发送" data-en="Send">发送</button>
     </div>
-    <p class="twin-tip" data-zh="💡 分身内置知识库（内容经本人核对）；它答不上来的，就发邮件找本体：zihexie95@gmail.com" data-en="💡 The twin's answers are verified by the real Zihe. If it can't help, email the human: zihexie95@gmail.com">💡 分身内置知识库（内容经本人核对）；它答不上来的，就发邮件找本体：zihexie95@gmail.com</p>
+    <p class="twin-tip" data-zh="💡 分身回复内容经本人核对" data-en="💡 The twin's answers are verified by the real Zihe">💡 分身回复内容经本人核对</p>
   </section>
 
   <!-- 7. 联系我：可用联系方式 + 明确行动 -->
   <section class="box contact" id="contact">
     <h2 class="sec"><span class="bar"></span><span data-zh="联系我" data-en="Get in Touch">联系我</span></h2>
-    <p data-zh="无论是一句反馈、一个建议，还是想聊聊篮球和设计——现在就给我发一封邮件吧，我会认真阅读每一封！" data-en="Whether it's feedback, a suggestion, or a chat about basketball and design — send me an email now. I read every single one!">无论是一句反馈、一个建议，还是想聊聊篮球和设计——现在就给我发一封邮件吧，我会认真阅读每一封！</p>
+    <p data-zh="反馈、建议，或者聊聊篮球和设计——给我发封邮件吧，每封都会看。" data-en="Feedback, a suggestion, or a chat about basketball and design — send me an email, I read every one.">反馈、建议，或者聊聊篮球和设计——给我发封邮件吧，每封都会看。</p>
     <a class="big-action" href="mailto:zihexie95@gmail.com" data-zh="✉ 给子赫发邮件：zihexie95@gmail.com" data-en="✉ Email Zihe: zihexie95@gmail.com">✉ 给子赫发邮件：zihexie95@gmail.com</a>
     <a class="gh-btn" href="https://github.com/zihexie95-dotcom" target="_blank" rel="noopener" data-zh="🐙 GitHub：zihexie95-dotcom" data-en="🐙 GitHub: zihexie95-dotcom">🐙 GitHub：zihexie95-dotcom</a>
     <a class="fb-btn" href="feedback.html" data-zh="💬 看完有话说？给我提个意见" data-en="💬 Saw something? Leave feedback">💬 看完有话说？给我提个意见</a>
-    <p class="next-note"><span data-zh="或者先" data-en="Or first">或者先</span> <a href="#twin" data-zh="和数字分身聊两句 ↑" data-en="chat with my digital twin ↑">和数字分身聊两句 ↑</a></p>
   </section>
 
   <!-- 8. 页脚 Footer：版权 + 年份自动更新 -->
@@ -370,7 +365,7 @@
   const introEl = document.getElementById('introText');
   const rich = {
     zh: { intro: introEl.innerHTML },
-    en: { intro: 'A computer science student who loves <mark>sports</mark> and <mark>design</mark>, turning ideas into code that actually runs.' }
+    en: { intro: 'A computer science student who loves <mark>sports</mark> and <mark>design</mark>, turning ideas into running code.' }
   };
 
   function applyLang(l) {
