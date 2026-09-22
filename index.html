@@ -193,6 +193,7 @@
   /* ========== 8. 页脚 ========== */
   footer { text-align: center; font-weight: 800; font-size: .85rem; letter-spacing: 1px; }
   footer .ver { background: #111; color: #ffd63d; padding: 2px 10px; margin-left: 6px; }
+  footer .visit-badge { display: inline-block; background: #111; color: #fff; padding: 2px 10px; margin-left: 6px; }
 
   @media (max-width: 680px) {
     .nav-right a.menu { display: none; }
@@ -340,13 +341,24 @@
 
   <!-- 8. 页脚 Footer：版权 + 年份自动更新 -->
   <footer>
-    <span data-zh="© " data-en="© ">© </span><span id="year">2026</span><span data-zh=" 谢子赫 · 用 VIBE CODING 构建" data-en=" ZIHE XIE · BUILT WITH VIBE CODING"> 谢子赫 · 用 VIBE CODING 构建</span><span class="ver">V1.7</span>
+    <span data-zh="© " data-en="© ">© </span><span id="year">2026</span><span data-zh=" 谢子赫 · 用 VIBE CODING 构建" data-en=" ZIHE XIE · BUILT WITH VIBE CODING"> 谢子赫 · 用 VIBE CODING 构建</span><span class="ver">V1.7</span><span class="visit-badge" id="visitBadge"></span>
   </footer>
 </div>
 
 <script>
   // ---- 年份自动更新 ----
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---- 访客计数器：Supabase 后端（记录访问 + 读取总数）----
+  const SUPABASE_URL = 'https://cklumlxbkctktamzubqk.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_OdLPofft3O0bPcPQKLbx8w_glteEpyr';
+  let visitTotal = null;
+  function renderVisit() {
+    const badge = document.getElementById('visitBadge');
+    if (!badge) return;
+    if (visitTotal === null) { badge.textContent = ''; return; }
+    badge.textContent = lang === 'zh' ? `👀 已有 ${visitTotal} 位访客` : `👀 ${visitTotal} visits`;
+  }
 
   // ---- 中英双语切换（支持 ?lang=zh / ?lang=en）----
   const urlLang = new URLSearchParams(location.search).get('lang');
@@ -372,6 +384,7 @@
     document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en';
     toggleBtn.textContent = l === 'zh' ? 'EN' : '中';
     localStorage.setItem('zx-lang', l);
+    renderVisit();
   }
   toggleBtn.addEventListener('click', () => {
     lang = lang === 'zh' ? 'en' : 'zh';
@@ -689,6 +702,34 @@
   chatInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendMsg(); });
   buildChips();
   chatBox.scrollTop = chatBox.scrollHeight;
+
+  // ---- 访客计数器：页面加载时记录一次访问，并读取累计总数 ----
+  (async () => {
+    try {
+      await fetch(`${SUPABASE_URL}/rest/v1/visits`, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({})
+      });
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/visits?select=id&limit=1`, {
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'Prefer': 'count=exact'
+        }
+      });
+      const range = res.headers.get('content-range');
+      visitTotal = range ? parseInt(range.split('/')[1], 10) : 0;
+    } catch (e) {
+      visitTotal = null;
+    }
+    renderVisit();
+  })();
 </script>
 </body>
 </html>
