@@ -100,6 +100,37 @@
   .c-blue { background: #4cc9f0; }
   .c-green { background: #6bcb77; }
 
+  /* ========== 3.5 成长时间线 ========== */
+  .timeline { position: relative; margin: 18px 0 36px; padding-left: 42px; }
+  .timeline::before { content: ""; position: absolute; left: 15px; top: 6px; bottom: 6px; width: 4px; background: #111; }
+  .tl-item { position: relative; margin-bottom: 24px; }
+  .tl-item:last-child { margin-bottom: 0; }
+  .tl-item::before {
+    content: ""; position: absolute; left: -34px; top: 26px;
+    width: 18px; height: 18px; background: #ffd63d; border: 3px solid #111; border-radius: 50%;
+  }
+  .tl-item:nth-child(1)::before { background: #fff; }
+  .tl-item:nth-child(2)::before { background: #4d96ff; }
+  .tl-item:nth-child(3)::before { background: #6bcb77; }
+  .tl-item:nth-child(4)::before { background: #ff6b9d; }
+  .tl-item:nth-child(5)::before { background: #ffd63d; }
+  .tl-when {
+    display: inline-block; background: #111; color: #ffd63d; font-size: .72rem;
+    font-weight: 800; letter-spacing: 2px; padding: 4px 12px; margin-bottom: 8px;
+  }
+  .tl-card {
+    border: 3px solid #111; box-shadow: 6px 6px 0 #111; padding: 22px 26px;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .tl-card:hover { transform: translate(-3px,-3px); box-shadow: 9px 9px 0 #111; }
+  .tl-card h3 { font-size: 1.15rem; font-weight: 900; }
+  .tl-card p { font-weight: 500; margin-top: 6px; }
+  .tl-c-white { background: #fff; }
+  .tl-c-blue { background: #4d96ff; color: #fff; }
+  .tl-c-green { background: #6bcb77; }
+  .tl-c-pink { background: #ff6b9d; }
+  .tl-c-yellow { background: #ffd63d; }
+
   /* ========== 4. 项目与作品 ========== */
   .work-card {
     border: 3px solid #111; box-shadow: 6px 6px 0 #111; padding: 28px 30px;
@@ -212,6 +243,11 @@
     .cta a { padding: 11px 18px; font-size: .9rem; }
     .work-card { padding: 22px 18px; }
     .work-card h3 { font-size: 1.12rem; }
+    .timeline { padding-left: 30px; }
+    .timeline::before { left: 10px; }
+    .tl-item::before { left: -25px; width: 14px; height: 14px; top: 22px; }
+    .tl-card { padding: 18px 16px; }
+    .tl-card h3 { font-size: 1.05rem; }
     .msg { max-width: 92%; }
     .nav-cta { padding: 7px 12px; font-size: .8rem; }
     .lang-toggle { padding: 7px 10px; }
@@ -269,6 +305,46 @@
       <p class="v" data-zh="来自安徽合肥，坐标深圳" data-en="From Hefei, Anhui — now based in Shenzhen">来自安徽合肥，坐标深圳</p>
     </div>
   </div>
+
+  <!-- 3.5 成长时间线：经历与作品串成一条轨迹 -->
+  <h2 class="sec" id="timeline"><span class="bar" style="background:#6bcb77;"></span><span data-zh="成长时间线" data-en="Timeline">成长时间线</span></h2>
+  <section class="timeline">
+    <div class="tl-item">
+      <span class="tl-when" data-zh="起点 · 合肥" data-en="START · HEFEI">起点 · 合肥</span>
+      <div class="tl-card tl-c-white">
+        <h3 data-zh="🏠 从这里出发" data-en="🏠 Where it began">🏠 从这里出发</h3>
+        <p data-zh="来自安徽合肥，从小爱折腾、爱动手，设计和创造的兴趣从这儿萌芽。" data-en="From Hefei, Anhui. Always loved tinkering — where the itch for design and building began.">来自安徽合肥，从小爱折腾、爱动手，设计和创造的兴趣从这儿萌芽。</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-when" data-zh="高中 · 机器人竞赛" data-en="HIGH SCHOOL · ROBOTICS">高中 · 机器人竞赛</span>
+      <div class="tl-card tl-c-blue">
+        <h3 data-zh="🤖 太空探测车" data-en="🤖 Space Rover">🤖 太空探测车</h3>
+        <p data-zh="合肥市科技创新比赛现场做了辆太空车：自主前进，钮子开关触发自动返航，全程独立完成。" data-en="Built a space rover for Hefei's innovation contest: autonomous forward run, toggle-switch auto-return — all solo.">合肥市科技创新比赛现场做了辆太空车：自主前进，钮子开关触发自动返航，全程独立完成。</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-when" data-zh="大学 · 深圳" data-en="UNI · SHENZHEN">大学 · 深圳</span>
+      <div class="tl-card tl-c-green">
+        <h3 data-zh="🎓 计算机 × 设计" data-en="🎓 CS × Design">🎓 计算机 × 设计</h3>
+        <p data-zh="入读深圳未来技术学院（天津大学 × 香港理工大学），正式踏上计算机 × 设计这条路。" data-en="Joined Shenzhen Future Technology College (TJU × PolyU), officially on the CS × Design path.">入读深圳未来技术学院（天津大学 × 香港理工大学），正式踏上计算机 × 设计这条路。</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-when" data-zh="实验室 · 具身智能" data-en="LAB · EMBODIED AI">实验室 · 具身智能</span>
+      <div class="tl-card tl-c-pink">
+        <h3 data-zh="🦾 双机械臂" data-en="🦾 Dual Robot Arms">🦾 双机械臂</h3>
+        <p data-zh="双机械臂主从遥控已完成实机验证，正在用数据 + 算法低成本提升定位精度。" data-en="Dual-arm teleop verified on the real robot; now raising precision with data + algorithms, no new hardware.">双机械臂主从遥控已完成实机验证，正在用数据 + 算法低成本提升定位精度。</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-when" data-zh="现在 · 进行时" data-en="NOW · ONGOING">现在 · 进行时</span>
+      <div class="tl-card tl-c-yellow">
+        <h3 data-zh="🌐 Vibe Coding" data-en="🌐 Vibe Coding">🌐 Vibe Coding</h3>
+        <p data-zh="用 Vibe Coding 持续迭代这个主页，下一步想做出属于自己的 APP。" data-en="Iterating on this homepage with Vibe Coding — next up, an app of my own.">用 Vibe Coding 持续迭代这个主页，下一步想做出属于自己的 APP。</p>
+      </div>
+    </div>
+  </section>
 
   <!-- 4. 项目与作品：简介 + 链接 -->
   <h2 class="sec" id="works"><span class="bar" style="background:#4d96ff;"></span><span data-zh="项目与作品" data-en="Projects & Works">项目与作品</span></h2>
