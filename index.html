@@ -233,6 +233,28 @@
   footer .ver { background: #111; color: #ffd63d; padding: 2px 10px; margin-left: 6px; }
   footer .visit-badge { display: inline-block; background: #111; color: #fff; padding: 2px 10px; margin-left: 6px; }
 
+  /* ========== 8.5 自定义光标 + 拖尾 ========== */
+  @keyframes trail-fade {
+    0% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+    100% { opacity: 0; transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0) rotate(90deg); }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    body, a, button, input, textarea, select, label { cursor: none; }
+    .cursor-wrap { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none; will-change: transform; }
+    .cursor-dot {
+      width: 16px; height: 16px; margin: -8px 0 0 -8px;
+      background: #ff6b9d; border: 3px solid #111; border-radius: 50%;
+      transition: transform .15s ease, background .15s ease;
+    }
+    body.cursor-hover .cursor-dot { background: #4d96ff; transform: scale(1.5); }
+    .trail-particle {
+      position: fixed; top: 0; left: 0; z-index: 9998;
+      width: 11px; height: 11px; border-radius: 2px;
+      pointer-events: none;
+      animation: trail-fade .55s ease-out forwards;
+    }
+  }
+
   @media (max-width: 680px) {
     .nav-right a.menu { display: none; }
     nav { padding: 10px 4vw; }
@@ -432,6 +454,8 @@
   </footer>
 </div>
 
+<div class="cursor-wrap" id="cursorWrap" aria-hidden="true"><div class="cursor-dot"></div></div>
+
 <script>
   // ---- 手写签名描边动画 ----
   const sigStroke = document.getElementById('sigText');
@@ -447,6 +471,39 @@
       sigFill.style.transition = 'opacity .5s ease';
       setTimeout(() => { sigFill.style.opacity = '1'; }, 2200);
     }
+  }
+
+  // ---- 自定义光标 + 拖尾（仅桌面指针设备）----
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const cursorWrap = document.getElementById('cursorWrap');
+    const TRAIL_COLORS = ['#ff6b9d', '#4d96ff', '#6bcb77', '#ffd63d', '#4cc9f0'];
+    let mx = window.innerWidth / 2, my = window.innerHeight / 2, lastTrail = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      const now = Date.now();
+      if (now - lastTrail > 36) {
+        lastTrail = now;
+        const p = document.createElement('div');
+        p.className = 'trail-particle';
+        p.style.background = TRAIL_COLORS[Math.floor(Math.random() * TRAIL_COLORS.length)];
+        p.style.left = mx + 'px';
+        p.style.top = my + 'px';
+        p.style.setProperty('--tx', ((Math.random() - 0.5) * 46) + 'px');
+        p.style.setProperty('--ty', ((Math.random() - 0.5) * 46) + 'px');
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 560);
+      }
+    });
+
+    (function tick() {
+      if (cursorWrap) cursorWrap.style.transform = `translate(${mx}px, ${my}px)`;
+      requestAnimationFrame(tick);
+    })();
+
+    document.addEventListener('mouseover', e => {
+      document.body.classList.toggle('cursor-hover', !!e.target.closest('a, button, input, textarea, select, label'));
+    });
   }
 
   // ---- 年份自动更新 ----
