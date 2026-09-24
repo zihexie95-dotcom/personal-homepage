@@ -63,8 +63,6 @@
   }
   h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 900; letter-spacing: 1px; line-height: 1.15; }
   h1 span { background: #fff; padding: 0 16px; box-shadow: 5px 5px 0 #111; display: inline-block; border: 3px solid #111; }
-  .intro { margin-top: 24px; font-size: 1.08rem; font-weight: 600; max-width: 760px; }
-  .intro mark { background: #4d96ff; color: #fff; padding: 1px 8px; }
   .hero-tags { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
   .hero-tags span {
     background: #fff; border: 3px solid #111; font-weight: 700; font-size: .85rem;
@@ -85,11 +83,6 @@
   .project.pink:hover { transform: rotate(.35deg) translate(-3px,-3px); }
   .project.green:hover { transform: rotate(-.35deg) translate(-3px,-3px); }
   .project h2.sec .bar { background: #111; }
-  .todo-tag {
-    display: inline-block; margin-left: 10px; vertical-align: 3px;
-    background: #111; color: #ffd63d; font-size: .72rem; font-weight: 800;
-    letter-spacing: 1px; padding: 4px 10px; transform: rotate(-1deg);
-  }
   .project-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 22px; align-items: start; }
   .card {
     background: #fff; border: 3px solid #111; box-shadow: 6px 6px 0 #111; padding: 24px 26px;
@@ -105,7 +98,6 @@
   }
   .spec .k { font-size: .76rem; font-weight: 900; letter-spacing: 2px; color: #4d96ff; margin-bottom: 4px; }
   .spec .v { font-weight: 650; font-size: .95rem; }
-  .mini-note { margin-top: 14px; font-size: .8rem; font-weight: 800; letter-spacing: 1px; color: #555; }
 
   .photo-board { display: grid; gap: 14px; }
   .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -136,11 +128,6 @@
   .photo-slot.filled { position: relative; overflow: hidden; padding: 0; border-style: solid; background: #fff; }
   .photo-slot.filled img.photo-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
   .photo-slot.filled .num { z-index: 2; }
-  .replace-tip {
-    border: 3px solid #111; background: #ffd63d; box-shadow: 5px 5px 0 #111;
-    padding: 12px 16px; font-weight: 850; font-size: .88rem;
-  }
-
   footer { text-align: center; font-weight: 800; font-size: .85rem; letter-spacing: 1px; }
   footer .ver { background: #111; color: #ffd63d; padding: 2px 10px; margin-left: 6px; }
 
@@ -180,7 +167,6 @@
   <header class="box">
     <span class="sticker" data-zh="★ 项目展示页 ★" data-en="★ PROJECT PLAYGROUND ★">★ 项目展示页 ★</span>
     <h1><span data-zh="项目游乐场" data-en="PROJECT PLAYGROUND">项目游乐场</span></h1>
-            <p class="intro" data-zh="这里放了两个项目板块：高中机器人比赛、具身智能双机械臂。机器人比赛已放入 2 张现场照片；机械臂板块已放入遥控演示视频，只差 1 张实验照片。" data-en="Two project sections live here: the high-school robotics competition and embodied-AI dual robot arms. Robotics has 2 on-site photos; the arm section has the teleop demo video and needs just 1 experiment photo.">这里放了两个项目板块：高中机器人比赛、具身智能双机械臂。机器人比赛已放入 2 张现场照片；机械臂板块已放入遥控演示视频，只差 1 张实验照片。</p>
     <div class="hero-tags">
       <span data-zh="① 高中机器人比赛" data-en="① High-school Robotics">① 高中机器人比赛</span>
       <span data-zh="② 具身智能机械臂" data-en="② Embodied Robot Arm">② 具身智能机械臂</span>
@@ -192,9 +178,7 @@
   </header>
 
   <section class="box project pink" id="robotics">
-    <h2 class="sec"><span class="bar"></span><span data-zh="板块一 · 高中机器人比赛" data-en="Section 01 · High-school Robotics Competition">板块一 · 高中机器人比赛</span><span class="todo-tag" data-zh="文字已更新 · 已补 2 张现场照片" data-en="TEXT UPDATED · 2 PHOTOS ADDED">文字已更新 · 已补 2 张现场照片</span></h2>
-        <p class="sec-note" data-zh="比赛经历已更新为合肥市科技创新比赛；2 张现场照片已放入（IMG 01 主图 / IMG 02 小车）。" data-en="Updated with the Hefei Sci-Tech Innovation Competition story; 2 on-site photos are in (IMG 01 main / IMG 02 car).">比赛经历已更新为合肥市科技创新比赛；2 张现场照片已放入（IMG 01 主图 / IMG 02 小车）。</p>
-
+    <h2 class="sec"><span class="bar"></span><span data-zh="板块一 · 高中机器人比赛" data-en="Section 01 · High-school Robotics Competition">板块一 · 高中机器人比赛</span></h2>
     <div class="project-grid">
       <article class="card">
         <h3 data-zh="比赛项目档案" data-en="Competition Project File">比赛项目档案</h3><br>
@@ -217,11 +201,9 @@
             <p class="v" data-zh="学会在「能完成」与「更轻量」之间做取舍，也练到了动手与焊锡" data-en="Learned to balance finishing vs. lightness — and sharpened hands-on and soldering skills">学会在「能完成」与「更轻量」之间做取舍，也练到了动手与焊锡</p>
           </div>
         </div>
-        <p class="mini-note" data-zh="已更新为真实比赛经历；2 张现场照片已放入 IMG 01 / IMG 02。" data-en="Updated with the real competition story; 2 on-site photos are in IMG 01 / IMG 02.">已更新为真实比赛经历；2 张现场照片已放入 IMG 01 / IMG 02。</p>
       </article>
 
       <aside class="photo-board">
-        <div class="replace-tip" data-zh="📷 已放入 2 张现场照片（IMG 01 主图 / IMG 02 小车）。" data-en="📷 2 on-site photos added (IMG 01 main / IMG 02 car).">📷 已放入 2 张现场照片（IMG 01 主图 / IMG 02 小车）。</div>
         <div class="photo-grid">
           <!-- 现场照片 1（2026-09-09 插入）：机器人整机 / 赛场 -->
           <div class="photo-slot big filled">
@@ -238,9 +220,9 @@
     </div>
   </section>
 
-  <!-- 板块二 · 具身智能双机械臂（2026-09-09 更新：文字精简，已放入遥控演示视频，仅留 1 个图片位） -->
+  <!-- 板块二 · 具身智能双机械臂 -->
   <section class="box project green" id="arm">
-    <h2 class="sec"><span class="bar"></span><span data-zh="板块二 · 具身智能双机械臂" data-en="Section 02 · Embodied-AI Dual Robot Arms">板块二 · 具身智能双机械臂</span><span class="todo-tag" data-zh="✅ 已更新 · 演示视频已放入" data-en="UPDATED · DEMO VIDEO IN">✅ 已更新 · 演示视频已放入</span></h2>
+    <h2 class="sec"><span class="bar"></span><span data-zh="板块二 · 具身智能双机械臂" data-en="Section 02 · Embodied-AI Dual Robot Arms">板块二 · 具身智能双机械臂</span></h2>
     <p class="sec-note" data-zh="双机械臂主从遥控已完成并通过实机验证；现在在硬件不变的前提下，用「数据 + 算法」低成本提升定位精度。" data-en="Dual-arm master–slave teleop is done and verified on the real rig; now raising positioning precision with data + algorithms — no new hardware, near-zero extra cost.">双机械臂主从遥控已完成并通过实机验证；现在在硬件不变的前提下，用「数据 + 算法」低成本提升定位精度。</p>
 
     <div class="project-grid">
@@ -265,11 +247,9 @@
             <p class="v" data-zh="误差分类、量化指标与两版实验方案已就绪；墨点测量脚本已真图验证（≤ 0.13 mm）。下一步上机采数，出「误差 vs 数据量」学习曲线。" data-en="Error taxonomy, metrics and two experiment plans are ready; the ink-dot measurement script is validated on real photos (≤ 0.13 mm). Next: collect on-rig data and plot the error-vs-data learning curve.">误差分类、量化指标与两版实验方案已就绪；墨点测量脚本已真图验证（≤ 0.13 mm）。下一步上机采数，出「误差 vs 数据量」学习曲线。</p>
           </div>
         </div>
-        <p class="mini-note" data-zh="进展：遥控完成、低成本精度课题已立项出方案；媒体素材已齐（遥控视频 + 实拍照片）。" data-en="Status: teleop done, low-cost precision study scoped with a plan; media is complete (demo video + real photo).">进展：遥控完成、低成本精度课题已立项出方案；媒体素材已齐（遥控视频 + 实拍照片）。</p>
       </article>
 
       <aside class="photo-board">
-        <div class="replace-tip" data-zh="🎬 遥控演示视频 + 📷 机械臂实拍照片 已就位，机械臂板块素材已齐。" data-en="🎬 Teleop demo video + 📷 real arm photo are in — this section's media is complete.">🎬 遥控演示视频 + 📷 机械臂实拍照片 已就位，机械臂板块素材已齐。</div>
         <div class="photo-grid">
           <!-- 遥控演示视频（2026-09-09 放入）：主从双机械臂实拍 -->
           <figure class="media-video">
