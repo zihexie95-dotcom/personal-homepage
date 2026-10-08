@@ -68,20 +68,11 @@
     transition: transform .15s, box-shadow .15s;
   }
   .box:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 0 #111; }
-  .about-card, .tl-card, .work-card, .album-card, .chat { position: relative; }
+  .about-card, .tl-card, .work-card, .album-card, .chat-flow { position: relative; }
   @keyframes flowSpin { to { --flow: 360deg; } }
   @supports ((mask-composite: exclude) or (-webkit-mask-composite: xor)) {
-    .box::before, .about-card::before, .tl-card::before, .work-card::before, .album-card::before {
+    .box::before, .about-card::before, .tl-card::before, .work-card::before, .album-card::before, .chat-flow::before {
       content: ''; position: absolute; inset: -3px; padding: 3px; pointer-events: none;
-      background: conic-gradient(from var(--flow), #ff6b9d, #ffd63d, #4d96ff, #6bcb77, #4cc9f0, #ff6b9d);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask-composite: exclude;
-      animation: flowSpin 2.5s linear infinite;
-    }
-    .chat::before {
-      content: ''; position: absolute; inset: 0; padding: 3px; pointer-events: none;
       background: conic-gradient(from var(--flow), #ff6b9d, #ffd63d, #4d96ff, #6bcb77, #4cc9f0, #ff6b9d);
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
@@ -337,7 +328,7 @@
   }
   @media (hover: hover) and (pointer: fine) {
     body, a, button, input, textarea, select, label { cursor: none; }
-    .cursor-wrap { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none; will-change: transform; }
+    .cursor-wrap { position: fixed; top: 0; left: 0; z-index: 10001; pointer-events: none; will-change: transform; }
     .cursor-dot {
       width: 16px; height: 16px; margin: -8px 0 0 -8px;
       background: #ff6b9d; border: 3px solid #111; border-radius: 50%;
@@ -345,7 +336,7 @@
     }
     body.cursor-hover .cursor-dot { background: #4d96ff; transform: scale(1.5); }
     .trail-particle {
-      position: fixed; top: 0; left: 0; z-index: 9998;
+      position: fixed; top: 0; left: 0; z-index: 10000;
       width: 11px; height: 11px; border-radius: 2px;
       pointer-events: none;
       animation: trail-fade .55s ease-out forwards;
@@ -568,6 +559,7 @@
     <div class="twin-avatar">
       <img src="assets/twin-avatar.png" alt="谢子赫的数字分身形象" width="116" height="116">
     </div>
+    <div class="chat-flow">
     <div class="chat" id="chatBox">
       <div class="msg a"><span class="who" data-zh="子赫的分身" data-en="ZIHE'S TWIN">子赫的分身</span><span data-zh="嗨，我是子赫的数字分身 👋 学校、篮球、音乐、座右铭、作品……想了解本体什么，随便问！" data-en="Hey, I'm Zihe's digital twin 👋 School, basketball, music, motto, projects — ask me anything about the real guy!">嗨，我是子赫的数字分身 👋 学校、篮球、音乐、座右铭、作品……想了解本体什么，随便问！</span></div>
       <div class="msg q" data-zh="子赫平时喜欢做什么？" data-en="What does Zihe like to do?">子赫平时喜欢做什么？</div>
@@ -576,6 +568,7 @@
       <div class="msg a"><span class="who" data-zh="子赫的分身" data-en="ZIHE'S TWIN">子赫的分身</span><span data-zh="朋友认证的热血行动派。座右铭“落子无悔”——想了就干，干了不悔。大学四年的目标是做出自己的产品。" data-en="A certified man of action. His motto: 'Make the move, no regrets.' His four-year goal: build a product of his own.">朋友认证的热血行动派。座右铭“落子无悔”——想了就干，干了不悔。大学四年的目标是做出自己的产品。</span></div>
       <div class="msg q" data-zh="能介绍一下他的项目吗？" data-en="Tell me about his project.">能介绍一下他的项目吗？</div>
       <div class="msg a"><span class="who" data-zh="子赫的分身" data-en="ZIHE'S TWIN">子赫的分身</span><span data-zh="机器人竞赛做过一辆太空车：自主前进、钮子开关自动返航。现在正苦练 Vibe Coding，下一步想搞个自己的 APP。" data-en="He built a space rover for a robotics competition: autonomous forward run plus toggle-switch auto-return. Now grinding Vibe Coding — next up, an app of his own.">机器人竞赛做过一辆太空车：自主前进、钮子开关自动返航。现在正苦练 Vibe Coding，下一步想搞个自己的 APP。</span></div>
+    </div>
     </div>
     <div class="quick-chips" id="quickChips"></div>
     <div class="chat-input">
