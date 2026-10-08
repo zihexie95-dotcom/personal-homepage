@@ -56,6 +56,10 @@
 
   /* ========== 布局与通用 ========== */
   .wrap { max-width: 920px; margin: 0 auto; padding: 120px 5vw 70px; }
+  /* 背景浮动色块装饰：主页黄底上缓缓沉浮的彩色方块 */
+  .bg-float { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+  .bg-f { position: absolute; border: 3px solid #111; box-shadow: 5px 5px 0 rgba(17,17,17,.22); opacity: .5; animation: bgBob 6s ease-in-out infinite; }
+  @keyframes bgBob { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-28px) rotate(4deg); } }
   @property --flow { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
   .box {
     position: relative;
@@ -392,6 +396,9 @@
   </div>
 </div>
 
+<!-- 0.5 背景浮动色块装饰 -->
+<div class="bg-float" id="bgFloat" aria-hidden="true"></div>
+
 <!-- 1. 顶部导航 Header：品牌 + 菜单 + 主行动按钮 -->
 <nav>
   <a class="logo" href="#top">ZX<em>!</em></a>
@@ -599,6 +606,24 @@
 <audio id="bgmAudio" src="assets/bgm/never-see-me-again.mp3" loop preload="auto"></audio>
 
 <script>
+  // ---- 背景浮动色块装饰：主页黄底上随机分布、缓缓沉浮的彩色方块 ----
+  const bgFloat = document.getElementById('bgFloat');
+  if (bgFloat) {
+    const BG_COLORS = ['#ff6b9d', '#4d96ff', '#6bcb77', '#4cc9f0', '#ff9f43', '#9b59b6', '#fff', '#ff6b6b', '#111'];
+    let html = '';
+    const COUNT = 14;
+    for (let i = 0; i < COUNT; i++) {
+      const left = (Math.random() * 94).toFixed(1);
+      const top = (Math.random() * 94).toFixed(1);
+      const size = (36 + Math.random() * 52).toFixed(0);
+      const color = BG_COLORS[i % BG_COLORS.length];
+      const delay = (Math.random() * 6).toFixed(2);
+      const dur = (5 + Math.random() * 3).toFixed(2);
+      html += '<span class="bg-f" style="left:' + left + 'vw;top:' + top + 'vh;width:' + size + 'px;height:' + size + 'px;background:' + color + ';animation-delay:' + delay + 's;animation-duration:' + dur + 's"></span>';
+    }
+    bgFloat.innerHTML = html;
+  }
+
   // ---- 色块加载进入动画：生成波浪色块，点击按钮后进入主页并播放背景音乐 ----
   const loader = document.getElementById('loader');
   const loaderWaves = document.getElementById('loaderWaves');
