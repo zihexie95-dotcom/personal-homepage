@@ -56,12 +56,26 @@
 
   /* ========== 布局与通用 ========== */
   .wrap { max-width: 920px; margin: 0 auto; padding: 120px 5vw 70px; }
+  @property --flow { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
   .box {
+    position: relative;
     background: #fff; border: 3px solid #111; box-shadow: 8px 8px 0 #111;
     padding: 36px 40px; margin-bottom: 36px;
     transition: transform .15s, box-shadow .15s;
   }
   .box:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 0 #111; }
+  @keyframes flowSpin { to { --flow: 360deg; } }
+  @supports ((mask-composite: exclude) or (-webkit-mask-composite: xor)) {
+    .box::before {
+      content: ''; position: absolute; inset: -3px; padding: 3px; pointer-events: none;
+      background: conic-gradient(from var(--flow), #ff6b9d, #ffd63d, #4d96ff, #6bcb77, #4cc9f0, #ff6b9d);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      animation: flowSpin 4s linear infinite;
+    }
+  }
   h2.sec { font-size: 1.6rem; font-weight: 900; margin: 0 0 22px; }
   h2.sec .bar { display: inline-block; width: 14px; height: 28px; margin-right: 10px; vertical-align: -4px; }
   .sec-note { font-weight: 600; font-size: .92rem; margin: -12px 0 22px; }
