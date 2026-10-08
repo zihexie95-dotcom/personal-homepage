@@ -212,7 +212,7 @@
   /* 色块加载进入动画 */
   .loader { position: fixed; inset: 0; z-index: 10000; background: #ffd63d; overflow: hidden; transition: opacity .55s ease, visibility .55s ease; }
   .loader.hide { opacity: 0; visibility: hidden; pointer-events: none; }
-  .loader-waves { position: absolute; inset: 0; display: flex; flex-wrap: wrap; align-content: flex-start; gap: 22px; padding: 70px 28px; }
+  .loader-waves { position: absolute; inset: 0; display: flex; flex-wrap: wrap; align-content: flex-start; gap: 22px; padding: 70px 0; }
   .wave-block { width: 88px; height: 88px; border: 3px solid #111; box-shadow: 7px 7px 0 #111; animation: waveFloat 1.7s ease-in-out infinite; }
   @keyframes waveFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-64px) rotate(6deg); } }
   .loader-center {
