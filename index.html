@@ -190,9 +190,55 @@
   .music:hover { transform: rotate(-.4deg) translate(-3px,-3px); box-shadow: 11px 11px 0 #ffd63d; }
   .music h2.sec .bar { background: #ffd63d; }
   .music .sub { color: #ffd63d; }
-  .music .music-frame { border: 3px solid #ffd63d; background: #fff; padding: 10px; }
-  .music .music-frame iframe { display: block; width: 100%; height: 86px; border: 0; }
+  /* 专辑墙 */
+  .music .album-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .music .album-card {
+    background: #fff; color: #111; text-decoration: none;
+    border: 3px solid #111; box-shadow: 5px 5px 0 #111; overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .music .album-card:nth-child(1) { transform: rotate(-1.2deg); }
+  .music .album-card:nth-child(2) { transform: rotate(1deg); }
+  .music .album-card:nth-child(3) { transform: rotate(-.8deg); }
+  .music .album-card:nth-child(4) { transform: rotate(1.4deg); }
+  .music .album-card:hover { transform: rotate(0) translate(-3px,-3px); box-shadow: 8px 8px 0 #111; }
+  .music .album-card img { display: block; width: 100%; aspect-ratio: 1/1; object-fit: cover; border-bottom: 3px solid #111; }
+  .music .album-meta { padding: 9px 11px; }
+  .music .album-meta strong { display: block; font-size: .95rem; font-weight: 900; line-height: 1.25; }
+  .music .album-meta span { display: block; font-size: .74rem; font-weight: 700; color: #666; margin-top: 2px; }
   .music-note { margin-top: 16px; font-size: .85rem; font-weight: 700; color: #fff; }
+
+  /* 色块加载进入动画 */
+  .loader { position: fixed; inset: 0; z-index: 10000; background: #ffd63d; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; transition: opacity .55s ease, visibility .55s ease; }
+  .loader.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+  .loader-blocks { display: flex; gap: 10px; align-items: flex-end; }
+  .lb { width: 26px; height: 26px; border: 3px solid #111; box-shadow: 4px 4px 0 #111; animation: lbjump .9s ease-in-out infinite; }
+  .lb1 { background: #ff6b9d; }
+  .lb2 { background: #4d96ff; animation-delay: .1s; }
+  .lb3 { background: #6bcb77; animation-delay: .2s; }
+  .lb4 { background: #4cc9f0; animation-delay: .3s; }
+  .lb5 { background: #111; animation-delay: .4s; }
+  @keyframes lbjump { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-24px) rotate(7deg); } }
+  .loader-brand { font-weight: 900; font-size: 2rem; letter-spacing: 2px; color: #111; }
+  .loader-brand em { font-style: normal; color: #ff6b9d; }
+
+  /* 背景音乐悬浮按钮 */
+  .bgm-btn {
+    position: fixed; right: 22px; bottom: 22px; z-index: 900;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #111; color: #ffd63d; border: 3px solid #111;
+    box-shadow: 4px 4px 0 #ffd63d; font-size: 1.5rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .bgm-btn:hover { transform: translate(-2px,-2px) rotate(-8deg); box-shadow: 6px 6px 0 #ffd63d; }
+  .bgm-btn.playing { background: #ffd63d; color: #111; }
+  .bgm-wrap { position: fixed; right: 22px; bottom: 88px; z-index: 900; width: 300px; display: none; }
+  .bgm-wrap.show { display: block; }
+  .bgm-wrap .bgm-box { background: #fff; border: 3px solid #111; box-shadow: 6px 6px 0 #111; padding: 10px; }
+  .bgm-wrap .bgm-box iframe { display: block; width: 100%; height: 66px; border: 0; }
+  .bgm-title { font-weight: 800; font-size: .8rem; margin-bottom: 8px; color: #111; }
 
   /* ========== 6. 数字分身 ========== */
   .twin h2.sec .bar { background: #4d96ff; }
@@ -314,10 +360,25 @@
     .nav-cta { padding: 7px 12px; font-size: .8rem; }
     .lang-toggle { padding: 7px 10px; }
     .contact .big-action { padding: 14px 20px; font-size: 1rem; }
+    .music .album-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .bgm-btn { right: 16px; bottom: 16px; width: 50px; height: 50px; }
+    .bgm-wrap { right: 16px; bottom: 76px; width: min(300px, calc(100vw - 32px)); }
   }
 </style>
 </head>
 <body>
+
+<!-- 0. 色块加载进入动画 -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-blocks">
+    <span class="lb lb1"></span>
+    <span class="lb lb2"></span>
+    <span class="lb lb3"></span>
+    <span class="lb lb4"></span>
+    <span class="lb lb5"></span>
+  </div>
+  <div class="loader-brand">ZX<em>!</em></div>
+</div>
 
 <!-- 1. 顶部导航 Header：品牌 + 菜单 + 主行动按钮 -->
 <nav>
@@ -459,10 +520,25 @@
   <section class="box music" id="music">
     <h2 class="sec"><span class="bar"></span><span data-zh="音乐" data-en="Music">音乐</span></h2>
     <p class="sub" data-zh="// 我爱流行 & 说唱，Kanye 是我的最爱" data-en="// POP & HIP-HOP — KANYE IS MY GO-TO">// 我爱流行 & 说唱，Kanye 是我的最爱</p>
-    <div class="music-frame">
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="86" title="网易云音乐：Flashing Lights (Kanye West)" src="https://music.163.com/outchain/player?type=2&id=18969075&auto=0&height=66"></iframe>
+    <div class="album-grid">
+      <a class="album-card" href="https://music.163.com/#/album?id=8116" target="_blank" rel="noopener">
+        <img src="assets/albums/orange-moon.jpg" alt="方大同《橙月》专辑封面" loading="lazy">
+        <div class="album-meta"><strong>橙月</strong><span>方大同 · 2008</span></div>
+      </a>
+      <a class="album-card" href="https://music.163.com/#/album?id=250300440" target="_blank" rel="noopener">
+        <img src="assets/albums/dreamer.jpg" alt="方大同《梦想家 The Dreamer》专辑封面" loading="lazy">
+        <div class="album-meta"><strong>梦想家 The Dreamer</strong><span>方大同 · 2024</span></div>
+      </a>
+      <a class="album-card" href="https://music.163.com/#/album?id=37256432" target="_blank" rel="noopener">
+        <img src="assets/albums/ji-fen-zhi-ji.jpg" alt="卢广仲《几分之几》专辑封面" loading="lazy">
+        <div class="album-meta"><strong>几分之几</strong><span>卢广仲 · 2018</span></div>
+      </a>
+      <a class="album-card" href="https://music.163.com/#/album?id=1738261" target="_blank" rel="noopener">
+        <img src="assets/albums/graduation.jpg" alt="Kanye West《Graduation》专辑封面" loading="lazy">
+        <div class="album-meta"><strong>Graduation</strong><span>Kanye West · 2007</span></div>
+      </a>
     </div>
-    <p class="music-note" data-zh="🎧 正在放 Kanye 的《Flashing Lights》——循环了无数遍。" data-en="🎧 Kanye's Flashing Lights — on repeat, basically.">🎧 正在放 Kanye 的《Flashing Lights》——循环了无数遍。</p>
+    <p class="music-note" data-zh="🎧 方大同、卢广仲、Kanye——耳机里的循环歌单。点封面去网易云听全专辑。" data-en="🎧 Khalil Fong, Crowd Lu, Kanye — my on-repeat list. Tap a cover to open the album.">🎧 方大同、卢广仲、Kanye——耳机里的循环歌单。点封面去网易云听全专辑。</p>
   </section>
 
   <!-- 6. 数字分身：基于内置知识库的对话 -->
@@ -507,7 +583,47 @@
 
 <div class="cursor-wrap" id="cursorWrap" aria-hidden="true"><div class="cursor-dot"></div></div>
 
+<!-- 背景音乐 -->
+<button class="bgm-btn" id="bgmBtn" aria-label="背景音乐开关" aria-pressed="false">🎵</button>
+<div class="bgm-wrap" id="bgmWrap">
+  <div class="bgm-box">
+    <div class="bgm-title" data-zh="🎵 背景音乐 · 方大同《回留》" data-en="🎵 BGM · Khalil Fong — 回留">🎵 背景音乐 · 方大同《回留》</div>
+    <iframe id="bgmFrame" data-src="https://music.163.com/outchain/player?type=2&id=2635125903&auto=1&height=66" title="背景音乐：回留（方大同）"></iframe>
+  </div>
+</div>
+
 <script>
+  // ---- 色块加载进入动画：页面就绪后淡出 ----
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const loader = document.getElementById('loader');
+      if (loader) loader.classList.add('hide');
+    }, 1400);
+  });
+  // 兜底：即使 load 事件延迟，最多 3.2s 强制淡出，避免一直卡在加载动画
+  setTimeout(() => {
+    const loader = document.getElementById('loader');
+    if (loader && !loader.classList.contains('hide')) loader.classList.add('hide');
+  }, 3200);
+
+  // ---- 背景音乐开关 ----
+  const bgmBtn = document.getElementById('bgmBtn');
+  const bgmWrap = document.getElementById('bgmWrap');
+  const bgmFrame = document.getElementById('bgmFrame');
+  let bgmLoaded = false;
+  if (bgmBtn && bgmWrap && bgmFrame) {
+    bgmBtn.addEventListener('click', () => {
+      if (!bgmLoaded) {
+        bgmFrame.src = bgmFrame.dataset.src;
+        bgmLoaded = true;
+      }
+      const on = bgmWrap.classList.toggle('show');
+      bgmBtn.classList.toggle('playing', on);
+      bgmBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      bgmBtn.textContent = on ? '🔊' : '🎵';
+    });
+  }
+
   // ---- 手写签名描边动画 ----
   const sigStroke = document.getElementById('sigText');
   const sigFill = document.querySelector('.sig-fill');
