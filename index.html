@@ -210,43 +210,27 @@
   .music-note { margin-top: 16px; font-size: .85rem; font-weight: 700; color: #fff; }
 
   /* 色块加载进入动画 */
-  .loader { position: fixed; inset: 0; z-index: 10000; background: #ffd63d; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; transition: opacity .55s ease, visibility .55s ease; }
+  .loader { position: fixed; inset: 0; z-index: 10000; background: #ffd63d; overflow: hidden; transition: opacity .55s ease, visibility .55s ease; }
   .loader.hide { opacity: 0; visibility: hidden; pointer-events: none; }
-  .loader-blocks { display: flex; gap: 10px; align-items: flex-end; }
-  .lb { width: 26px; height: 26px; border: 3px solid #111; box-shadow: 4px 4px 0 #111; animation: lbjump .9s ease-in-out infinite; }
-  .lb1 { background: #ff6b9d; }
-  .lb2 { background: #4d96ff; animation-delay: .1s; }
-  .lb3 { background: #6bcb77; animation-delay: .2s; }
-  .lb4 { background: #4cc9f0; animation-delay: .3s; }
-  .lb5 { background: #111; animation-delay: .4s; }
-  @keyframes lbjump { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-24px) rotate(7deg); } }
+  .loader-waves { position: absolute; inset: 0; display: flex; flex-wrap: wrap; align-content: flex-start; gap: 10px; padding: 28px; }
+  .wave-block { width: 22px; height: 22px; border: 2px solid #111; box-shadow: 3px 3px 0 #111; animation: waveFloat 1.4s ease-in-out infinite; }
+  @keyframes waveFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-28px) rotate(8deg); } }
+  .loader-center {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    display: flex; flex-direction: column; align-items: center; gap: 26px;
+    background: #fff; border: 3px solid #111; box-shadow: 8px 8px 0 #111;
+    padding: 34px 46px; z-index: 2;
+  }
   .loader-brand { font-weight: 900; font-size: 2rem; letter-spacing: 2px; color: #111; }
   .loader-brand em { font-style: normal; color: #ff6b9d; }
   .loader-enter {
     font-family: inherit; font-weight: 900; font-size: 1rem; letter-spacing: 1px;
-    color: #111; background: #fff; border: 3px solid #111; cursor: pointer;
+    color: #111; background: #ffd63d; border: 3px solid #111; cursor: pointer;
     padding: 12px 28px; box-shadow: 5px 5px 0 #111; transform: rotate(-1deg);
     transition: transform .12s ease, box-shadow .12s ease;
   }
   .loader-enter:hover { transform: rotate(0) translate(-2px,-2px); box-shadow: 7px 7px 0 #111; }
   .loader-enter:active { transform: translate(2px,2px); box-shadow: 2px 2px 0 #111; }
-
-  /* 背景音乐悬浮按钮 */
-  .bgm-btn {
-    position: fixed; right: 22px; bottom: 22px; z-index: 900;
-    width: 56px; height: 56px; border-radius: 50%;
-    background: #111; color: #ffd63d; border: 3px solid #111;
-    box-shadow: 4px 4px 0 #ffd63d; font-size: 1.5rem; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: transform .15s ease, box-shadow .15s ease;
-  }
-  .bgm-btn:hover { transform: translate(-2px,-2px) rotate(-8deg); box-shadow: 6px 6px 0 #ffd63d; }
-  .bgm-btn.playing { background: #ffd63d; color: #111; }
-  .bgm-wrap { position: fixed; right: 22px; bottom: 88px; z-index: 900; width: 300px; display: none; }
-  .bgm-wrap.show { display: block; }
-  .bgm-wrap .bgm-box { background: #fff; border: 3px solid #111; box-shadow: 6px 6px 0 #111; padding: 10px; }
-  .bgm-wrap .bgm-box iframe { display: block; width: 100%; height: 66px; border: 0; }
-  .bgm-title { font-weight: 800; font-size: .8rem; margin-bottom: 8px; color: #111; }
 
   /* ========== 6. 数字分身 ========== */
   .twin h2.sec .bar { background: #4d96ff; }
@@ -369,8 +353,7 @@
     .lang-toggle { padding: 7px 10px; }
     .contact .big-action { padding: 14px 20px; font-size: 1rem; }
     .music .album-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .bgm-btn { right: 16px; bottom: 16px; width: 50px; height: 50px; }
-    .bgm-wrap { right: 16px; bottom: 76px; width: min(300px, calc(100vw - 32px)); }
+    .loader-center { padding: 26px 24px; }
   }
 </style>
 </head>
@@ -378,15 +361,11 @@
 
 <!-- 0. 色块加载进入动画 -->
 <div class="loader" id="loader">
-  <div class="loader-blocks">
-    <span class="lb lb1"></span>
-    <span class="lb lb2"></span>
-    <span class="lb lb3"></span>
-    <span class="lb lb4"></span>
-    <span class="lb lb5"></span>
+  <div class="loader-waves" id="loaderWaves" aria-hidden="true"></div>
+  <div class="loader-center">
+    <div class="loader-brand">ZX<em>!</em></div>
+    <button class="loader-enter" id="loaderEnter" type="button" data-zh="点击进入" data-en="ENTER">点击进入</button>
   </div>
-  <div class="loader-brand">ZX<em>!</em></div>
-  <button class="loader-enter" id="loaderEnter" type="button" data-zh="点击进入" data-en="ENTER">点击进入</button>
 </div>
 
 <!-- 1. 顶部导航 Header：品牌 + 菜单 + 主行动按钮 -->
@@ -592,40 +571,37 @@
 
 <div class="cursor-wrap" id="cursorWrap" aria-hidden="true"><div class="cursor-dot"></div></div>
 
-<!-- 背景音乐 -->
-<button class="bgm-btn" id="bgmBtn" aria-label="背景音乐开关" aria-pressed="false">🎵</button>
-<div class="bgm-wrap" id="bgmWrap">
-  <div class="bgm-box">
-    <div class="bgm-title" data-zh="🎵 背景音乐 · 方大同《回留》" data-en="🎵 BGM · Khalil Fong — 回留">🎵 背景音乐 · 方大同《回留》</div>
-    <iframe id="bgmFrame" data-src="https://music.163.com/outchain/player?type=2&id=2635125903&auto=1&height=66" title="背景音乐：回留（方大同）"></iframe>
-  </div>
-</div>
+<!-- 背景音乐：进入主页后自动循环播放 Never See Me Again -->
+<audio id="bgmAudio" src="assets/bgm/never-see-me-again.mp3" loop preload="auto"></audio>
 
 <script>
-  // ---- 色块加载进入动画：点击按钮后才进入主页 ----
+  // ---- 色块加载进入动画：生成波浪色块，点击按钮后进入主页并播放背景音乐 ----
   const loader = document.getElementById('loader');
+  const loaderWaves = document.getElementById('loaderWaves');
   const loaderEnter = document.getElementById('loaderEnter');
+  const bgmAudio = document.getElementById('bgmAudio');
+  if (loaderWaves) {
+    const WAVE_COLORS = ['#ff6b9d', '#4d96ff', '#6bcb77', '#4cc9f0', '#111', '#fff'];
+    const size = 22, gap = 10;
+    const cols = Math.ceil(window.innerWidth / (size + gap)) + 1;
+    const rows = Math.ceil(window.innerHeight / (size + gap)) + 1;
+    let html = '';
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const color = WAVE_COLORS[(r * 3 + c * 2) % WAVE_COLORS.length];
+        const delay = (((r + c) * 0.06) % 1.4).toFixed(2);
+        html += '<span class="wave-block" style="background:' + color + ';animation-delay:' + delay + 's"></span>';
+      }
+    }
+    loaderWaves.innerHTML = html;
+  }
   if (loader && loaderEnter) {
     loaderEnter.addEventListener('click', () => {
       loader.classList.add('hide');
-    });
-  }
-
-  // ---- 背景音乐开关 ----
-  const bgmBtn = document.getElementById('bgmBtn');
-  const bgmWrap = document.getElementById('bgmWrap');
-  const bgmFrame = document.getElementById('bgmFrame');
-  let bgmLoaded = false;
-  if (bgmBtn && bgmWrap && bgmFrame) {
-    bgmBtn.addEventListener('click', () => {
-      if (!bgmLoaded) {
-        bgmFrame.src = bgmFrame.dataset.src;
-        bgmLoaded = true;
+      if (bgmAudio) {
+        bgmAudio.volume = 0.55;
+        bgmAudio.play().catch(() => {});
       }
-      const on = bgmWrap.classList.toggle('show');
-      bgmBtn.classList.toggle('playing', on);
-      bgmBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
-      bgmBtn.textContent = on ? '🔊' : '🎵';
     });
   }
 
