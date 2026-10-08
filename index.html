@@ -222,6 +222,14 @@
   @keyframes lbjump { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-24px) rotate(7deg); } }
   .loader-brand { font-weight: 900; font-size: 2rem; letter-spacing: 2px; color: #111; }
   .loader-brand em { font-style: normal; color: #ff6b9d; }
+  .loader-enter {
+    font-family: inherit; font-weight: 900; font-size: 1rem; letter-spacing: 1px;
+    color: #111; background: #fff; border: 3px solid #111; cursor: pointer;
+    padding: 12px 28px; box-shadow: 5px 5px 0 #111; transform: rotate(-1deg);
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .loader-enter:hover { transform: rotate(0) translate(-2px,-2px); box-shadow: 7px 7px 0 #111; }
+  .loader-enter:active { transform: translate(2px,2px); box-shadow: 2px 2px 0 #111; }
 
   /* 背景音乐悬浮按钮 */
   .bgm-btn {
@@ -369,7 +377,7 @@
 <body>
 
 <!-- 0. 色块加载进入动画 -->
-<div class="loader" id="loader" aria-hidden="true">
+<div class="loader" id="loader">
   <div class="loader-blocks">
     <span class="lb lb1"></span>
     <span class="lb lb2"></span>
@@ -378,6 +386,7 @@
     <span class="lb lb5"></span>
   </div>
   <div class="loader-brand">ZX<em>!</em></div>
+  <button class="loader-enter" id="loaderEnter" type="button" data-zh="点击进入" data-en="ENTER">点击进入</button>
 </div>
 
 <!-- 1. 顶部导航 Header：品牌 + 菜单 + 主行动按钮 -->
@@ -593,18 +602,14 @@
 </div>
 
 <script>
-  // ---- 色块加载进入动画：页面就绪后淡出 ----
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      const loader = document.getElementById('loader');
-      if (loader) loader.classList.add('hide');
-    }, 1400);
-  });
-  // 兜底：即使 load 事件延迟，最多 3.2s 强制淡出，避免一直卡在加载动画
-  setTimeout(() => {
-    const loader = document.getElementById('loader');
-    if (loader && !loader.classList.contains('hide')) loader.classList.add('hide');
-  }, 3200);
+  // ---- 色块加载进入动画：点击按钮后才进入主页 ----
+  const loader = document.getElementById('loader');
+  const loaderEnter = document.getElementById('loaderEnter');
+  if (loader && loaderEnter) {
+    loaderEnter.addEventListener('click', () => {
+      loader.classList.add('hide');
+    });
+  }
 
   // ---- 背景音乐开关 ----
   const bgmBtn = document.getElementById('bgmBtn');
