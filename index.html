@@ -212,7 +212,7 @@
   /* 色块加载进入动画 */
   .loader { position: fixed; inset: 0; z-index: 10000; background: #ffd63d; overflow: hidden; transition: opacity .55s ease, visibility .55s ease; }
   .loader.hide { opacity: 0; visibility: hidden; pointer-events: none; }
-  .loader-waves { position: absolute; inset: 0; display: flex; flex-wrap: wrap; align-content: flex-start; gap: 22px; padding: 70px 0; }
+  .loader-waves { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(auto-fill, 88px); justify-content: space-between; column-gap: 22px; row-gap: 22px; padding: 70px 0; }
   .wave-block { width: 88px; height: 88px; border: 3px solid #111; box-shadow: 7px 7px 0 #111; animation: waveFloat 1.7s ease-in-out infinite; }
   @keyframes waveFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-64px) rotate(6deg); } }
   .loader-center {
@@ -583,7 +583,7 @@
   if (loaderWaves) {
     const WAVE_COLORS = ['#ffd63d', '#ff6b9d', '#ff6b6b', '#ff9f43', '#6bcb77', '#4cc9f0', '#4d96ff', '#9b59b6', '#111', '#fff'];
     const size = 88, gap = 22;
-    const cols = Math.ceil(window.innerWidth / (size + gap)) + 1;
+    const cols = Math.floor((window.innerWidth + gap) / (size + gap));
     const rows = Math.ceil(window.innerHeight / (size + gap)) + 1;
     let html = '';
     for (let r = 0; r < rows; r++) {
