@@ -106,5 +106,5 @@
 |---|---|---|
 | Public V4 link | ✅ | GitHub Pages 已上线，页脚显示 V4 |
 | Version chain V1→V4 | ✅ | 4 个 tag + 阶段截图 + 版本记录 |
-| Feedback evidence | ⚠️ 1/3 位 | 已有汪心怡（微信截图），还需 ≥2 位 |
+| Feedback evidence | ⚠️ 1/3 位 | 已有 1 位（微信，文字转录），还需 ≥2 位 |
 | Improvement note | ⚠️ 部分完成 | 第 1 位的取舍与改动已写（`f18e6a6`/`203b439`），待补其余 |
