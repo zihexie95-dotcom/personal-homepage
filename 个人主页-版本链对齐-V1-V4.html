@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang='zh-CN'><head><meta charset='utf-8'><title>版本链对齐 V1-V4</title><style>body{max-width:1000px;margin:0 auto;padding:30px 26px 70px;color:#16202c;
+font-family:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-size:15.5px;line-height:1.8}
+h1{font-size:25px;border-bottom:2px solid #e3e8ee;padding-bottom:12px}
+h2{font-size:18px;margin-top:36px;padding:9px 13px;background:#eef3ff;border-left:4px solid #1d4ed8;border-radius:0 8px 8px 0;color:#16306b}
+h3{font-size:16px;margin-top:26px;color:#0b3a67}
+table{border-collapse:collapse;width:100%;font-size:14.3px;margin:14px 0}
+th,td{border:1px solid #e3e8ee;padding:9px 11px;vertical-align:top;text-align:left}
+thead th{background:#f7f9fb;color:#5b6b7c;font-size:13px}tbody tr:nth-child(even){background:#fbfcfe}
+code{background:#eef2f7;padding:1.5px 5px;border-radius:5px;font-family:Consolas,monospace;color:#0b3a67}
+pre{background:#0f172a;color:#e6edf5;padding:13px 15px;border-radius:10px;overflow-x:auto}
+pre code{background:none;color:inherit}
+blockquote{margin:12px 0;padding:9px 15px;background:#f7f9fb;border-left:3px solid #c3ccd8;color:#33465c}
+hr{border:0;border-top:1px solid #e3e8ee;margin:30px 0}</style></head><body><h1>个人主页 · 版本链对齐（课程 V1 → V4）</h1>
+<p><strong>课程</strong>：Project-Based Vibe Coding（Introductory Module）· First-month submission（10%）
+<strong>仓库</strong>：<code>github.com/zihexie95-dotcom/personal-homepage</code>
+<strong>线上</strong>：<code>https://zihexie95-dotcom.github.io/personal-homepage/</code>
+<strong>对齐日期</strong>：2026-10-22</p>
+<hr />
+<h2>一、为什么要对齐</h2>
+<p>课程大纲按<strong>阶段</strong>编号（Stage 1 = V1 … Stage 4 = V4），你仓库里用的是<strong>内部小版本</strong>（V0 → V1.0 … V1.7 → V2.0）。两套编号混在一起，老师按大纲核对时会直接问："V2、V3、V4 在哪？"</p>
+<p>本文件把 56 个 Git 提交归到 4 个阶段，并在本地打了 4 个 tag，任何一个阶段都能一键检出快照。</p>
+<hr />
+<h2>二、对齐结果</h2>
+<table>
+<thead>
+<tr>
+<th>课程阶段</th>
+<th>课程最低要求（大纲原文）</th>
+<th>对应你的版本演化</th>
+<th>Git 提交 · tag</th>
+<th>时间</th>
+<th>已有证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Stage 1 / V1</strong></td>
+<td>Previewable（本地可预览）· Accurate content（信息真实）· Clear structure（结构清晰）· First-version record（存下 V1 并记改进点）</td>
+<td>V0 深色初版 → 6 个风格 Demo → <strong>V1.0 新粗野主义正式版 + 中英双语</strong></td>
+<td><code>3775520</code> · <strong>V1-Stage1</strong></td>
+<td>09-03</td>
+<td><code>V1-提交材料.md</code>（Stage 1 自查表）、<code>screenshots/01–04</code></td>
+</tr>
+<tr>
+<td><strong>Stage 2 / V2</strong></td>
+<td>多轮<strong>有目的</strong>的改动（≠ 只改颜色/文字）· 保存 V1/V2 并总结每轮改动 · before-after 截图 · V2 仍可正常打开</td>
+<td><strong>V1.1</strong> 8 板块改版 → <strong>V1.2</strong> 采访驱动内容 → <strong>V1.3</strong> 数字分身知识库 → <strong>V1.4</strong> 双机械臂项目 → <strong>V1.4.1</strong> 实拍补齐 → <strong>V1.4.2</strong> 真实信息修正 → <strong>V1.5</strong> GitHub 链接 + 移动端打磨</td>
+<td><code>69cee5a</code> · <strong>V2-Stage2</strong></td>
+<td>09-04 → 09-10</td>
+<td><code>V1-版本记录.md</code> 迭代时间线、CHANGELOG</td>
+</tr>
+<tr>
+<td><strong>Stage 3 / V3</strong></td>
+<td>公开链接可访问 · 访客<strong>免登录</strong>提交反馈并收到确认 · Supabase Dashboard 可查看 · 前端不暴露密钥 · 课后：≥3 位不同的人、3–5 条反馈</td>
+<td><strong>V1.6</strong> 意见反馈页 → <strong>V1.7</strong> 反馈页接 Supabase 真实后端（RLS 只写）+ 访客计数</td>
+<td><code>f9795c5</code> · <strong>V3-Stage3</strong></td>
+<td>09-10 → 09-17</td>
+<td><code>feedback.html</code>、Supabase Dashboard、线上链接</td>
+</tr>
+<tr>
+<td><strong>Stage 4 / V4</strong></td>
+<td>把反馈变成<strong>决策</strong>（采纳/部分采纳/暂缓/不采纳，并说明理由）· 复测核心路径没坏 · 写反思</td>
+<td>09-22 → 10-08：成长时间线、手写签名动画、自定义光标、数字分身形象、音乐专辑墙、色块加载动画、流动渐变边框、多项视觉修复</td>
+<td><code>HEAD</code> · <strong>V4-Stage4</strong></td>
+<td>09-22 → 10-08</td>
+<td><code>CHANGELOG.md</code>、<code>54b9dd9</code>（改动汇总）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>阶段边界说明：V1.1–V1.5 全是"设计/内容"层面的迭代 → 归 Stage 2；V1.6–V1.7 引入<strong>反馈通道</strong> → 归 Stage 3；09-22 之后是在已上线版本上继续打磨 → 归 Stage 4。课程要的 V4 是"第一个月的最终版"，即当前 HEAD（页脚徽章已从 V2.0 改为 V4）。</p>
+</blockquote>
+<hr />
+<h2>三、三处还没对齐（必须补，不然会被扣分）</h2>
+<h3>1. 页脚版本号是 V2.0，不是 V4</h3>
+<p><code>index.html</code> 第 592 行页脚徽章写的是 <code>V2.0</code>。老师点开链接看到 V2.0，大纲却要求 V4，视觉上就对不上。
+→ 改成 <code>V4.0</code>（或 <code>V4 · First Month</code>），改完要提交并推送才会更新线上。</p>
+<h3>2. Stage 3 的反馈证据：桌面上一张都没有</h3>
+<p>大纲明确要"至少 3 位不同的人 + 3–5 条含义不同的反馈"，且要是<strong>截图或记录</strong>。
+现状：<code>screenshots/</code> 只有 4 张 Stage 1 的图（V0 深色版、6 Demo 总览、V1 中文、V1 英文），没有任何反馈截图。
+→ 反馈数据只在你的 Supabase Dashboard 里，得你自己登录导出（表格截图即可）。</p>
+<h3>3. Stage 2 的 before/after 对比图缺</h3>
+<p>只有 V0 与 V1 的对比。V1.1（8 板块）、V1.3（数字分身）、V1.4（双机械臂）这些真正的"多轮迭代"没有前后对比图。
+→ 可以检出旧 tag 截一张、跟现在对比。</p>
+<hr />
+<h2>四、建议的修复顺序</h2>
+<table>
+<thead>
+<tr>
+<th>顺序</th>
+<th>动作</th>
+<th>谁做</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>页脚 <code>V2.0</code> → <code>V4.0</code>，提交并推送</td>
+<td>我（需网络）</td>
+<td>线上编号与大纲一致</td>
+</tr>
+<tr>
+<td>2</td>
+<td>登录 Supabase 导出反馈（3–5 条）并截图</td>
+<td>你</td>
+<td>Stage 3 达标证据</td>
+</tr>
+<tr>
+<td>3</td>
+<td>补 V1.1 / V1.3 / V1.4 的 before-after 截图</td>
+<td>我（用 tag 检出旧版截图）</td>
+<td>Stage 2 达标证据</td>
+</tr>
+<tr>
+<td>4</td>
+<td>按大纲 4 项写一页"提交说明"（公开链接 / 版本链 / 反馈证据 / 改进说明）</td>
+<td>我</td>
+<td>邮件正文或 PDF 附件的骨架</td>
+</tr>
+<tr>
+<td>5</td>
+<td>把 4 个 tag 推到 GitHub</td>
+<td>我（需网络）</td>
+<td>老师能在仓库里直接看版本链</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>五、tag 怎么用</h2>
+<p>本地已打好（<strong>尚未推送</strong>，因为当前连不上 GitHub）：</p>
+<pre><code class="language-bash">git tag -l
+# V1-Stage1  3775520  2026-09-03  V1.0 新粗野主义正式版
+# V2-Stage2  69cee5a  2026-09-10  V1.5 GitHub 链接 + 移动端打磨
+# V3-Stage3  f9795c5  2026-09-17  V1.7 Supabase 反馈后端 + RLS
+# V4-Stage4  HEAD  2026-10-22  第一个月最终版（含页脚 V4 徽章）
+
+git checkout V2-Stage2     # 看第二阶段的快照
+git checkout main          # 回到最新
+</code></pre>
+<p>推送（网络通了之后）：</p>
+<pre><code class="language-bash">git push origin V1-Stage1 V2-Stage2 V3-Stage3 V4-Stage4
+</code></pre>
+<hr />
+<h2>六、一句话总结</h2>
+<p><strong>链条本身是有的</strong>（56 个提交、有版本记录、有公开链接、有 Supabase 反馈通道），缺的是<strong>编号对齐</strong>（V2.0 → V4.0）和<strong>两类截图证据</strong>（反馈记录、Stage 2 前后对比）。改完这三处，10% 这一项就是完整的。</p></body></html>
