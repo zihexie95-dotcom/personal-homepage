@@ -252,13 +252,28 @@ hr{border:0;border-top:1px solid #e3e8ee;margin:30px 0}</style></head><body><h1>
 </tr>
 <tr>
 <td>首屏加载 → 点击进入</td>
-<td>⬜ 待点</td>
-<td>需在浏览器实际点一次</td>
+<td>✅ 结构就绪</td>
+<td>线上 HTML 含 <code>#loader</code> 与「点击进入」按钮 <code>#loaderEnter</code>；点击后的过渡动画需人工确认一次</td>
 </tr>
 <tr>
-<td>导航锚点跳转 · 数字分身问答 · 移动端 · 中英切换</td>
-<td>⬜ 待点</td>
-<td>需人工在手机/桌面各过一遍</td>
+<td>导航锚点跳转</td>
+<td>✅ 无死链</td>
+<td>5 个锚点 <code>#top/#about/#works/#twin/#contact</code> 全部能找到对应 id（2026-10-22 线上 HTML 核对）</td>
+</tr>
+<tr>
+<td>数字分身问答</td>
+<td>⚠️ 控件就绪</td>
+<td><code>#chatInput / #chatSend / #quickChips</code> 存在；回答质量需人工试一句</td>
+</tr>
+<tr>
+<td>中英切换</td>
+<td>⚠️ 控件就绪</td>
+<td><code>#langToggle</code> 存在；切换后文案是否全量替换需人工点一次</td>
+</tr>
+<tr>
+<td>移动端窄屏布局</td>
+<td>⬜ 待手机</td>
+<td>需真机或窄窗口过一遍</td>
 </tr>
 </tbody>
 </table>
