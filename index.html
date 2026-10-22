@@ -342,6 +342,11 @@
     }
   }
 
+  /* 导航从 3 项增至 6 项后，窄屏放不下：低于 900px 只保留 CTA，避免换行挤压 */
+  @media (max-width: 900px) {
+    .nav-right a.menu { display: none; }
+  }
+
   @media (max-width: 680px) {
     .nav-right a.menu { display: none; }
     nav { padding: 10px 4vw; }
@@ -394,7 +399,10 @@
   <a class="logo" href="#top">ZX<em>!</em></a>
   <div class="nav-right">
     <a class="menu" href="#about" data-zh="关于我" data-en="About">关于我</a>
-    <a class="menu" href="#works" data-zh="作品" data-en="Works">作品</a>
+    <a class="menu" href="#timeline" data-zh="成长时间线" data-en="Timeline">成长时间线</a>
+    <a class="menu" href="#works" data-zh="项目与作品" data-en="Works">项目与作品</a>
+    <a class="menu" href="#skills" data-zh="兴趣与技能" data-en="Interests">兴趣与技能</a>
+    <a class="menu" href="#music" data-zh="音乐" data-en="Music">音乐</a>
     <a class="menu" href="#twin" data-zh="数字分身" data-en="Twin">数字分身</a>
     <a class="nav-cta" href="#contact" data-zh="联系我 ✉" data-en="Contact ✉">联系我 ✉</a>
     <button class="lang-toggle" id="langToggle">EN</button>

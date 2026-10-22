@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>个人主页 · 用户反馈汇总</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #fff; }
+  body {
+    font-family: "Microsoft YaHei", "Noto Sans SC", "PingFang SC", sans-serif;
+    color: #111; -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  #page {
+    width: 210mm; min-height: 297mm; padding: 14mm 15mm 12mm; margin: 0 auto;
+  }
+
+  /* ---------- 页头 ---------- */
+  .kicker { font-size: 8pt; letter-spacing: .18em; color: #666; text-transform: uppercase; }
+  h1 { font-size: 19pt; margin: 3mm 0 1.5mm; letter-spacing: .02em; }
+  h1 span { background: linear-gradient(transparent 60%, #ffd63d 60%); padding: 0 2px; }
+  .meta { font-size: 8.6pt; color: #444; line-height: 1.6; }
+  .meta b { color: #111; }
+  .rule { height: 2.5px; background: #111; margin: 4mm 0 0; }
+
+  /* ---------- 统计条 ---------- */
+  .stats { display: flex; gap: 0; margin: 5mm 0 0; border: 1.6px solid #111; }
+  .stat { flex: 1; padding: 3mm 2mm; text-align: center; border-right: 1px solid #ddd; }
+  .stat:last-child { border-right: 0; }
+  .stat .n { font-size: 15pt; font-weight: 800; line-height: 1; }
+  .stat .l { font-size: 7.6pt; color: #555; margin-top: 1.6mm; letter-spacing: .04em; }
+  .stat.hi { background: #ffd63d; }
+
+  /* ---------- 区块 ---------- */
+  h2 { font-size: 10pt; letter-spacing: .1em; margin: 6mm 0 2mm; padding-bottom: 1.2mm; border-bottom: 1.4px solid #111; }
+  h2 .en { font-weight: 400; color: #888; font-size: 7.6pt; letter-spacing: .12em; margin-left: 2mm; }
+
+  /* ---------- 表格 ---------- */
+  table { width: 100%; border-collapse: collapse; font-size: 8.4pt; line-height: 1.5; }
+  th { text-align: left; font-size: 7.6pt; letter-spacing: .06em; color: #fff; background: #111; padding: 1.8mm 2mm; font-weight: 700; }
+  td { padding: 1.7mm 2mm; border-bottom: 1px solid #e2e2e2; vertical-align: top; }
+  tr:nth-child(even) td { background: #fafafa; }
+  td.no { color: #999; width: 8mm; }
+  td.time { width: 26mm; font-variant-numeric: tabular-nums; color: #444; }
+  td.nick { width: 34mm; font-weight: 700; }
+  td.rel { width: 12mm; }
+  td.dev { width: 12mm; color: #444; }
+  .tag { display: inline-block; font-size: 7pt; padding: .3mm 1.4mm; border: 1px solid #111; }
+  .warn { color: #b3261e; }
+
+  /* ---------- 归纳 ---------- */
+  .cols { display: flex; gap: 5mm; }
+  .col { flex: 1; }
+  .box { border: 1.4px solid #111; padding: 2.6mm 3mm; }
+  .box.pos { border-color: #111; }
+  .box.imp { border-color: #b3261e; }
+  .box h3 { font-size: 8.6pt; margin: 0 0 1.6mm; letter-spacing: .04em; }
+  .box.pos h3 { color: #111; }
+  .box.imp h3 { color: #b3261e; }
+  ul { margin: 0; padding-left: 4mm; font-size: 8.2pt; line-height: 1.62; }
+  li { margin-bottom: 1.1mm; }
+  .q { color: #333; }
+  .note { font-size: 7.4pt; color: #666; line-height: 1.6; margin-top: 5mm; border-top: 1px solid #ddd; padding-top: 2.2mm; }
+  .note b { color: #333; }
+
+  /* ---------- 处理状态 ---------- */
+  .status { margin-top: 4mm; border-left: 4px solid #111; padding: 2.4mm 0 2.4mm 3mm; background: #fafafa; }
+  .s-item { display: block; font-size: 8pt; line-height: 1.55; margin-bottom: .8mm; }
+  .s-item:last-child { margin-bottom: 0; }
+  .done { color: #2f9e44; font-weight: 700; }
+</style>
+</head>
+<body>
+<div id="page">
+
+  <div class="kicker">Digital Twin · Personal Homepage</div>
+  <h1>个人主页 <span>用户反馈汇总</span></h1>
+  <div class="meta">
+    谢子赫 · 学号 <b>3026445063</b> · 计算机科学与技术<br>
+    反馈来源：主页「给我提个意见」页面 → Supabase <b>public.feedback</b> 表（项目 ref <b>cklumlxbkctktamzubqk</b>）<br>
+    采集日期：<b>2026-09-17</b> · 样本量：<b>7 条</b> · 统计基准：写入时间（UTC+8）
+  </div>
+  <div class="rule"></div>
+
+  <div class="stats">
+    <div class="stat hi"><div class="n">7</div><div class="l">反馈总数</div></div>
+    <div class="stat"><div class="n">3</div><div class="l">同学</div></div>
+    <div class="stat"><div class="n">4</div><div class="l">朋友</div></div>
+    <div class="stat"><div class="n">5</div><div class="l">手机端</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">电脑端</div></div>
+  </div>
+
+  <h2>反馈明细<span class="en">FEEDBACK ENTRIES</span></h2>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th><th>提交时间</th><th>昵称</th><th>身份</th><th>设备</th><th>反馈内容</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="no">7</td><td class="time">09-17 23:19</td><td class="nick">魔法棒</td><td class="rel">朋友</td><td class="dev">手机</td><td>内容有特点，设计有创意</td></tr>
+      <tr><td class="no">6</td><td class="time">09-17 18:44</td><td class="nick">整个主页设计效果不错，内容丰富具有自己的特点，形式活泼富有创意！</td><td class="rel">朋友</td><td class="dev">电脑</td><td>作为大一新生值得期待！</td></tr>
+      <tr><td class="no">5</td><td class="time">09-17 18:31</td><td class="nick">小明</td><td class="rel">朋友</td><td class="dev">手机</td><td>嗯对，好的，嗯对</td></tr>
+      <tr><td class="no">4</td><td class="time">09-17 18:28</td><td class="nick">罗斯</td><td class="rel">朋友</td><td class="dev">手机</td><td>好好吃饭好好打球</td></tr>
+      <tr><td class="no">3</td><td class="time">09-17 18:26</td><td class="nick">t</td><td class="rel">同学</td><td class="dev">手机</td><td>栏目架构可以进行微调整 子项不符合大标题 <span class="tag">建议</span></td></tr>
+      <tr><td class="no">2</td><td class="time">09-17 18:24</td><td class="nick">天津大学</td><td class="rel">同学</td><td class="dev">电脑</td><td>把给ai看的提示词删删吧孩子，我们不是ai <span class="tag warn">建议</span></td></tr>
+      <tr><td class="no">1</td><td class="time">09-17 18:24</td><td class="nick">t</td><td class="rel">同学</td><td class="dev">手机</td><td>很好</td></tr>
+    </tbody>
+  </table>
+
+  <h2>归纳与后续<span class="en">TAKEAWAYS</span></h2>
+  <div class="cols">
+    <div class="col">
+      <div class="box pos">
+        <h3>✓ 得到肯定的部分（3 条）</h3>
+        <ul>
+          <li><span class="q">「内容有特点，设计有创意」</span>——视觉与内容差异化被认可</li>
+          <li><span class="q">「整个主页设计效果不错，内容丰富具有自己的特点，形式活泼富有创意」</span>——该条写在昵称栏，是对整体设计的完整评价</li>
+          <li><span class="q">「作为大一新生值得期待」「很好」</span>——正向反馈</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col">
+      <div class="box imp">
+        <h3>! 指出的问题（2 条，可执行）</h3>
+        <ul>
+          <li><b>信息架构</b>：栏目层级需要微调，部分子项与大标题语义不对应 → 需重新梳理导航分组</li>
+          <li><b>内容洁净</b>：页面残留面向 AI 的提示词文案，属开发痕迹，应删除后再对外</li>
+          <li>两条均来自同学（非熟人客套），可操作性最高</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="status">
+    <span class="s-item"><b>处理状态（2026-10-22 复核）</b></span>
+    <span class="s-item"><b>①</b> 信息架构建议 → <span class="done">已修复</span>：导航由 3 项补齐至 6 项，文案与大标题逐字对应</span>
+    <span class="s-item"><b>②</b> 文案口吻建议 → <span class="done">已修复</span>（2026-09-17），本次复核页面无残留</span>
+  </div>
+
+  <div class="note">
+    <b>数据说明</b>　本表为 <b>public.feedback</b> 表全量导出的原始记录（7 条，按写入时间倒序），文字未作任何修改，昵称栏中的整句填写系提交者自行输入，原样保留；<br>
+    第 5、4 条为朋友间日常互动，未计入评价统计。反馈渠道通过 Supabase REST 接口写入，行级安全策略（RLS）限定访客仅可写入、不可读取，仅项目所有者可在后台查看。
+  </div>
+
+</div>
+<script>
+  window.addEventListener('load', function () {
+    var p = document.getElementById('page');
+    var cs = getComputedStyle(p);
+    var pad = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+    document.body.setAttribute('data-page-height', p.scrollHeight);
+    document.body.setAttribute('data-content-height', Math.round(p.scrollHeight - pad));
+    document.body.setAttribute('data-available', Math.round(1123 - pad));
+  });
+</script>
+</body>
+</html>
