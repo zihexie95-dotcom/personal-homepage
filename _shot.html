@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>谢子赫 Zihe Xie · Personal Homepage</title>
+<meta name="description" content="谢子赫（Zihe Xie）的个人主页——深圳未来技术学院计算机大一学生，热爱运动与设计。内含成长时间线、项目作品、数字分身对话与联系方式。">
+<meta property="og:title" content="谢子赫 Zihe Xie · Personal Homepage">
+<meta property="og:description" content="深圳未来技术学院计算机大一学生，热爱运动与设计。内含成长时间线、项目作品、数字分身对话。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/twin-avatar.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" href="assets/twin-avatar.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #ffd63d; color: #111; line-height: 1.7;
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ========== 1. 顶部导航 Header ========== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 4vw; background: #ffd63d; border-bottom: 3px solid #111;
+  }
+  .logo {
+    font-weight: 900; font-size: 1.1rem; color: #111; text-decoration: none;
+    background: #fff; border: 3px solid #111; padding: 4px 14px;
+    box-shadow: 4px 4px 0 #111; transform: rotate(-2deg); letter-spacing: 1px;
+  }
+  .logo em { font-style: normal; color: #ff6b9d; }
+  .nav-right { display: flex; gap: 8px; align-items: center; }
+  .nav-right a.menu {
+    color: #111; text-decoration: underline; text-underline-offset: 4px; font-size: .9rem; font-weight: 700;
+    padding: 6px 12px; border: 3px solid transparent; transition: all .15s;
+  }
+  .nav-right a.menu:hover { background: #fff; border-color: #111; box-shadow: 3px 3px 0 #111; }
+  .nav-cta {
+    color: #fff; text-decoration: none; font-weight: 800; font-size: .88rem;
+    background: #4d96ff; border: 3px solid #111; padding: 7px 18px;
+    box-shadow: 3px 3px 0 #111; transition: all .12s; margin-left: 6px;
+  }
+  .nav-cta:hover { transform: translate(2px,2px); box-shadow: 1px 1px 0 #111; }
+  .lang-toggle {
+    font-weight: 800; font-size: .85rem; cursor: pointer; font-family: inherit;
+    color: #fff; background: #111; border: 3px solid #111;
+    padding: 7px 14px; box-shadow: 3px 3px 0 rgba(0,0,0,.35); transition: all .12s;
+  }
+  .lang-toggle:hover { transform: translate(2px,2px); box-shadow: 1px 1px 0 rgba(0,0,0,.35); }
+
+  /* ========== 布局与通用 ========== */
+  .wrap { max-width: 920px; margin: 0 auto; padding: 120px 5vw 70px; }
+  /* 背景浮动色块装饰：主页黄底上缓缓沉浮的彩色方块 */
+  .bg-float { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+  .bg-f { position: absolute; border: 3px solid #111; box-shadow: 5px 5px 0 rgba(17,17,17,.22); opacity: .5; animation: bgBob 6s ease-in-out infinite; }
+  @keyframes bgBob { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-28px) rotate(4deg); } }
+  @property --flow { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+  .box {
+    position: relative;
+    background: #fff; border: 3px solid #111; box-shadow: 8px 8px 0 #111;
+    padding: 36px 40px; margin-bottom: 36px;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .box:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 0 #111; }
+  .about-card, .tl-card, .work-card, .album-card, .chat-flow { position: relative; }
+  @keyframes flowSpin { to { --flow: 360deg; } }
+  @supports ((mask-composite: exclude) or (-webkit-mask-composite: xor)) {
+    .box::before, .about-card::before, .tl-card::before, .work-card::before, .album-card::before, .chat-flow::before {
+      content: ''; position: absolute; inset: -3px; padding: 3px; pointer-events: none;
+      background: conic-gradient(from var(--flow), #ff6b9d, #ffd63d, #4d96ff, #6bcb77, #4cc9f0, #ff6b9d);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      animation: flowSpin 2.5s linear infinite;
+    }
+  }
+  h2.sec { font-size: 1.6rem; font-weight: 900; margin: 0 0 22px; }
+  h2.sec .bar { display: inline-block; width: 14px; height: 28px; margin-right: 10px; vertical-align: -4px; }
+  .sec-note { font-weight: 600; font-size: .92rem; margin: -12px 0 22px; }
+
+  /* ========== 2. Hero 首屏 ========== */
+  header.box { background: #ff6b9d; transform: rotate(-.6deg); }
+  header.box:hover { transform: rotate(-.6deg) translate(-3px, -3px); }
+  .sticker {
+    display: inline-block; background: #111; color: #ffd63d; font-weight: 800;
+    font-size: .8rem; letter-spacing: 2px; padding: 6px 14px; transform: rotate(2deg);
+    margin-bottom: 22px;
+  }
+  .hero-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .hero-text { flex: 1; }
+  .hero-avatar {
+    width: 120px; height: 120px; flex-shrink: 0; object-fit: cover;
+    border: 4px solid #111; box-shadow: 6px 6px 0 #111; background: #ffd63d;
+    image-rendering: pixelated; transform: rotate(2deg);
+  }
+  h1 { font-size: clamp(2.8rem, 7vw, 4.4rem); font-weight: 900; letter-spacing: 1px; }
+  h1 span { background: #fff; padding: 0 16px; box-shadow: 5px 5px 0 #111; display: inline-block; border: 3px solid #111; }
+  .signature { display: block; margin: 14px 0 0 4px; width: 320px; max-width: 88%; height: auto; overflow: visible; transform: rotate(-3deg); }
+  .sig { font-family: 'Caveat', cursive; font-size: 58px; font-weight: 700; }
+  .sig-stroke { fill: none; stroke: #111; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .sig-fill { fill: #111; opacity: 0; }
+  .intro { margin-top: 24px; font-size: 1.1rem; font-weight: 600; }
+  .intro mark { background: #4d96ff; color: #fff; padding: 1px 8px; }
+  .motto { margin-top: 18px; }
+  .motto span {
+    display: inline-block; background: #111; color: #ffd63d; font-weight: 800;
+    font-size: .88rem; letter-spacing: 3px; padding: 7px 18px; transform: rotate(-1.5deg);
+  }
+  .hero-tags { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .hero-tags span {
+    background: #fff; border: 2px dashed #111; border-radius: 999px;
+    font-weight: 700; font-size: .85rem; padding: 4px 14px;
+  }
+  .cta { margin-top: 28px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .cta a {
+    font-weight: 800; text-decoration: none; color: #111; font-size: .95rem;
+    background: #fff; border: 3px solid #111; padding: 12px 26px; box-shadow: 5px 5px 0 #111;
+    transition: all .12s;
+  }
+  .cta a:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 #111; }
+  .cta a.blue { background: #4d96ff; color: #fff; }
+
+  /* ========== 3. 关于我卡片 ========== */
+  .about-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 36px; }
+  .about-card {
+    border: 3px solid #111; box-shadow: 6px 6px 0 #111; padding: 24px 26px;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .about-card:hover { transform: translate(-3px,-3px); box-shadow: 9px 9px 0 #111; }
+  .about-card .k { font-weight: 800; font-size: .78rem; letter-spacing: 2px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .about-card .v { font-weight: 600; font-size: 1.02rem; }
+  .c-white { background: #fff; }
+  .c-blue { background: #4cc9f0; }
+  .c-green { background: #6bcb77; }
+
+  /* ========== 3.5 成长时间线 ========== */
+  .timeline { position: relative; margin: 18px 0 36px; padding-left: 42px; }
+  .timeline::before { content: ""; position: absolute; left: 15px; top: 6px; bottom: 6px; width: 4px; background: #111; }
+  .tl-item { position: relative; margin-bottom: 24px; }
+  .tl-item:last-child { margin-bottom: 0; }
+  .tl-item::before {
+    content: ""; position: absolute; left: -34px; top: 26px;
+    width: 18px; height: 18px; background: #ffd63d; border: 3px solid #111; border-radius: 50%;
+  }
+  .tl-item:nth-child(1)::before { background: #fff; }
+  .tl-item:nth-child(2)::before { background: #4d96ff; }
+  .tl-item:nth-child(3)::before { background: #6bcb77; }
+  .tl-item:nth-child(4)::before { background: #ff6b9d; }
+  .tl-item:nth-child(5)::before { background: #ffd63d; }
+  .tl-when {
+    display: inline-block; background: #111; color: #ffd63d; font-size: .72rem;
+    font-weight: 800; letter-spacing: 2px; padding: 4px 12px; margin-bottom: 8px;
+  }
+  .tl-card {
+    border: 3px solid #111; box-shadow: 6px 6px 0 #111; padding: 22px 26px;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .tl-card:hover { transform: translate(-3px,-3px); box-shadow: 9px 9px 0 #111; }
+  .tl-card h3 { font-size: 1.15rem; font-weight: 900; }
+  .tl-card p { font-weight: 500; margin-top: 6px; }
+  .tl-c-white { background: #fff; }
+  .tl-c-blue { background: #4d96ff; color: #fff; }
+  .tl-c-green { background: #6bcb77; }
+  .tl-c-pink { background: #ff6b9d; }
+  .tl-c-yellow { background: #ffd63d; }
+
+  /* ========== 4. 项目与作品 ========== */
+  .work-card {
+    border: 3px solid #111; box-shadow: 6px 6px 0 #111; padding: 28px 30px;
+    margin-bottom: 20px; transition: transform .15s, box-shadow .15s;
+  }
+  .work-card:hover { transform: translate(-3px,-3px); box-shadow: 9px 9px 0 #111; }
+  .work-card h3 { font-size: 1.3rem; font-weight: 900; }
+  .work-card .tag {
+    display: inline-block; background: #111; color: #ffd63d; font-size: .72rem; font-weight: 800;
+    letter-spacing: 2px; padding: 4px 12px; margin: 10px 0 14px; border-radius: 999px;
+  }
+  .work-card p { font-weight: 500; }
+  .work-card .w-link {
+    display: inline-block; margin-top: 16px; font-weight: 800; font-size: .9rem; color: #111;
+    text-decoration: none; background: #fff; border: 3px solid #111; padding: 9px 22px;
+    box-shadow: 4px 4px 0 #111; transition: all .12s;
+  }
+  .work-card .w-link:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 #111; }
+  .w-blue { background: #4d96ff; color: #fff; }
+  .w-green { background: #6bcb77; }
+  .w-pink { background: #ff6b9d; }
+
+  /* ========== 5. 兴趣/技能 ========== */
+  .skills { background: #6bcb77; transform: rotate(.4deg); }
+  .skills:hover { transform: rotate(.4deg) translate(-3px,-3px); }
+  .skills h2.sec .bar { background: #111; }
+  .chips { display: flex; flex-wrap: wrap; gap: 12px; }
+  .chips span {
+    background: #fff; border: 2px dashed #111; border-radius: 999px;
+    font-weight: 700; font-size: .95rem; padding: 8px 18px;
+  }
+  .sub { font-weight: 800; font-size: .82rem; letter-spacing: 2px; margin: 18px 0 10px; }
+
+  /* ========== 5.5 音乐 ========== */
+  .music { background: #111; color: #ffd63d; border-color: #ffd63d; box-shadow: 8px 8px 0 #ffd63d; transform: rotate(-.4deg); }
+  .music:hover { transform: rotate(-.4deg) translate(-3px,-3px); box-shadow: 11px 11px 0 #ffd63d; }
+  .music h2.sec .bar { background: #ffd63d; }
+  .music .sub { color: #ffd63d; }
+  /* 专辑墙 */
+  .music .album-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .music .album-card {
+    background: #fff; color: #111; text-decoration: none;
+    border: 3px solid #111; box-shadow: 5px 5px 0 #111;
+    display: flex; flex-direction: column;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .music .album-card:nth-child(1) { transform: rotate(-1.2deg); }
+  .music .album-card:nth-child(2) { transform: rotate(1deg); }
+  .music .album-card:nth-child(3) { transform: rotate(-.8deg); }
+  .music .album-card:nth-child(4) { transform: rotate(1.4deg); }
+  .music .album-card:hover { transform: rotate(0) translate(-3px,-3px); box-shadow: 8px 8px 0 #111; }
+  .music .album-card img { display: block; width: 100%; aspect-ratio: 1/1; object-fit: cover; border-bottom: 3px solid #111; }
+  .music .album-meta { padding: 9px 11px; }
+  .music .album-meta strong { display: block; font-size: .95rem; font-weight: 900; line-height: 1.25; }
+  .music .album-meta span { display: block; font-size: .74rem; font-weight: 700; color: #666; margin-top: 2px; }
+  .music-note { margin-top: 16px; font-size: .85rem; font-weight: 700; color: #fff; }
+
+  /* 色块加载进入动画 */
+  .loader { position: fixed; inset: 0; z-index: 10000; background: #ffd63d; overflow: hidden; transition: opacity .55s ease, visibility .55s ease; }
+  .loader.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+  .loader-waves { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(auto-fill, 88px); justify-content: space-between; column-gap: 22px; row-gap: 22px; padding: 70px 0; }
+  .wave-block { width: 88px; height: 88px; border: 3px solid #111; box-shadow: 7px 7px 0 #111; animation: waveFloat 3.4s ease-in-out infinite; }
+  @keyframes waveFloat { 0%, 100% { transform: translateY(0) rotate(0deg) scale(1); } 50% { transform: translateY(-50px) rotate(4deg) scale(1.04); } }
+  .loader-center {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    display: flex; flex-direction: column; align-items: center; gap: 26px;
+    background: #fff; border: 3px solid #111; box-shadow: 8px 8px 0 #111;
+    padding: 34px 46px; z-index: 2;
+  }
+  .loader-brand { font-weight: 900; font-size: 2rem; letter-spacing: 2px; color: #111; }
+  .loader-brand em { font-style: normal; color: #ff6b9d; }
+  .loader-enter {
+    font-family: inherit; font-weight: 900; font-size: 1rem; letter-spacing: 1px;
+    color: #111; background: #ffd63d; border: 3px solid #111; cursor: pointer;
+    padding: 12px 28px; box-shadow: 5px 5px 0 #111; transform: rotate(-1deg);
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .loader-enter:hover { transform: rotate(0) translate(-2px,-2px); box-shadow: 7px 7px 0 #111; }
+  .loader-enter:active { transform: translate(2px,2px); box-shadow: 2px 2px 0 #111; }
+
+  /* ========== 6. 数字分身 ========== */
+  .twin h2.sec .bar { background: #4d96ff; }
+  .twin-avatar { text-align: center; margin: 6px 0 20px; }
+  .twin-avatar img {
+    width: 116px; height: 116px; object-fit: cover; border-radius: 0;
+    border: 4px solid #111; box-shadow: 6px 6px 0 #111; background: #ffd63d;
+    image-rendering: pixelated;
+    transition: transform .2s ease;
+  }
+  .twin-avatar img:hover { transform: rotate(-4deg) scale(1.04); }
+  .chat {
+    border: 3px solid #111; background: #fff8e8; box-shadow: inset 0 0 0 2px #ffe9a8;
+    padding: 22px; display: grid; gap: 14px; align-content: start;
+    max-height: 440px; overflow-y: auto; overscroll-behavior: contain;
+  }
+  .msg { max-width: 82%; font-weight: 600; font-size: .95rem; border: 3px solid #111; padding: 10px 16px; box-shadow: 4px 4px 0 #111; }
+  .msg.q { justify-self: end; background: #ffd63d; border-radius: 16px 16px 4px 16px; }
+  .msg.a { justify-self: start; background: #fff; border-radius: 16px 16px 16px 4px; }
+  .msg.a .who { font-size: .72rem; font-weight: 800; letter-spacing: 1px; color: #4d96ff; display: block; margin-bottom: 2px; }
+  .chat-input { display: flex; gap: 10px; margin-top: 18px; }
+  .chat-input input {
+    flex: 1; font-family: inherit; font-weight: 600; font-size: .95rem;
+    border: 3px solid #111; padding: 11px 16px; background: #fff; outline: none;
+  }
+  .chat-input input:focus { box-shadow: 4px 4px 0 #4d96ff; }
+  .chat-input button {
+    font-family: inherit; font-weight: 800; font-size: .9rem; cursor: pointer;
+    background: #4d96ff; color: #fff; border: 3px solid #111; padding: 0 22px;
+    box-shadow: 4px 4px 0 #111; transition: all .12s;
+  }
+  .chat-input button:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 #111; }
+  .twin-tip { margin-top: 14px; font-size: .8rem; font-weight: 700; letter-spacing: 1px; color: #555; }
+  .msg .typing-dots { display: inline-block; animation: blink 1s steps(2, start) infinite; }
+  @keyframes blink { to { visibility: hidden; } }
+  .quick-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+  .quick-chips button {
+    font-family: inherit; cursor: pointer; font-weight: 700; font-size: .85rem; color: #111;
+    background: #fff; border: 3px solid #111; padding: 7px 14px;
+    box-shadow: 3px 3px 0 #111; transition: all .12s;
+  }
+  .quick-chips button:hover { transform: translate(2px,2px); box-shadow: 1px 1px 0 #111; background: #4cc9f0; }
+  .chat-input input:disabled { background: #f4ead0; color: #888; cursor: wait; }
+  .chat-input button:disabled { opacity: .55; cursor: wait; }
+
+  /* ========== 7. 联系我 ========== */
+  .contact { background: #fff; text-align: center; }
+  .contact h2.sec .bar { background: #ff6b9d; }
+  .contact .big-action {
+    display: block; width: fit-content; margin: 20px auto 0; font-weight: 900; font-size: 1.15rem; color: #111;
+    text-decoration: none; background: #ffd63d; border: 3px solid #111; padding: 16px 36px;
+    box-shadow: 6px 6px 0 #111; transition: all .12s; word-break: break-all;
+  }
+  .contact .big-action:hover { transform: translate(3px,3px); box-shadow: 3px 3px 0 #111; }
+  .contact .gh-btn {
+    display: block; width: fit-content; margin: 16px auto 0; font-weight: 800; font-size: .95rem; color: #fff;
+    text-decoration: none; background: #111; border: 3px solid #111; padding: 12px 28px;
+    box-shadow: 5px 5px 0 #ff6b9d; transition: all .12s;
+  }
+  .contact .gh-btn:hover { transform: translate(2px,2px); box-shadow: 3px 3px 0 #ff6b9d; }
+  .contact .fb-btn {
+    display: block; width: fit-content; margin: 16px auto 0; font-weight: 800; font-size: .95rem; color: #111;
+    text-decoration: none; background: #6bcb77; border: 3px solid #111; padding: 12px 28px;
+    box-shadow: 5px 5px 0 #4d96ff; transition: all .12s;
+  }
+  .contact .fb-btn:hover { transform: translate(2px,2px); box-shadow: 3px 3px 0 #4d96ff; }
+  /* ========== 8. 页脚 ========== */
+  footer { text-align: center; font-weight: 800; font-size: .85rem; letter-spacing: 1px; }
+  footer .ver { background: #111; color: #ffd63d; padding: 2px 10px; margin-left: 6px; }
+  footer .visit-badge { display: inline-block; background: #111; color: #fff; padding: 2px 10px; margin-left: 6px; }
+
+  /* ========== 8.5 自定义光标 + 拖尾 ========== */
+  @keyframes trail-fade {
+    0% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+    100% { opacity: 0; transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0) rotate(90deg); }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    body, a, button, input, textarea, select, label { cursor: none; }
+    .cursor-wrap { position: fixed; top: 0; left: 0; z-index: 10001; pointer-events: none; will-change: transform; }
+    .cursor-dot {
+      width: 16px; height: 16px; margin: -8px 0 0 -8px;
+      background: #ff6b9d; border: 3px solid #111; border-radius: 50%;
+      transition: transform .15s ease, background .15s ease;
+    }
+    body.cursor-hover .cursor-dot { background: #4d96ff; transform: scale(1.5); }
+    .trail-particle {
+      position: fixed; top: 0; left: 0; z-index: 10000;
+      width: 11px; height: 11px; border-radius: 2px;
+      pointer-events: none;
+      animation: trail-fade .55s ease-out forwards;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .nav-right a.menu { display: none; }
+    nav { padding: 10px 4vw; }
+    .wrap { padding-top: 96px; }
+    .box { padding: 24px 18px; box-shadow: 5px 5px 0 #111; }
+    .box:hover { transform: none; box-shadow: 5px 5px 0 #111; }
+    header.box, header.box:hover { transform: none; }
+    .skills, .skills:hover { transform: none; }
+    .hero-row { gap: 16px; }
+    .hero-avatar { width: 88px; height: 88px; }
+    .about-grid { grid-template-columns: 1fr; gap: 14px; }
+    h1 { letter-spacing: 0; }
+    h1 span { padding: 0 10px; }
+    .intro { font-size: 1rem; }
+    .motto span { letter-spacing: 1px; font-size: .8rem; }
+    .cta { gap: 10px; }
+    .cta a { padding: 11px 18px; font-size: .9rem; }
+    .work-card { padding: 22px 18px; }
+    .work-card h3 { font-size: 1.12rem; }
+    .timeline { padding-left: 30px; }
+    .timeline::before { left: 10px; }
+    .tl-item::before { left: -25px; width: 14px; height: 14px; top: 22px; }
+    .tl-card { padding: 18px 16px; }
+    .tl-card h3 { font-size: 1.05rem; }
+    .msg { max-width: 92%; }
+    .nav-cta { padding: 7px 12px; font-size: .8rem; }
+    .lang-toggle { padding: 7px 10px; }
+    .contact .big-action { padding: 14px 20px; font-size: 1rem; }
+    .music .album-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .loader-center { padding: 26px 24px; }
+  }
+</style>
+<style>#loader{display:none!important}</style></head>
+<body>
+
+<!-- 0. 色块加载进入动画 -->
+<div class="loader" id="loader">
+  <div class="loader-waves" id="loaderWaves" aria-hidden="true"></div>
+  <div class="loader-center">
+    <div class="loader-brand">ZX<em>!</em></div>
+    <button class="loader-enter" id="loaderEnter" type="button" data-zh="点击进入" data-en="ENTER">点击进入</button>
+  </div>
+</div>
+
+<!-- 0.5 背景浮动色块装饰 -->
+<div class="bg-float" id="bgFloat" aria-hidden="true"></div>
+
+<!-- 1. 顶部导航 Header：品牌 + 菜单 + 主行动按钮 -->
+<nav>
+  <a class="logo" href="#top">ZX<em>!</em></a>
+  <div class="nav-right">
+    <a class="menu" href="#about" data-zh="关于我" data-en="About">关于我</a>
+    <a class="menu" href="#works" data-zh="作品" data-en="Works">作品</a>
+    <a class="menu" href="#twin" data-zh="数字分身" data-en="Twin">数字分身</a>
+    <a class="nav-cta" href="#contact" data-zh="联系我 ✉" data-en="Contact ✉">联系我 ✉</a>
+    <button class="lang-toggle" id="langToggle">EN</button>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
+
+  <!-- 2. Hero 首屏：姓名 + 一句话介绍 + 标签 + 主行动按钮 -->
+  <header class="box">
+    <span class="sticker" data-zh="★ 个人主页 ★" data-en="★ PERSONAL HOMEPAGE ★">★ 个人主页 ★</span>
+    <div class="hero-row">
+      <div class="hero-text">
+        <h1><span data-zh="谢子赫" data-en="ZIHE XIE">谢子赫</span></h1>
+        <svg class="signature" viewBox="0 0 320 88" role="img" aria-label="Zihe Xie 手写签名">
+          <text id="sigText" x="6" y="58" class="sig sig-stroke">Zihe Xie</text>
+          <text x="6" y="58" class="sig sig-fill">Zihe Xie</text>
+        </svg>
+      </div>
+      <img class="hero-avatar" src="assets/twin-avatar.png" alt="谢子赫的虚拟形象" width="120" height="120">
+    </div>
+    <p class="intro" id="introText">热爱<mark>运动</mark>和<mark>设计</mark>的计算机学生，把想法变成能跑起来的代码。</p>
+    <p class="motto"><span data-zh="♟️ 座右铭：落子无悔" data-en="♟️ Motto: Make the move, no regrets">♟️ 座右铭：落子无悔</span></p>
+    <div class="hero-tags">
+      <span data-zh="🎓 计算机 · 大一" data-en="🎓 CS · Year 1">🎓 计算机 · 大一</span>
+      <span data-zh="📍 深圳" data-en="📍 Shenzhen">📍 深圳</span>
+      <span data-zh="🎨 设计爱好者" data-en="🎨 Design lover">🎨 设计爱好者</span>
+      <span data-zh="🏀 控卫 · 塔图姆球迷" data-en="🏀 PG · Tatum fan">🏀 控卫 · 塔图姆球迷</span>
+    </div>
+    <div class="cta">
+      <a class="blue" href="#works" data-zh="看看我的作品 →" data-en="View my works →">看看我的作品 →</a>
+      <a href="#contact" data-zh="联系我 ✉" data-en="Contact me ✉">联系我 ✉</a>
+    </div>
+  </header>
+
+  <!-- 3. 关于我：身份 / 方向 / 城市 -->
+  <h2 class="sec" id="about"><span class="bar" style="background:#ff6b9d;"></span><span data-zh="关于我" data-en="About Me">关于我</span></h2>
+  <div class="about-grid">
+    <div class="about-card c-white">
+      <p class="k" data-zh="🎓 身份" data-en="🎓 WHO I AM">🎓 身份</p>
+      <p class="v" data-zh="深圳未来技术学院（天津大学 × 香港理工大学），计算机大一在读" data-en="Year 1 CS at Shenzhen Future Technology College (Tianjin University × The Hong Kong Polytechnic University)">深圳未来技术学院（天津大学 × 香港理工大学），计算机大一在读</p>
+    </div>
+    <div class="about-card c-blue">
+      <p class="k" data-zh="🧭 方向" data-en="🧭 FOCUS">🧭 方向</p>
+      <p class="v" data-zh="计算机 × 设计，用代码把想法做成产品" data-en="CS × Design — turning ideas into real products with code">计算机 × 设计，用代码把想法做成产品</p>
+    </div>
+    <div class="about-card c-green">
+      <p class="k" data-zh="📍 所在城市" data-en="📍 CITY">📍 所在城市</p>
+      <p class="v" data-zh="来自安徽合肥，坐标深圳" data-en="From Hefei, Anhui — now based in Shenzhen">来自安徽合肥，坐标深圳</p>
+    </div>
+  </div>
+
+  <!-- 3.5 成长时间线：经历与作品串成一条轨迹 -->
+  <h2 class="sec" id="timeline"><span class="bar" style="background:#6bcb77;"></span><span data-zh="成长时间线" data-en="Timeline">成长时间线</span></h2>
+  <section class="timeline">
+    <div class="tl-item">
+      <span class="tl-when" data-zh="起点 · 合肥" data-en="START · HEFEI">起点 · 合肥</span>
+      <div class="tl-card tl-c-white">
+        <h3 data-zh="🏠 从这里出发" data-en="🏠 Where it began">🏠 从这里出发</h3>
+        <p data-zh="来自安徽合肥，从小爱折腾、爱动手，设计和创造的兴趣从这儿萌芽。" data-en="From Hefei, Anhui. Always loved tinkering — where the itch for design and building began.">来自安徽合肥，从小爱折腾、爱动手，设计和创造的兴趣从这儿萌芽。</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-when" data-zh="高中 · 机器人竞赛" data-en="HIGH SCHOOL · ROBOTICS">高中 · 机器人竞赛</span>
+      <div class="tl-card tl-c-blue">
+        <h3 data-zh="🤖 太空探测车" data-en="🤖 Space Rover">🤖 太空探测车</h3>
+        <p data-zh="合肥市科技创新比赛现场做了辆太空车：自主前进，钮子开关触发自动返航，全程独立完成。" data-en="Built a space rover for Hefei's innovation contest: autonomous forward run, toggle-switch auto-return — all solo.">合肥市科技创新比赛现场做了辆太空车：自主前进，钮子开关触发自动返航，全程独立完成。</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-when" data-zh="大学 · 深圳" data-en="UNI · SHENZHEN">大学 · 深圳</span>
+      <div class="tl-card tl-c-green">
+        <h3 data-zh="🎓 计算机 × 设计" data-en="🎓 CS × Design">🎓 计算机 × 设计</h3>
+        <p data-zh="入读深圳未来技术学院（天津大学 × 香港理工大学），正式踏上计算机 × 设计这条路。" data-en="Joined Shenzhen Future Technology College (TJU × PolyU), officially on the CS × Design path.">入读深圳未来技术学院（天津大学 × 香港理工大学），正式踏上计算机 × 设计这条路。</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-when" data-zh="实验室 · 具身智能" data-en="LAB · EMBODIED AI">实验室 · 具身智能</span>
+      <div class="tl-card tl-c-pink">
+        <h3 data-zh="🦾 双机械臂" data-en="🦾 Dual Robot Arms">🦾 双机械臂</h3>
+        <p data-zh="双机械臂主从遥控已完成实机验证，正在用数据 + 算法低成本提升定位精度。" data-en="Dual-arm teleop verified on the real robot; now raising precision with data + algorithms, no new hardware.">双机械臂主从遥控已完成实机验证，正在用数据 + 算法低成本提升定位精度。</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-when" data-zh="现在 · 进行时" data-en="NOW · ONGOING">现在 · 进行时</span>
+      <div class="tl-card tl-c-yellow">
+        <h3 data-zh="🌐 Vibe Coding" data-en="🌐 Vibe Coding">🌐 Vibe Coding</h3>
+        <p data-zh="用 Vibe Coding 持续迭代这个主页，下一步想做出属于自己的 APP。" data-en="Iterating on this homepage with Vibe Coding — next up, an app of my own.">用 Vibe Coding 持续迭代这个主页，下一步想做出属于自己的 APP。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 项目与作品：简介 + 链接 -->
+  <h2 class="sec" id="works"><span class="bar" style="background:#4d96ff;"></span><span data-zh="项目与作品" data-en="Projects & Works">项目与作品</span></h2>
+  <div class="work-card w-blue">
+    <h3 data-zh="🤖 太空探测车" data-en="🤖 Space Rover">🤖 太空探测车</h3><br>
+    <span class="tag">ROBOTICS / AUTONOMOUS CONTROL</span>
+    <p data-zh="做了辆“太空车”：全程自主前进，钮子开关触发自动返航回起点。从结构设计到调试参赛全程自己完成。"
+       data-en="Built a 'space rover': fully autonomous forward run, then a toggle switch triggers auto-return to base. Handled design through competing myself.">
+        做了辆“太空车”：全程自主前进，钮子开关触发自动返航回起点。从结构设计到调试参赛全程自己完成。
+    </p>
+    <a class="w-link" href="personal-projects.html" data-zh="🔗 项目详情 · 项目游乐场" data-en="🔗 Details · Project Playground">🔗 项目详情 · 项目游乐场</a>
+  </div>
+  <div class="work-card w-pink">
+    <h3 data-zh="🦾 双机械臂" data-en="🦾 Dual Robot Arms">🦾 双机械臂</h3><br>
+    <span class="tag">EMBODIED AI / ROBOT ARM</span>
+    <p data-zh="实验室项目：双机械臂主从遥控已完成实机验证；正在用数据 + 算法低成本提升定位精度。"
+       data-en="Lab project: dual-arm master–slave teleop is done and verified; now raising positioning precision with data + algorithms — no new hardware.">
+        实验室项目：双机械臂主从遥控已完成实机验证；正在用数据 + 算法低成本提升定位精度。
+    </p>
+    <a class="w-link" href="personal-projects.html#arm" data-zh="🔗 项目详情 · 项目游乐场" data-en="🔗 Details · Project Playground">🔗 项目详情 · 项目游乐场</a>
+  </div>
+
+  <!-- 5. 兴趣 / 技能 -->
+  <section class="box skills" id="skills">
+    <h2 class="sec"><span class="bar"></span><span data-zh="兴趣与技能" data-en="Interests & Skills">兴趣与技能</span></h2>
+    <p class="sub" data-zh="// 技能" data-en="// SKILLS">// 技能</p>
+    <div class="chips">
+      <span data-zh="💻 Vibe Coding（学习中）" data-en="💻 Vibe Coding (learning)">💻 Vibe Coding（学习中）</span>
+    </div>
+    <p class="sub" data-zh="// 兴趣爱好" data-en="// HOBBIES">// 兴趣爱好</p>
+    <div class="chips">
+      <span data-zh="🎨 设计" data-en="🎨 Design">🎨 设计</span>
+      <span data-zh="🏀 篮球 · 控球后卫" data-en="🏀 Basketball · Point Guard">🏀 篮球 · 控球后卫</span>
+      <span data-zh="🎵 音乐 · 流行 & 说唱（Kanye）" data-en="🎵 Music · Pop & Hip-hop (Kanye)">🎵 音乐 · 流行 & 说唱（Kanye）</span>
+      <span data-zh="✈️ 旅游" data-en="✈️ Traveling">✈️ 旅游</span>
+      <span data-zh="🏃 运动" data-en="🏃 Sports">🏃 运动</span>
+    </div>
+  </section>
+
+  <!-- 5.5 音乐 -->
+  <section class="box music" id="music">
+    <h2 class="sec"><span class="bar"></span><span data-zh="音乐" data-en="Music">音乐</span></h2>
+    <p class="sub" data-zh="// 我爱流行 & 说唱，Kanye 是我的最爱" data-en="// POP & HIP-HOP — KANYE IS MY GO-TO">// 我爱流行 & 说唱，Kanye 是我的最爱</p>
+    <div class="album-grid">
+      <a class="album-card" href="https://music.163.com/#/album?id=8116" target="_blank" rel="noopener">
+        <img src="assets/albums/orange-moon.jpg" alt="方大同《橙月》专辑封面">
+        <div class="album-meta"><strong>橙月</strong><span>方大同 · 2008</span></div>
+      </a>
+      <a class="album-card" href="https://music.163.com/#/album?id=250300440" target="_blank" rel="noopener">
+        <img src="assets/albums/dreamer.jpg" alt="方大同《梦想家 The Dreamer》专辑封面">
+        <div class="album-meta"><strong>梦想家 The Dreamer</strong><span>方大同 · 2024</span></div>
+      </a>
+      <a class="album-card" href="https://music.163.com/#/album?id=37256432" target="_blank" rel="noopener">
+        <img src="assets/albums/ji-fen-zhi-ji.jpg" alt="卢广仲《几分之几》专辑封面">
+        <div class="album-meta"><strong>几分之几</strong><span>卢广仲 · 2018</span></div>
+      </a>
+      <a class="album-card" href="https://music.163.com/#/album?id=1738261" target="_blank" rel="noopener">
+        <img src="assets/albums/graduation.jpg" alt="Kanye West《Graduation》专辑封面">
+        <div class="album-meta"><strong>Graduation</strong><span>Kanye West · 2007</span></div>
+      </a>
+    </div>
+    <p class="music-note" data-zh="🎧 方大同、卢广仲、Kanye——耳机里的循环歌单。点封面去网易云听全专辑。" data-en="🎧 Khalil Fong, Crowd Lu, Kanye — my on-repeat list. Tap a cover to open the album.">🎧 方大同、卢广仲、Kanye——耳机里的循环歌单。点封面去网易云听全专辑。</p>
+  </section>
+
+  <!-- 6. 数字分身：基于内置知识库的对话 -->
+  <section class="box twin" id="twin">
+    <h2 class="sec"><span class="bar"></span><span data-zh="数字分身" data-en="Digital Twin">数字分身</span></h2>
+    <p class="sec-note" data-zh="“另一个我”👇 学校、篮球、音乐、作品……关于子赫的事都可以直接问它。"
+       data-en="Meet 'the other me' 👇 School, basketball, music, projects — ask it anything about Zihe.">“另一个我”👇 学校、篮球、音乐、作品……关于子赫的事都可以直接问它。</p>
+    <div class="twin-avatar">
+      <img src="assets/twin-avatar.png" alt="谢子赫的数字分身形象" width="116" height="116">
+    </div>
+    <div class="chat-flow">
+    <div class="chat" id="chatBox">
+      <div class="msg a"><span class="who" data-zh="子赫的分身" data-en="ZIHE'S TWIN">子赫的分身</span><span data-zh="嗨，我是子赫的数字分身 👋 学校、篮球、音乐、座右铭、作品……想了解本体什么，随便问！" data-en="Hey, I'm Zihe's digital twin 👋 School, basketball, music, motto, projects — ask me anything about the real guy!">嗨，我是子赫的数字分身 👋 学校、篮球、音乐、座右铭、作品……想了解本体什么，随便问！</span></div>
+      <div class="msg q" data-zh="子赫平时喜欢做什么？" data-en="What does Zihe like to do?">子赫平时喜欢做什么？</div>
+      <div class="msg a"><span class="who" data-zh="子赫的分身" data-en="ZIHE'S TWIN">子赫的分身</span><span data-zh="球场上打控卫，偶像是凯尔特人的塔图姆；耳机里放着流行和 Kanye；旅行永远首选海边。哦对，还特别爱折腾新东西。" data-en="Point guard on the court, Jayson Tatum of the Celtics is his idol; pop and Kanye in his headphones; the seaside is always his first travel pick. Oh, and he loves tinkering with new stuff.">球场上打控卫，偶像是凯尔特人的塔图姆；耳机里放着流行和 Kanye；旅行永远首选海边。哦对，还特别爱折腾新东西。</span></div>
+      <div class="msg q" data-zh="他是个什么样的人？" data-en="What kind of person is he?">他是个什么样的人？</div>
+      <div class="msg a"><span class="who" data-zh="子赫的分身" data-en="ZIHE'S TWIN">子赫的分身</span><span data-zh="朋友认证的热血行动派。座右铭“落子无悔”——想了就干，干了不悔。大学四年的目标是做出自己的产品。" data-en="A certified man of action. His motto: 'Make the move, no regrets.' His four-year goal: build a product of his own.">朋友认证的热血行动派。座右铭“落子无悔”——想了就干，干了不悔。大学四年的目标是做出自己的产品。</span></div>
+      <div class="msg q" data-zh="能介绍一下他的项目吗？" data-en="Tell me about his project.">能介绍一下他的项目吗？</div>
+      <div class="msg a"><span class="who" data-zh="子赫的分身" data-en="ZIHE'S TWIN">子赫的分身</span><span data-zh="机器人竞赛做过一辆太空车：自主前进、钮子开关自动返航。现在正苦练 Vibe Coding，下一步想搞个自己的 APP。" data-en="He built a space rover for a robotics competition: autonomous forward run plus toggle-switch auto-return. Now grinding Vibe Coding — next up, an app of his own.">机器人竞赛做过一辆太空车：自主前进、钮子开关自动返航。现在正苦练 Vibe Coding，下一步想搞个自己的 APP。</span></div>
+    </div>
+    </div>
+    <div class="quick-chips" id="quickChips"></div>
+    <div class="chat-input">
+      <input id="chatInput" type="text" autocomplete="off" data-zh-ph="想问子赫什么？直接打字问我…" data-en-ph="Ask me anything about Zihe…" placeholder="想问子赫什么？直接打字问我…">
+      <button id="chatSend" data-zh="发送" data-en="Send">发送</button>
+    </div>
+    <p class="twin-tip" data-zh="💡 分身回复内容经本人核对" data-en="💡 The twin's answers are verified by the real Zihe">💡 分身回复内容经本人核对</p>
+  </section>
+
+  <!-- 7. 联系我：可用联系方式 + 明确行动 -->
+  <section class="box contact" id="contact">
+    <h2 class="sec"><span class="bar"></span><span data-zh="联系我" data-en="Get in Touch">联系我</span></h2>
+    <p data-zh="反馈、建议，或者聊聊篮球和设计——给我发封邮件吧，每封都会看。" data-en="Feedback, a suggestion, or a chat about basketball and design — send me an email, I read every one.">反馈、建议，或者聊聊篮球和设计——给我发封邮件吧，每封都会看。</p>
+    <a class="big-action" href="mailto:zihexie95@gmail.com" data-zh="✉ 给子赫发邮件：zihexie95@gmail.com" data-en="✉ Email Zihe: zihexie95@gmail.com">✉ 给子赫发邮件：zihexie95@gmail.com</a>
+    <a class="gh-btn" href="https://github.com/zihexie95-dotcom" target="_blank" rel="noopener" data-zh="🐙 GitHub：zihexie95-dotcom" data-en="🐙 GitHub: zihexie95-dotcom">🐙 GitHub：zihexie95-dotcom</a>
+    <a class="fb-btn" href="feedback.html" data-zh="💬 看完有话说？给我提个意见" data-en="💬 Saw something? Leave feedback">💬 看完有话说？给我提个意见</a>
+  </section>
+
+  <!-- 8. 页脚 Footer：版权 + 年份自动更新 -->
+  <footer>
+    <span data-zh="© " data-en="© ">© </span><span id="year">2026</span><span data-zh=" 谢子赫 · 用 VIBE CODING 构建" data-en=" ZIHE XIE · BUILT WITH VIBE CODING"> 谢子赫 · 用 VIBE CODING 构建</span><span class="ver">V4</span><span class="visit-badge" id="visitBadge"></span>
+  </footer>
+</div>
+
+<div class="cursor-wrap" id="cursorWrap" aria-hidden="true"><div class="cursor-dot"></div></div>
+
+<!-- 背景音乐：进入主页后自动循环播放 Never See Me Again -->
+<audio id="bgmAudio" src="assets/bgm/never-see-me-again.mp3" loop preload="auto"></audio>
+
+<script>
+  // ---- 背景浮动色块装饰：主页黄底上随机分布、缓缓沉浮的彩色方块 ----
+  const bgFloat = document.getElementById('bgFloat');
+  if (bgFloat) {
+    const BG_COLORS = ['#ff6b9d', '#4d96ff', '#6bcb77', '#4cc9f0', '#ff9f43', '#9b59b6', '#fff', '#ff6b6b', '#111'];
+    let html = '';
+    const COUNT = 14;
+    for (let i = 0; i < COUNT; i++) {
+      const left = (Math.random() * 94).toFixed(1);
+      const top = (Math.random() * 94).toFixed(1);
+      const size = (36 + Math.random() * 52).toFixed(0);
+      const color = BG_COLORS[i % BG_COLORS.length];
+      const delay = (Math.random() * 6).toFixed(2);
+      const dur = (5 + Math.random() * 3).toFixed(2);
+      html += '<span class="bg-f" style="left:' + left + 'vw;top:' + top + 'vh;width:' + size + 'px;height:' + size + 'px;background:' + color + ';animation-delay:' + delay + 's;animation-duration:' + dur + 's"></span>';
+    }
+    bgFloat.innerHTML = html;
+  }
+
+  // ---- 色块加载进入动画：生成波浪色块，点击按钮后进入主页并播放背景音乐 ----
+  const loader = document.getElementById('loader');
+  const loaderWaves = document.getElementById('loaderWaves');
+  const loaderEnter = document.getElementById('loaderEnter');
+  const bgmAudio = document.getElementById('bgmAudio');
+  if (loaderWaves) {
+    const WAVE_COLORS = ['#ffd63d', '#ff6b9d', '#ff6b6b', '#ff9f43', '#6bcb77', '#4cc9f0', '#4d96ff', '#9b59b6', '#111', '#fff'];
+    const size = 88, gap = 22;
+    const cols = Math.floor((window.innerWidth + gap) / (size + gap));
+    const rows = Math.ceil(window.innerHeight / (size + gap)) + 1;
+    let html = '';
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const color = WAVE_COLORS[(r * 3 + c * 2) % WAVE_COLORS.length];
+        const delay = ((c * 0.2 + r * 0.1) % 3.4).toFixed(2);
+        html += '<span class="wave-block" style="background:' + color + ';animation-delay:' + delay + 's"></span>';
+      }
+    }
+    loaderWaves.innerHTML = html;
+  }
+  if (loader && loaderEnter) {
+    loaderEnter.addEventListener('click', () => {
+      loader.classList.add('hide');
+      if (bgmAudio) {
+        bgmAudio.volume = 0.55;
+        bgmAudio.play().catch(() => {});
+      }
+    });
+  }
+
+  // ---- 手写签名描边动画 ----
+  const sigStroke = document.getElementById('sigText');
+  const sigFill = document.querySelector('.sig-fill');
+  if (sigStroke) {
+    const w = sigStroke.getComputedTextLength();
+    const L = Math.max(Math.round(w * 3.2), 400);
+    sigStroke.style.strokeDasharray = L;
+    sigStroke.style.strokeDashoffset = L;
+    sigStroke.style.transition = 'stroke-dashoffset 2.4s cubic-bezier(.4,0,.2,1)';
+    requestAnimationFrame(() => { sigStroke.style.strokeDashoffset = '0'; });
+    if (sigFill) {
+      sigFill.style.transition = 'opacity .5s ease';
+      setTimeout(() => { sigFill.style.opacity = '1'; }, 2200);
+    }
+  }
+
+  // ---- 自定义光标 + 拖尾（仅桌面指针设备）----
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const cursorWrap = document.getElementById('cursorWrap');
+    const TRAIL_COLORS = ['#ff6b9d', '#4d96ff', '#6bcb77', '#ffd63d', '#4cc9f0'];
+    let mx = window.innerWidth / 2, my = window.innerHeight / 2, lastTrail = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      const now = Date.now();
+      if (now - lastTrail > 36) {
+        lastTrail = now;
+        const p = document.createElement('div');
+        p.className = 'trail-particle';
+        p.style.background = TRAIL_COLORS[Math.floor(Math.random() * TRAIL_COLORS.length)];
+        p.style.left = mx + 'px';
+        p.style.top = my + 'px';
+        p.style.setProperty('--tx', ((Math.random() - 0.5) * 46) + 'px');
+        p.style.setProperty('--ty', ((Math.random() - 0.5) * 46) + 'px');
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 560);
+      }
+    });
+
+    (function tick() {
+      if (cursorWrap) cursorWrap.style.transform = `translate(${mx}px, ${my}px)`;
+      requestAnimationFrame(tick);
+    })();
+
+    document.addEventListener('mouseover', e => {
+      document.body.classList.toggle('cursor-hover', !!e.target.closest('a, button, input, textarea, select, label'));
+    });
+  }
+
+  // ---- 年份自动更新 ----
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---- 访客计数器：Supabase 后端（记录访问 + 读取总数）----
+  const SUPABASE_URL = 'https://cklumlxbkctktamzubqk.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_OdLPofft3O0bPcPQKLbx8w_glteEpyr';
+  let visitTotal = null;
+  function renderVisit() {
+    const badge = document.getElementById('visitBadge');
+    if (!badge) return;
+    if (visitTotal === null) { badge.textContent = ''; return; }
+    badge.textContent = lang === 'zh' ? `👀 已有 ${visitTotal} 位访客` : `👀 ${visitTotal} visits`;
+  }
+
+  // ---- 中英双语切换（支持 ?lang=zh / ?lang=en）----
+  const urlLang = new URLSearchParams(location.search).get('lang');
+  let lang = (urlLang === 'zh' || urlLang === 'en') ? urlLang : (localStorage.getItem('zx-lang') || 'zh');
+  const toggleBtn = document.getElementById('langToggle');
+
+  const introEl = document.getElementById('introText');
+  const rich = {
+    zh: { intro: introEl.innerHTML },
+    en: { intro: 'A computer science student who loves <mark>sports</mark> and <mark>design</mark>, turning ideas into running code.' }
+  };
+
+  function applyLang(l) {
+    document.querySelectorAll('[data-zh]').forEach(el => {
+      const txt = el.getAttribute('data-' + l);
+      if (txt !== null) el.textContent = txt;
+    });
+    document.querySelectorAll('[data-zh-ph]').forEach(el => {
+      const ph = el.getAttribute('data-' + l + '-ph');
+      if (ph !== null) el.placeholder = ph;
+    });
+    introEl.innerHTML = rich[l].intro;
+    document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en';
+    toggleBtn.textContent = l === 'zh' ? 'EN' : '中';
+    localStorage.setItem('zx-lang', l);
+    renderVisit();
+  }
+  toggleBtn.addEventListener('click', () => {
+    lang = lang === 'zh' ? 'en' : 'zh';
+    applyLang(lang);
+  });
+  applyLang(lang);
+
+  // ---- 数字分身：内置知识库 + 意图匹配（V1.3）----
+  const chatBox = document.getElementById('chatBox');
+  const chatInput = document.getElementById('chatInput');
+  const chatSend = document.getElementById('chatSend');
+  const quickChips = document.getElementById('quickChips');
+  const TWIN_NAME = { zh: '子赫的分身', en: "ZIHE'S TWIN" };
+
+  // 知识库（内容经本人核对，中英双语；每个条目 = 关键词 + 回复池）
+  const KB = [
+    { // 打招呼
+      zhKeys: ['你好', '您好', '嗨', '哈喽', 'hello', '在吗', '早上好', '晚上好', '你好呀'],
+      enKeys: ['hi', 'hello', 'hey', 'how are you', 'good morning', 'good evening'],
+      zh: [
+        '嗨！我是子赫的数字分身，本体现在在忙。想了解他什么，尽管问 😎',
+        '你好呀！关于谢子赫——学校、爱好、作品、座右铭，我全都门儿清，放马过来 👊'
+      ],
+      en: [
+        "Hey! I'm Zihe's digital twin while the real guy is busy. Ask me anything about him 😎",
+        "Hi there! School, hobbies, projects, motto — I know everything about Zihe. Hit me 👊"
+      ]
+    },
+    { // 身份介绍
+      zhKeys: ['你是谁', '你叫什么', '自我介绍', '介绍下自己', '介绍一下自己', '数字分身', '分身', '你能做什么', '会什么', '你和子赫'],
+      enKeys: ['who are you', 'your name', 'introduce yourself', 'about you', 'digital twin', 'are you zihe', 'what can you do'],
+      zh: [
+        '我是谢子赫的数字分身——本体是来自合肥、坐标深圳的 CS 大一学生。他想认识更多人，我负责先陪聊 😏',
+        '我是子赫的分身！他忙着写代码和练球，让我先在这儿替他招待客人。想知道他的事，问我准没错。'
+      ],
+      en: [
+        "I'm Zihe's digital twin — the real one is a CS freshman from Hefei, now in Shenzhen. He's busy, so I'm covering for him 😏",
+        "I'm Zihe's twin! While he codes and plays ball, I'm here to greet his visitors. Ask me anything about him."
+      ]
+    },
+    { // 学校 / 专业
+      zhKeys: ['学校', '大学', '专业', '计算机', '学什么', '读书', '上学', '大一', '天津', '港理工', '香港理工', '未来技术学院', '在哪里上学', '在哪上学', '哪个学校'],
+      enKeys: ['school', 'university', 'college', 'major', 'computer science', 'cs', 'study', 'freshman', 'first year', 'year 1', 'tianjin', 'polyu'],
+      zh: [
+        '本体在天津大学 × 香港理工大学合办的深圳未来技术学院读计算机科学与技术，现在大一。CS 是主修，设计是他的“编外”爱好。',
+        '大一 CS 学生，坐标深圳未来技术学院（天大 × 港理工合办）。用他的话讲：把代码当积木，把设计当审美。'
+      ],
+      en: [
+        "He's a first-year Computer Science student at Shenzhen Future Technology College — jointly run by Tianjin University and The Hong Kong Polytechnic University (PolyU). CS is the major; design is his side passion.",
+        "Year 1 CS at Shenzhen Future Technology College (Tianjin University × The Hong Kong Polytechnic University). His words: code is the building blocks, design is the taste."
+      ]
+    },
+    { // 现居城市
+      zhKeys: ['在深圳', '深圳', '住哪', '在哪里', '在哪', '坐标', '城市'],
+      enKeys: ['shenzhen', 'where does he live', 'based in', 'city', 'location'],
+      zh: ['现在坐标深圳——来自安徽合肥，来深圳读大学。南方湿热，他说篮球场倒是常年能用 🏀'],
+      en: ["He's based in Shenzhen now — from Hefei, Anhui originally, studying in Shenzhen. Humid weather, but basketball courts are open all year 🏀"]
+    },
+    { // 家乡
+      zhKeys: ['合肥', '家乡', '老家', '哪里人', '安徽'],
+      enKeys: ['hefei', 'hometown', 'anhui', 'where is he from'],
+      zh: ['安徽合肥人。合肥的夏天很热，他说那里的篮球场也很多。'],
+      en: ['From Hefei, Anhui. Hot summers there, and plenty of basketball courts, he says.']
+    },
+    { // 篮球 / 运动
+      zhKeys: ['篮球', '打球', '塔图姆', '控卫', '凯尔特人', 'tatum', 'nba', '体育', '运动'],
+      enKeys: ['basketball', 'ball', 'tatum', 'celtics', 'point guard', 'sport', 'nba', 'play'],
+      zh: [
+        '篮球场上打控卫，偶像是凯尔特人的杰森·塔图姆。约球？他在深圳随时奉陪 🏀',
+        '控卫出身，塔图姆铁粉。他觉得打球最帅的不是得分，是那种“落子无悔”的果断。'
+      ],
+      en: [
+        "Point guard on the court; Jayson Tatum of the Celtics is his idol. Up for a game anytime in Shenzhen 🏀",
+        "A point guard and hardcore Tatum fan. To him the coolest part isn't scoring — it's that 'make the move, no regrets' decisiveness."
+      ]
+    },
+    { // 爱好总览
+      zhKeys: ['喜欢', '爱好', '兴趣', '平时', '做什么'],
+      enKeys: ['hobby', 'hobbies', 'interest', 'interests', 'like to do', 'free time', 'weekend'],
+      zh: [
+        '篮球（控卫，塔图姆铁粉）、音乐（流行 + 说唱，Kanye）、旅行（首选海边），外加设计和新奇玩意儿。总之闲不住。',
+        '球场打控卫，耳机里循环 Kanye，假期往海边跑，没事还爱折腾点新东西——这就是本体的日常。'
+      ],
+      en: [
+        "Basketball (point guard, big Tatum fan), music (pop + rap, Kanye), travel (seaside first), plus design and tinkering with new stuff. He never sits still.",
+        "Point guard on the court, Kanye on repeat, seaside trips on holidays, and always tinkering with something new — that's his everyday."
+      ]
+    },
+    { // 音乐
+      zhKeys: ['音乐', '听歌', '歌', 'kanye', '侃爷', '说唱', 'rap', '流行', '歌手'],
+      enKeys: ['music', 'song', 'songs', 'listen', 'kanye', 'rap', 'pop', 'singer', 'playlist'],
+      zh: [
+        '流行 + 说唱双修，Kanye West 是本体的心头好。他说 Kanye 那种“敢想敢做”的劲儿，和他还挺像。',
+        '耳机里主要循环 Kanye 和流行歌单。他原话：音乐要能让人想干点大事。'
+      ],
+      en: [
+        "Pop and rap — Kanye West is his all-time favorite. He says Kanye's 'think big, just do it' energy kind of matches his own.",
+        "Mostly Kanye and pop on repeat. His words: music should make you want to do something big."
+      ]
+    },
+    { // 性格
+      zhKeys: ['什么样的人', '性格', '为人', '评价', '人品', '行动派', '人怎么样', '靠谱'],
+      enKeys: ['personality', 'what kind of person', 'character', 'impression', 'friends', 'reliable', 'like him'],
+      zh: [
+        '朋友认证的热血行动派：想了就干，干了不悔。有点轴，但靠谱。目标是大学四年做出自己的产品。',
+        '典型行动派，爱折腾、闲不住。朋友说他像“装了永动机”，想到什么第二天就上手了。'
+      ],
+      en: [
+        "A certified man of action: thinks, acts, no regrets. A little stubborn, but reliable. Four-year goal: build a product of his own.",
+        "A classic doer — loves tinkering, never idle. Friends say he's like 'powered by a perpetual engine': an idea today, hands-on tomorrow."
+      ]
+    },
+    { // 座右铭
+      zhKeys: ['座右铭', '格言', '落子无悔', '信条'],
+      enKeys: ['motto', 'saying', 'creed', 'make the move', 'no regrets'],
+      zh: [
+        '“落子无悔”——想清楚了就下，下完了就不回头。这句他用来打篮球，也用来写代码。',
+        '座右铭是“落子无悔”：决策前想清楚，决策后不内耗。他觉着人生跟下棋差不多。'
+      ],
+      en: [
+        "'Make the move, no regrets' — think it through, commit, never look back. He applies it to basketball and to code alike.",
+        "His motto: 'Make the move, no regrets.' Think before you act, then don't second-guess. Life is like chess, he says."
+      ]
+    },
+    { // 旅行
+      zhKeys: ['旅行', '旅游', '海边', '度假', '出去玩', '海'],
+      enKeys: ['travel', 'trip', 'vacation', 'seaside', 'beach', 'holiday', 'sea'],
+      zh: [
+        '旅行永远首选海边：吹海风、踩沙滩，再配点音乐，他说这就是满血复活的方式 🌊',
+        '海边控。比起打卡景点，他更喜欢在海边待着放空——顺便想想下一个要折腾的项目。'
+      ],
+      en: [
+        "The seaside is always his first pick for travel: sea breeze, sand, and music — that's his way to recharge 🌊",
+        "A beach person. Rather than tourist spots, he'd rather chill by the sea and think about his next project."
+      ]
+    },
+    { // 项目 / 作品
+      zhKeys: ['项目', '作品', '做过', '太空车', '机器人', '竞赛', '比赛', '车'],
+      enKeys: ['project', 'projects', 'works', 'work', 'rover', 'robot', 'robotics', 'competition', 'built', 'made'],
+      zh: [
+        '机器人竞赛做过一辆“太空车”：自主前进完成任务，再靠钮子开关触发自动返航回起点。从结构设计到参赛调试都是他一个人扛下来的。',
+        '代表作：太空探测车——全自主前进 + 钮子开关自动返航。现在他在苦练 Vibe Coding，下一步想搞个自己的 APP。'
+      ],
+      en: [
+        "He built a 'space rover' for a robotics competition: fully autonomous forward run, then a toggle switch triggers auto-return to base. He handled design through competition debugging himself.",
+        "Flagship work: a space rover — autonomous forward run plus toggle-switch auto-return. Right now he's grinding Vibe Coding; next up, an app of his own."
+      ]
+    },
+    { // 这个网站 / Vibe Coding
+      zhKeys: ['vibe coding', 'vibe', '网站', '主页', '页面', '这个网页', '课程', '作业', '怎么做', '谁做的'],
+      enKeys: ['vibe coding', 'website', 'homepage', 'site', 'this page', 'course', 'assignment', 'built this', 'made this'],
+      zh: [
+        '这个主页是 Vibe Coding 课程作品：单文件纯静态、新粗野主义风格、中英双语，还内置了本分身 😎 本体从 6 个风格 Demo 里最后选了黄色大色块这款。',
+        '本站是本体用 Vibe Coding 做的——无框架无依赖的单文件页面，黄色新粗野主义 + 粗黑边框 + 硬阴影，右上角还能切中英文。'
+      ],
+      en: [
+        "This homepage is his Vibe Coding course project: a single static file, neo-brutalism style, bilingual, and it even ships with me 😎 He tried 6 style demos and picked the big yellow blocks.",
+        "Built with Vibe Coding — a framework-free single-file page: yellow neo-brutalism, thick black borders, hard shadows, and a ZH/EN toggle up top."
+      ]
+    },
+    { // 目标 / 未来
+      zhKeys: ['目标', '未来', '打算', '想做什么', '梦想', '毕业', '以后', 'app'],
+      enKeys: ['goal', 'future', 'plan', 'dream', 'after graduation', 'next', 'app', 'product'],
+      zh: [
+        '大学四年的目标：做出自己的产品 / APP。现在正把机器人的劲儿带进代码，一步步来。',
+        '短期：练好 Vibe Coding；长期：做一款自己的产品。他说“落子无悔”，下了就肯定要走完。'
+      ],
+      en: [
+        "Four-year goal: ship a product or app of his own. Right now he's channeling his robotics drive into code, step by step.",
+        "Short term: get good at Vibe Coding. Long term: build his own product. 'Make the move, no regrets' — once he starts, he finishes."
+      ]
+    },
+    { // 联系方式
+      zhKeys: ['联系', '邮箱', '邮件', 'email', '怎么找他', '联系方式', '微信', '找到他'],
+      enKeys: ['contact', 'email', 'mail', 'reach', 'find him', 'message', 'wechat'],
+      zh: [
+        '直接发邮件最快：zihexie95@gmail.com 📮 他说每封都会认真读。或者拉到页面最下面，有超大号的发邮件按钮。',
+        '找他本人：zihexie95@gmail.com。别担心词穷，他连“你好”都会认真回。'
+      ],
+      en: [
+        "Email is fastest: zihexie95@gmail.com 📮 He says he reads every single one. Or scroll down — there's a giant email button waiting.",
+        "Reach the real guy at zihexie95@gmail.com. Don't worry about being awkward — he replies seriously even to a plain 'hi'."
+      ]
+    },
+    { // 感谢
+      zhKeys: ['谢谢', '感谢', '辛苦了'],
+      enKeys: ['thanks', 'thank you', 'thank'],
+      zh: ['不客气！替我向本体问好，顺便给他发封邮件，他会更开心 😄'],
+      en: ["You're welcome! Say hi to the real Zihe for me — an email would make his day 😄"]
+    },
+    { // 再见
+      zhKeys: ['再见', '拜拜', '下次聊', '走了'],
+      enKeys: ['bye', 'goodbye', 'see you', 'gtg'],
+      zh: ['拜拜～有缘再聊。记得去找本体玩：zihexie95@gmail.com 👋'],
+      en: ['Bye! Catch you later. And do go say hi to the real one: zihexie95@gmail.com 👋']
+    }
+  ];
+
+  const FALLBACK = {
+    zh: [
+      '嗯…这题超纲了，我的小脑瓜转不动 😅 不过发邮件问本体，他肯定答得上来：zihexie95@gmail.com',
+      '本体没教过我这个……你可以换个问法，或者直接去问他：zihexie95@gmail.com 📮',
+      '这我就不知道啦，我只是个分身，不是全知神。试试问他的学校 / 爱好 / 作品？或者邮件 zihexie95@gmail.com'
+    ],
+    en: [
+      "Hmm… that one's out of my league 😅 But the real Zihe would know — email him: zihexie95@gmail.com",
+      "He never told me that one… Try rephrasing, or just ask him: zihexie95@gmail.com 📮",
+      "I'm a twin, not an oracle 😅 Try asking about his school / hobbies / projects — or email the human: zihexie95@gmail.com"
+    ]
+  };
+
+  function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function hit(t, key) {
+    if (/[^\x00-\x7F]/.test(key)) return t.includes(key);      // 中文：子串匹配
+    return new RegExp('(^|[^a-z0-9])' + escRe(key) + '($|[^a-z0-9])').test(t); // 英文：整词匹配
+  }
+  function getReply(text) {
+    const t = text.toLowerCase();
+    let best = null, bestScore = 0;
+    for (const item of KB) {
+      let score = 0;
+      for (const k of item.zhKeys) if (hit(t, k)) score++;
+      for (const k of item.enKeys) if (hit(t, k)) score++;
+      if (score > bestScore) { bestScore = score; best = item; }
+    }
+    if (!best) { const pool = FALLBACK[lang]; return pool[Math.floor(Math.random() * pool.length)]; }
+    const pool = best[lang];
+    return pool[Math.floor(Math.random() * pool.length)];
+  }
+
+  function addBubble(text, fromTwin) {
+    const m = document.createElement('div');
+    m.className = 'msg ' + (fromTwin ? 'a' : 'q');
+    if (fromTwin) {
+      const who = document.createElement('span');
+      who.className = 'who';
+      who.textContent = TWIN_NAME[lang];
+      const body = document.createElement('span');
+      body.textContent = text;
+      m.appendChild(who);
+      m.appendChild(body);
+    } else {
+      m.textContent = text;
+    }
+    chatBox.appendChild(m);
+    chatBox.scrollTop = chatBox.scrollHeight;
+    return m;
+  }
+
+  function showTyping() {
+    const m = document.createElement('div');
+    m.className = 'msg a';
+    const who = document.createElement('span');
+    who.className = 'who';
+    who.textContent = TWIN_NAME[lang];
+    const body = document.createElement('span');
+    body.className = 'typing-dots';
+    body.textContent = '…';
+    m.appendChild(who);
+    m.appendChild(body);
+    chatBox.appendChild(m);
+    chatBox.scrollTop = chatBox.scrollHeight;
+    return m;
+  }
+
+  let busy = false;
+  function sendMsg() {
+    const text = chatInput.value.trim();
+    if (!text || busy) return;
+    addBubble(text, false);
+    chatInput.value = '';
+    busy = true;
+    chatSend.disabled = true;
+    chatInput.disabled = true;
+    const typing = showTyping();
+    const answer = getReply(text);
+    const wait = Math.min(1500, 480 + answer.length * 5);
+    setTimeout(() => {
+      typing.remove();
+      addBubble(answer, true);
+      busy = false;
+      chatSend.disabled = false;
+      chatInput.disabled = false;
+      chatInput.focus();
+    }, wait);
+  }
+
+  // 快捷提问 chips（带 data-zh / data-en，可随右上角语言按钮自动切换文案）
+  const CHIPS = [
+    { zh: '子赫平时喜欢做什么？', en: 'What does Zihe like to do?' },
+    { zh: '他是个什么样的人？', en: 'What kind of person is he?' },
+    { zh: '能介绍一下他的项目吗？', en: 'Tell me about his projects.' },
+    { zh: '他的座右铭是什么？', en: "What's his motto?" },
+    { zh: '他在哪个学校读书？', en: 'Where does he study?' },
+    { zh: '怎么联系他？', en: 'How can I contact him?' }
+  ];
+  function buildChips() {
+    CHIPS.forEach(c => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('data-zh', c.zh);
+      btn.setAttribute('data-en', c.en);
+      btn.textContent = lang === 'zh' ? c.zh : c.en;
+      quickChips.appendChild(btn);
+    });
+  }
+  quickChips.addEventListener('click', e => {
+    const btn = e.target.closest('button');
+    if (!btn || busy) return;
+    chatInput.value = btn.dataset[lang];
+    sendMsg();
+  });
+
+  chatSend.addEventListener('click', sendMsg);
+  chatInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendMsg(); });
+  buildChips();
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  // ---- 访客计数器：页面加载时记录一次访问，并读取累计总数 ----
+  (async () => {
+    try {
+      if (!sessionStorage.getItem('zx-visit-counted')) {
+        await fetch(`${SUPABASE_URL}/rest/v1/visits`, {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({})
+        });
+        sessionStorage.setItem('zx-visit-counted', '1');
+      }
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/visits?select=id&limit=1`, {
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'Prefer': 'count=exact'
+        }
+      });
+      const range = res.headers.get('content-range');
+      visitTotal = range ? parseInt(range.split('/')[1], 10) : 0;
+    } catch (e) {
+      visitTotal = null;
+    }
+    renderVisit();
+  })();
+</script>
+</body>
+</html>

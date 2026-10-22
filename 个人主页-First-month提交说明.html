@@ -1,0 +1,294 @@
+<!DOCTYPE html><html lang='zh-CN'><head><meta charset='utf-8'><title>提交说明</title><style>body{max-width:1020px;margin:0 auto;padding:30px 26px 70px;color:#16202c;
+font-family:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-size:15.5px;line-height:1.8}
+h1{font-size:25px;border-bottom:2px solid #e3e8ee;padding-bottom:12px}
+h2{font-size:18px;margin-top:36px;padding:9px 13px;background:#eef3ff;border-left:4px solid #1d4ed8;border-radius:0 8px 8px 0;color:#16306b}
+h3{font-size:16px;margin-top:26px;color:#0b3a67}
+table{border-collapse:collapse;width:100%;font-size:14.3px;margin:14px 0}
+th,td{border:1px solid #e3e8ee;padding:9px 11px;vertical-align:top;text-align:left}
+thead th{background:#f7f9fb;color:#5b6b7c;font-size:13px}tbody tr:nth-child(even){background:#fbfcfe}
+code{background:#eef2f7;padding:1.5px 5px;border-radius:5px;font-family:Consolas,monospace;color:#0b3a67}
+pre{background:#0f172a;color:#e6edf5;padding:13px 15px;border-radius:10px;overflow-x:auto}
+pre code{background:none;color:inherit}
+blockquote{margin:12px 0;padding:9px 15px;background:#f7f9fb;border-left:3px solid #c3ccd8;color:#33465c}
+hr{border:0;border-top:1px solid #e3e8ee;margin:30px 0}</style></head><body><h1>个人主页 · First-month Submission（10%）提交说明</h1>
+<p><strong>课程</strong>：Project-Based Vibe Coding（Introductory Module）
+<strong>姓名 / 学号</strong>：谢子赫 / 3026445063
+<strong>日期</strong>：2026-10-22</p>
+<blockquote>
+<p>本文件按课程 <em>First-month submission</em> 的四项要求组织：Public V4 link / Version chain / Feedback evidence / Improvement note。
+第 1、2 项已按仓库实际状态写好；第 3、4 项需要 Supabase 里的真实反馈，标注了【待填】的位置。</p>
+</blockquote>
+<hr />
+<h2>1. Public V4 link</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>线上主页</td>
+<td>https://zihexie95-dotcom.github.io/personal-homepage/</td>
+</tr>
+<tr>
+<td>反馈页</td>
+<td>https://zihexie95-dotcom.github.io/personal-homepage/feedback.html</td>
+</tr>
+<tr>
+<td>源码仓库</td>
+<td>https://github.com/zihexie95-dotcom/personal-homepage</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>页脚徽章 <strong>V4</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. Version chain（V1 → V2 → V3 → V4）</h2>
+<p>四个阶段的快照已在仓库中打 tag，可直接检出比对；网页截图为 <code>screenshots/stage-evidence/</code>。</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>tag</th>
+<th>提交</th>
+<th>时间</th>
+<th>这一阶段完成的改动</th>
+<th>对应课程最低要求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>V1</strong></td>
+<td><code>V1-Stage1</code></td>
+<td><code>3775520</code></td>
+<td>09-03</td>
+<td>V0 深色初版 → 6 个风格 Demo 横向对比 → 选定新粗野主义，出 V1.0 正式版（中英双语）</td>
+<td>Previewable / Accurate content / Clear structure / First-version record</td>
+</tr>
+<tr>
+<td><strong>V2</strong></td>
+<td><code>V2-Stage2</code></td>
+<td><code>69cee5a</code></td>
+<td>09-04 → 09-10</td>
+<td>V1.1 按课程结构改 8 板块 → V1.2 采访驱动的内容改写 → V1.3 数字分身接内置知识库 → V1.4 并入双机械臂项目 → V1.4.1 实拍素材 → V1.4.2 真实信息修正 → V1.5 GitHub 链接 + 移动端打磨</td>
+<td>多轮有目的的迭代 / 版本记录 / 前后对比图 / 仍可用</td>
+</tr>
+<tr>
+<td><strong>V3</strong></td>
+<td><code>V3-Stage3</code></td>
+<td><code>f9795c5</code></td>
+<td>09-10 → 09-17</td>
+<td>V1.6 新增意见反馈页 → V1.7 反馈写入 Supabase 真实后端（匿名可写、RLS 只 insert）→ 访客计数</td>
+<td>公开链接 / 免登录反馈 / Supabase 可查 / 不暴露密钥</td>
+</tr>
+<tr>
+<td><strong>V4</strong></td>
+<td><code>V4-Stage4</code></td>
+<td>当前 <code>HEAD</code></td>
+<td>09-22 → 10-08</td>
+<td>成长时间线、手写签名动画、自定义光标、数字分身形象、音乐专辑墙、色块加载动画、流动渐变边框、多项视觉修复；页脚徽章对齐为 V4</td>
+<td>用真实反馈改进 / 说明取舍 / 复测 / 反思</td>
+</tr>
+</tbody>
+</table>
+<p><strong>中间版本号说明</strong>：V1.1–V1.7、V2.0 是我自己迭代时的小版本号；课程要的 V1–V4 是<strong>阶段</strong>。对应关系即上表。</p>
+<p><strong>过程证据</strong></p>
+<ul>
+<li><code>V1-提交材料.md</code>（Stage 1 自查表 + 证据清单）</li>
+<li><code>V1-版本记录.md</code>（每轮改了什么、为什么改）</li>
+<li><code>CHANGELOG.md</code>（全部改动汇总）</li>
+<li><code>screenshots/01–04</code>（V0 深色初版、6 风格 Demo 总览、V1 中文、V1 英文）</li>
+<li><code>screenshots/stage-evidence/</code>（按 tag 逐阶段实拍 + 四阶段对比总览）</li>
+</ul>
+<hr />
+<h2>3. Feedback evidence【待填】</h2>
+<p>课程要求：至少 <strong>3 位不同的人</strong>、<strong>3–5 条含义不同</strong>的反馈，附截图或记录。</p>
+<p>数据在 Supabase Dashboard（表：反馈表，字段：昵称 / 与我的关系 / 使用设备 / 发现的问题 / 提交时间）。</p>
+<blockquote>
+<p>【待填：登录 Supabase → Table Editor → 导出这几行 → 截图存 <code>screenshots/stage-evidence/feedback/</code>，并把文字贴到下表】</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>提交人（昵称/关系）</th>
+<th>反馈内容（原文摘要）</th>
+<th>类型（内容/结构/体验/新需求）</th>
+<th>证据文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>隐私处理</strong>：对外提交版本只写昵称与关系，不写真实姓名、联系方式；截图中如出现个人信息需打码。</p>
+<hr />
+<h2>4. Improvement note【待填框架】</h2>
+<p>课程要求：说明反馈如何影响决策、如何验证改动，并区分"事实性缺陷 / 个人偏好 / 新需求"。</p>
+<h3>4.1 取舍表</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>反馈</th>
+<th>判断（事实缺陷 / 个人偏好 / 新需求）</th>
+<th>决定（采纳 / 部分采纳 / 暂缓 / 不采纳）</th>
+<th>理由</th>
+<th>对应改动（提交）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>4.2 复测记录</h3>
+<table>
+<thead>
+<tr>
+<th>复测项</th>
+<th>公开链接上是否正常</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>首屏加载 → 点击进入</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>导航锚点跳转</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>数字分身问答</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>反馈表单提交 + 确认提示</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>移动端窄屏布局</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>中英切换</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>4.3 反思（草稿，待补真实结论）</h3>
+<ul>
+<li>用户最常说的问题集中在 ______。</li>
+<li>我采纳的改动是 ______，因为它同时满足"多人都提到"和"改动风险低"。</li>
+<li>我暂缓的是 <strong><em>_</em>_，理由是 </strong>____。</li>
+<li>下一版（End-of-term extension，数字孪生方向）准备做 ______。</li>
+</ul>
+<hr />
+<h2>附：与课程最低要求的自检</h2>
+<table>
+<thead>
+<tr>
+<th>课程检查项</th>
+<th>状态</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Public V4 link</td>
+<td>✅</td>
+<td>GitHub Pages 已上线，页脚显示 V4</td>
+</tr>
+<tr>
+<td>Version chain V1→V4</td>
+<td>✅</td>
+<td>4 个 tag + 阶段截图 + 版本记录</td>
+</tr>
+<tr>
+<td>Feedback evidence</td>
+<td>⚠️ 待补</td>
+<td>需 Supabase 导出 3–5 条</td>
+</tr>
+<tr>
+<td>Improvement note</td>
+<td>⚠️ 待补</td>
+<td>框架已列，需真实结论</td>
+</tr>
+</tbody>
+</table></body></html>
