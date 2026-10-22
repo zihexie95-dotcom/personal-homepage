@@ -7,8 +7,6 @@ table{border-collapse:collapse;width:100%;font-size:14.3px;margin:14px 0}
 th,td{border:1px solid #e3e8ee;padding:9px 11px;vertical-align:top;text-align:left}
 thead th{background:#f7f9fb;color:#5b6b7c;font-size:13px}tbody tr:nth-child(even){background:#fbfcfe}
 code{background:#eef2f7;padding:1.5px 5px;border-radius:5px;font-family:Consolas,monospace;color:#0b3a67}
-pre{background:#0f172a;color:#e6edf5;padding:13px 15px;border-radius:10px;overflow-x:auto}
-pre code{background:none;color:inherit}
 blockquote{margin:12px 0;padding:9px 15px;background:#f7f9fb;border-left:3px solid #c3ccd8;color:#33465c}
 hr{border:0;border-top:1px solid #e3e8ee;margin:30px 0}</style></head><body><h1>个人主页 · First-month Submission（10%）提交说明</h1>
 <p><strong>课程</strong>：Project-Based Vibe Coding（Introductory Module）
@@ -105,11 +103,11 @@ hr{border:0;border-top:1px solid #e3e8ee;margin:30px 0}</style></head><body><h1>
 <li><code>screenshots/stage-evidence/</code>（按 tag 逐阶段实拍 + 四阶段对比总览）</li>
 </ul>
 <hr />
-<h2>3. Feedback evidence【待填】</h2>
+<h2>3. Feedback evidence（1/3 位）</h2>
 <p>课程要求：至少 <strong>3 位不同的人</strong>、<strong>3–5 条含义不同</strong>的反馈，附截图或记录。</p>
-<p>数据在 Supabase Dashboard（表：反馈表，字段：昵称 / 与我的关系 / 使用设备 / 发现的问题 / 提交时间）。</p>
+<p>反馈来源有两类：① 网页反馈表单（写入 Supabase，可导出）；② 直接发给我的聊天记录（截图存档）。大纲允许"representative screenshots or records"，两类都算。</p>
 <blockquote>
-<p>【待填：登录 Supabase → Table Editor → 导出这几行 → 截图存 <code>screenshots/stage-evidence/feedback/</code>，并把文字贴到下表】</p>
+<p>当前已收 <strong>1 位</strong>（微信）。还需 <strong>≥2 位</strong>不同的人，共 3–5 条含义不同的反馈。</p>
 </blockquote>
 <table>
 <thead>
@@ -124,10 +122,10 @@ hr{border:0;border-top:1px solid #e3e8ee;margin:30px 0}</style></head><body><h1>
 <tbody>
 <tr>
 <td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>汪心怡（同学）</td>
+<td>①「最好通俗易懂一点，因为我看不懂」②「能点击进去的键可以和其他键分开，要不然不知道哪个能点哪个不能点」③「在能点击的标题文字下面标个下划线」</td>
+<td>内容 + 体验（可发现性）</td>
+<td><code>feedback/F1-汪心怡-微信反馈-0917.jpg</code></td>
 </tr>
 <tr>
 <td>2</td>
@@ -161,7 +159,7 @@ hr{border:0;border-top:1px solid #e3e8ee;margin:30px 0}</style></head><body><h1>
 </table>
 <p><strong>隐私处理</strong>：对外提交版本只写昵称与关系，不写真实姓名、联系方式；截图中如出现个人信息需打码。</p>
 <hr />
-<h2>4. Improvement note【待填框架】</h2>
+<h2>4. Improvement note（已填第 1 位，待补 2 位）</h2>
 <p>课程要求：说明反馈如何影响决策、如何验证改动，并区分"事实性缺陷 / 个人偏好 / 新需求"。</p>
 <h3>4.1 取舍表</h3>
 <table>
@@ -178,14 +176,30 @@ hr{border:0;border-top:1px solid #e3e8ee;margin:30px 0}</style></head><body><h1>
 <tbody>
 <tr>
 <td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>文案看不懂、术语多</td>
+<td>事实缺陷</td>
+<td>采纳</td>
+<td>非技术访客读不懂首屏与项目描述</td>
+<td><code>f18e6a6</code>（09-17）精简文案、删除"下一步"引导</td>
 </tr>
 <tr>
 <td>2</td>
+<td>分不清哪个按钮能点</td>
+<td>事实缺陷（可发现性）</td>
+<td>采纳</td>
+<td>可点与不可点按钮造型需有明显差异</td>
+<td><code>f18e6a6</code>（09-17）区分可点/不可点按键</td>
+</tr>
+<tr>
+<td>3</td>
+<td>建议给可点文字加下划线</td>
+<td>个人偏好 → 部分采纳</td>
+<td>部分采纳</td>
+<td>采纳思路，但只用在导航菜单，全站加下划线会造成视觉噪声</td>
+<td><code>203b439</code>（10-08）导航菜单加下划线提示可点击</td>
+</tr>
+<tr>
+<td>4</td>
 <td></td>
 <td></td>
 <td></td>
@@ -193,7 +207,7 @@ hr{border:0;border-top:1px solid #e3e8ee;margin:30px 0}</style></head><body><h1>
 <td></td>
 </tr>
 <tr>
-<td>3</td>
+<td>5</td>
 <td></td>
 <td></td>
 <td></td>
@@ -221,42 +235,37 @@ hr{border:0;border-top:1px solid #e3e8ee;margin:30px 0}</style></head><body><h1>
 </thead>
 <tbody>
 <tr>
+<td>公开链接可访问</td>
+<td>✅ 是</td>
+<td>主页与 <code>feedback.html</code> 均 HTTP 200（2026-10-22 实测）</td>
+</tr>
+<tr>
+<td>反馈表单字段完整</td>
+<td>✅ 是</td>
+<td>昵称 / 与我的关系 / 使用设备 / 发现的问题 四组控件</td>
+</tr>
+<tr>
+<td>匿名能否读取反馈表</td>
+<td>✅ 不能（符合预期）</td>
+<td>Supabase 返回 <code>401 / 42501 permission denied for table feedback</code>——只有 insert 权限，RLS 生效</td>
+</tr>
+<tr>
 <td>首屏加载 → 点击进入</td>
-<td></td>
-<td></td>
+<td>⬜ 待点</td>
+<td>需在浏览器实际点一次</td>
 </tr>
 <tr>
-<td>导航锚点跳转</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>数字分身问答</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>反馈表单提交 + 确认提示</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>移动端窄屏布局</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>中英切换</td>
-<td></td>
-<td></td>
+<td>导航锚点跳转 · 数字分身问答 · 移动端 · 中英切换</td>
+<td>⬜ 待点</td>
+<td>需人工在手机/桌面各过一遍</td>
 </tr>
 </tbody>
 </table>
 <h3>4.3 反思（草稿，待补真实结论）</h3>
 <ul>
-<li>用户最常说的问题集中在 ______。</li>
-<li>我采纳的改动是 ______，因为它同时满足"多人都提到"和"改动风险低"。</li>
-<li>我暂缓的是 <strong><em>_</em>_，理由是 </strong>____。</li>
+<li>用户最常说的问题集中在"看不懂"和"不知道哪里能点"这两类——都不是功能缺失，而是<strong>可读性与可发现性</strong>问题。</li>
+<li>我采纳的改动是文案精简与按钮造型区分（<code>f18e6a6</code>），因为改动只碰文字和样式、不影响功能，风险低且直接解决对方说的问题。</li>
+<li>我给"全站可点文字加下划线"做了部分采纳：只在导航菜单加（<code>203b439</code>），没有全站铺开——理由是页面主按钮已经是粗边框+硬阴影的按钮造型，再给所有可点文字加下划线会削弱层级。</li>
 <li>下一版（End-of-term extension，数字孪生方向）准备做 ______。</li>
 </ul>
 <hr />
@@ -282,13 +291,13 @@ hr{border:0;border-top:1px solid #e3e8ee;margin:30px 0}</style></head><body><h1>
 </tr>
 <tr>
 <td>Feedback evidence</td>
-<td>⚠️ 待补</td>
-<td>需 Supabase 导出 3–5 条</td>
+<td>⚠️ 1/3 位</td>
+<td>已有汪心怡（微信截图），还需 ≥2 位</td>
 </tr>
 <tr>
 <td>Improvement note</td>
-<td>⚠️ 待补</td>
-<td>框架已列，需真实结论</td>
+<td>⚠️ 部分完成</td>
+<td>第 1 位的取舍与改动已写（<code>f18e6a6</code>/<code>203b439</code>），待补其余</td>
 </tr>
 </tbody>
 </table></body></html>
